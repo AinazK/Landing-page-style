@@ -127,17 +127,16 @@ export default function Landing() {
     </header>
 
     <main id="main">
-      <section className="hero wrap" aria-labelledby="hero-heading">
-        <div className="hero-copy">
+      <section className="hero hero-fullbleed" aria-labelledby="hero-heading">
+        <img className="hero-background" src="/images/city-day-hero.webp" width={1672} height={941} alt="Двое друзей в повседневных образах идут по городской улице после дождя" fetchPriority="high" />
+        <div className="hero-shade" aria-hidden="true" />
+        <div className="hero-content wrap"><div className="hero-copy">
           <div className="launch-label"><span />Приложение для Android в разработке</div>
           <h1 id="hero-heading">Ваш гардероб.<br /><span>Больше сочетаний.</span></h1>
           <p className="hero-description">Создаём ИИ-стилиста, который поможет выбирать одежду из ваших вещей — под погоду, планы и личные предпочтения.</p>
           <div className="hero-actions"><a className="button button-dark" href="#join">Записаться в тестирование <Arrow /></a><a className="hero-secondary" href="#wardrobe-lab">Посмотреть пример</a></div>
-        </div>
-        <div className="hero-visual">
-          <div className="hero-photo"><img src="/images/editorial-wardrobe.webp" width={1536} height={1024} alt="Женщина в шоколадном жакете и светлых брюках, рядом отдельные вещи её образа" fetchPriority="high" /></div>
-          <div className="visual-caption"><span>Знакомые вещи могут сочетаться по-новому.</span><span>Иллюстрация концепции</span></div>
-        </div>
+        </div></div>
+        <p className="hero-caption wrap">Визуальная концепция ИИ-стилиста</p>
       </section>
 
       <section className="intro-section wrap" id="how" aria-labelledby="how-heading">

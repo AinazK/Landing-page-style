@@ -1,34 +1,36 @@
-.lab-section { background: #f1f2ef; padding-block: 42px; border-block: 1px solid var(--line); }
+.lab-section { background: #eeefe9; padding-block: 45px 38px; }
 .example-heading { display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 56px; }
 .example-heading .eyebrow { color: var(--accent); }
-.example-heading h2 { margin-top: 11px; max-width: 520px; }
-.example-heading > p { color: var(--muted); font-size: 14px; line-height: 1.8; max-width: 450px; }
-.example-base { padding: 23px 0; margin-top: 23px; border-block: 1px solid #d9ddd5; }
-.example-base > p { font-size: 12px; font-weight: 500; color: var(--muted); margin-bottom: 15px; }
-.example-base ul { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; list-style: none; padding: 0; margin: 0; }
-.example-base li { display: flex; align-items: center; gap: 11px; font-size: 13px; line-height: 1.5; min-width: 0; }
-.garment-drawing { display: block; width: 46px; height: 51px; flex-shrink: 0; }
-.example-stages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 25px; }
-.example-stages article { background: #fff; border: 1px solid #dfe2db; padding: 22px; display: flex; flex-direction: column; align-items: start; }
-.example-time { display: flex; align-items: center; justify-content: space-between; gap: 15px; width: 100%; font-size: 12px; color: var(--muted); }
+.example-heading h2 { margin-top: 11px; max-width: 530px; }
+.example-heading > p { color: var(--muted); font-size: 14px; line-height: 1.85; max-width: 450px; }
+.wardrobe-panorama { position: relative; margin: 28px auto 25px; width: calc(100% - 40px); max-width: 1920px; overflow: hidden; border-radius: 18px; background: #dcd8cd; }
+.wardrobe-panorama img { width: 100%; height: auto; }
+.wardrobe-panorama figcaption { position: absolute; bottom: 20px; left: 24px; background: #faf9f5ef; color: var(--ink); border-radius: 8px; padding: 11px 15px; font-size: 12px; line-height: 1.6; }
+.example-base { display: grid; grid-template-columns: 1.3fr 1fr; gap: 17px; }
+.example-base > div { background: #fff; padding: 20px 22px; border-radius: 14px; }
+.example-base .eyebrow { color: var(--muted); font-size: 11px; }
+.example-base p { font-size: 14px; line-height: 1.8; margin-top: 8px; }
+.example-base p:first-letter { text-transform: uppercase; }
+.example-stages { display: grid; grid-template-columns: repeat(3,1fr); gap: 17px; margin-top: 17px; }
+.example-stages article { background: #fff; border-radius: 14px; padding: 23px; display: flex; flex-direction: column; align-items: start; }
+.example-time { display: flex; align-items: center; justify-content: space-between; gap: 15px; width: 100%; font-size: 11px; color: var(--muted); }
 .example-time > span { color: var(--accent); font-weight: 500; }
 .example-stages h3 { font-size: 19px; line-height: 1.35; margin-top: 14px; letter-spacing: -.45px; font-weight: 600; }
-.example-stages article > p { font-size: 13px; line-height: 1.8; color: var(--muted); margin-block: 12px 20px; }
-.example-action { font-size: 12px; line-height: 1.6; border-top: 1px solid #e7e9e3; padding-top: 13px; width: 100%; margin-top: auto; }
-.example-caption { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 21px; }
-.example-caption p { font-size: 12px; line-height: 1.8; color: var(--muted); }
-.example-caption strong { font-weight: 500; color: var(--ink); }
+.example-stages article > p { font-size: 13px; line-height: 1.85; color: var(--muted); margin-block: 12px 20px; }
+.example-action { display: block; font-size: 11px; line-height: 1.6; background: #f2f4ee; border-radius: 7px; padding: 8px 10px; width: 100%; margin-top: auto; }
+.example-caption { font-size: 11px; line-height: 1.8; color: var(--muted); margin-top: 18px; }
 @media (max-width: 860px) {
-  .lab-section { padding-block: 32px; }
+  .lab-section { padding-block: 33px 29px; }
   .example-heading { grid-template-columns: 1fr; gap: 15px; }
   .example-heading > p { font-size: 14px; max-width: 100%; }
-  .example-base { margin-top: 20px; padding-block: 19px; }
-  .example-base ul { grid-template-columns: 1fr 1fr; gap: 17px 20px; }
-  .example-base li { font-size: 12px; gap: 8px; }
-  .garment-drawing { width: 39px; height: 44px; }
-  .example-stages { grid-template-columns: 1fr; gap: 12px; margin-top: 20px; }
-  .example-stages article { padding: 19px 20px; }
+  .wardrobe-panorama { width: calc(100% - 20px); margin-block: 22px 18px; border-radius: 12px; }
+  .wardrobe-panorama figcaption { position: static; border-radius: 0; padding: 10px 13px; font-size: 10px; background: #f8f7f1; }
+  .example-base { grid-template-columns: 1fr; gap: 12px; }
+  .example-base > div { padding: 18px 20px; }
+  .example-base p { font-size: 13px; }
+  .example-stages { grid-template-columns: 1fr; gap: 12px; margin-top: 12px; }
+  .example-stages article { padding: 20px; }
   .example-stages h3 { font-size: 20px; margin-top: 11px; }
   .example-stages article > p { font-size: 13px; margin-bottom: 17px; }
-  .example-caption { grid-template-columns: 1fr; gap: 10px; margin-top: 18px; }
+  .example-caption { font-size: 11px; margin-top: 16px; }
 }
