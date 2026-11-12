@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { ArrowUpRight, Check, ChevronDown, Menu, Plus, X } from "lucide-react";
+import { ArrowUpRight, Camera, CalendarDays, Layers2, MessageCircle, Check, ChevronDown, Menu, Plus, X } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import WardrobeLab from "./wardrobe/lab";
 import { LabelMark } from "./wardrobe/garment";
@@ -142,7 +142,7 @@ export default function Landing() {
       <section className="intro-section wrap" id="how" aria-labelledby="how-heading">
         <div className="intro-grid"><div><span className="eyebrow">Как это будет работать</span><h2 id="how-heading">Начните с того,<br />что уже носите</h2></div><p className="intro-text">Не обязательно оцифровывать весь шкаф за один раз. Для первого знакомства мы хотим начать с небольшой капсулы любимых вещей.</p></div>
         <div className="steps">
-          {[{ n: "01", title: "Добавьте вещи", text: "Загрузите фотографии. Приложение поможет собрать цифровой гардероб и определить характеристики одежды." }, { n: "02", title: "Расскажите о планах", text: "Подбор будет учитывать повод, погоду и ваши предпочтения: что удобно и что хочется надеть." }, { n: "03", title: "Получите сочетания", text: "Смотрите образы из своих вещей и отмечайте понравившиеся, чтобы уточнять рекомендации." }].map(step => <article className="step" key={step.n}><span className="step-number">{step.n}</span><h3>{step.title}</h3><p>{step.text}</p></article>)}
+          {[{ n: "01", icon: Camera, title: "Добавьте вещи", text: "Загрузите фотографии. Приложение поможет собрать цифровой гардероб и определить характеристики одежды." }, { n: "02", icon: CalendarDays, title: "Расскажите о планах", text: "Подбор будет учитывать повод, погоду и ваши предпочтения: что удобно и что хочется надеть." }, { n: "03", icon: Layers2, title: "Получите сочетания", text: "Смотрите образы из своих вещей и отмечайте понравившиеся, чтобы уточнять рекомендации." }].map(step => <article className="step" key={step.n}><div className="step-topline"><span className="step-number">{step.n}</span><step.icon size={29} strokeWidth={1.3} aria-hidden="true" /></div><h3>{step.title}</h3><p>{step.text}</p></article>)}
         </div>
         <p className="development-note">Это планируемый сценарий приложения. Сейчас команда разрабатывает и проверяет его части.</p>
       </section>
@@ -176,7 +176,7 @@ export default function Landing() {
       </section>
 
       <section className="faq-section wrap" id="faq" aria-labelledby="faq-heading">
-        <div><span className="eyebrow">Вопросы и ответы</span><h2 id="faq-heading">Что важно знать</h2><p>Не нашли нужный ответ? Напишите команде — контакт ниже.</p><a href="https://t.me/DuImaran" target="_blank" rel="noreferrer" className="text-link">Задать вопрос <Arrow /></a></div>
+        <div className="faq-intro"><span className="eyebrow">Вопросы и ответы</span><h2 id="faq-heading">Что важно знать</h2><p>Про приложение, ваши вещи и участие в пилоте.</p><div className="faq-contact"><MessageCircle size={32} strokeWidth={1.3} aria-hidden="true" /><h3>А как это будет у вас?</h3><p>Расскажите, в каких ситуациях вам сложнее всего выбрать одежду. Ваш опыт поможет нам продумать приложение.</p><a href="https://t.me/DuImaran" target="_blank" rel="noreferrer" className="text-link">Написать команде <Arrow /></a><span className="faq-contact-handle">Telegram · @DuImaran</span></div></div>
         <Accordion type="single" collapsible className="faq-list">{faqs.map(([question, answer], index) => <AccordionItem key={question} value={`question-${index}`}><AccordionTrigger>{question}</AccordionTrigger><AccordionContent><p>{answer}</p></AccordionContent></AccordionItem>)}</Accordion>
       </section>
     </main>
