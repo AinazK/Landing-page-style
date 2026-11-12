@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { ArrowUpRight, Camera, CalendarDays, Layers2, MessageCircle, Check, ChevronDown, Menu, Plus, X } from "lucide-react";
+import { ArrowUpRight, Camera, CalendarDays, Layers2, Check, ChevronDown, Menu, Plus, X } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import WardrobeLab from "./wardrobe/lab";
 import { LabelMark } from "./wardrobe/garment";
@@ -9,13 +9,12 @@ import { track } from "./telemetry";
 
 const Arrow = () => <ArrowUpRight size={18} strokeWidth={1.5} aria-hidden="true" />;
 const faqs = [
-  ["Приложение уже работает?", "Мы разрабатываем первую версию для Android. В прототипе проверена загрузка и сохранение фотографий. Распознавание вещей и персональный подбор ещё разрабатываются. На странице показан готовый пример того, как одежда может меняться в течение дня."],
-  ["Зачем нужен пример дня?", "Он показывает идею сервиса: сохранять удобную основу и менять отдельные вещи под погоду и ситуацию. В примере к одному комплекту добавляются плащ и шарф для прогулки, а вечером их можно снять."],
-  ["Что будет после заявки?", "Когда начнётся набор пилотной группы, команда напишет в Telegram, уточнит ваше устройство и расскажет об условиях участия. Отправка заявки не гарантирует немедленный доступ. Точная дата пока не объявлена."],
-  ["Если у меня iPhone?", "Первую версию разрабатываем для Android. В форме можно указать iPhone: это поможет понять спрос. Сроки и формат версии для iOS пока не определены."],
-  ["Нужно фотографировать весь шкаф сразу?", "Для знакомства с приложением мы хотим начать с небольшой капсулы любимых вещей. В пилоте проверим, какой объём удобен. Сейчас загружать личные фотографии на лендинг не нужно."],
-  ["Сколько это стоит?", "Оставить заявку можно бесплатно, никаких платёжных данных мы не просим. Стоимость будущего приложения и условия пилота пока не объявлены. Их команда сообщит до начала участия."],
-  ["Как изменить или удалить заявку?", "Напишите @DuImaran в Telegram и укажите имя пользователя, которое оставляли в анкете. Команда сможет найти вашу заявку, изменить её или удалить и прекратить дальнейшую связь."],
+  ["Сервис уже доступен?", "Веб-приложение в разработке. Сейчас собираем первую пилотную группу. О начале тестирования сообщим в Telegram."],
+  ["Нужно что-то устанавливать?", "Планируем доступ через браузер на телефоне и компьютере. Отдельное приложение скачивать не потребуется. Поддерживаемые браузеры уточним перед пилотом."],
+  ["Что будет после заявки?", "Команда напишет в Telegram, расскажет об условиях и пришлёт ссылку, когда начнётся тестирование. Точная дата пока не объявлена."],
+  ["Нужно фотографировать весь шкаф?", "Начнём с небольшой подборки любимых вещей. Личные фотографии на этот лендинг загружать не нужно."],
+  ["Сколько это стоит?", "Заявка бесплатна. Условия пилота и стоимость будущего сервиса сообщим до начала участия."],
+  ["Как изменить или удалить заявку?", "Напишите @DuImaran в Telegram и укажите имя пользователя из анкеты. Команда изменит или удалит заявку и прекратит дальнейшую связь."],
 ];
 
 function PrivacyDialog({ onClose }: { onClose: () => void }) {
@@ -26,7 +25,7 @@ function PrivacyDialog({ onClose }: { onClose: () => void }) {
       <button className="dialog-close icon-button" aria-label="Закрыть" onClick={() => ref.current?.close()}><X size={22} /></button>
       <span className="eyebrow">Заявка на тестирование</span>
       <h2 id="privacy-heading">О ваших данных</h2>
-      <p>Команда проекта «ИИ-стилист» сохраняет имя, возрастную группу, Telegram и телефон, если вы его указали, для связи по поводу закрытого тестирования. Можно дополнительно сообщить устройство и интересующую задачу.</p>
+      <p>Команда проекта «ИИ-стилист» сохраняет имя, возрастную группу, Telegram и телефон, если вы его указали, для связи по поводу закрытого тестирования. Можно дополнительно сообщить интересующую задачу.</p>
       <p>Фотографии посетителей на лендинг не загружаются. Данные заявки доступны владельцу проекта и не публикуются на сайте.</p>
       <p>Для оценки интереса к проекту используются общие счётчики событий. Они не содержат имени, Telegram и не являются числом уникальных людей. Для защиты от частых запросов временно используется хеш сетевого адреса.</p>
       <p>Чтобы изменить или удалить заявку и отозвать согласие на дальнейшую связь, напишите команде в Telegram: <a href="https://t.me/DuImaran" target="_blank" rel="noreferrer">@DuImaran <Arrow /></a>.</p>
@@ -80,9 +79,8 @@ function BetaForm() {
         <label>Telegram<input name="telegram" autoComplete="off" placeholder="@username или t.me/username" required maxLength={80} spellCheck={false} aria-describedby="telegram-help" /></label>
         <p id="telegram-help" className="field-hint">По этому имени пользователя команда сможет написать вам.</p>
         <details className="optional-fields">
-          <summary>Устройство и дополнительные сведения<span>необязательно</span><Plus size={16} aria-hidden="true" /></summary>
+          <summary>Дополнительные сведения<span>необязательно</span><Plus size={16} aria-hidden="true" /></summary>
           <div>
-            <label>Ваше устройство<span className="select-wrap"><select name="platform" defaultValue=""><option value="">Не указывать</option><option value="android">Android</option><option value="ios">iPhone</option><option value="both">Использую оба</option></select><ChevronDown size={15} aria-hidden="true" /></span></label>
             <label>Что хочется решить в первую очередь<span className="select-wrap"><select name="priority" defaultValue=""><option value="">Не указывать</option><option value="daily">Проще выбирать одежду утром</option><option value="wardrobe">Найти сочетания забытых вещей</option><option value="day-route">Одеться на весь день с разными планами</option></select><ChevronDown size={15} aria-hidden="true" /></span></label>
             <label>Телефон<input name="phone" type="tel" autoComplete="tel" placeholder="+7 999 123-45-67" maxLength={24} /></label>
           </div>
@@ -131,7 +129,7 @@ export default function Landing() {
         <img className="hero-background" src="/images/city-day-hero.webp" width={1672} height={941} alt="Двое друзей в повседневных образах идут по городской улице после дождя" fetchPriority="high" />
         <div className="hero-shade" aria-hidden="true" />
         <div className="hero-content wrap"><div className="hero-copy">
-          <div className="launch-label"><span />Приложение для Android в разработке</div>
+          <div className="launch-label"><span />Веб-приложение в разработке</div>
           <h1 id="hero-heading">Ваш гардероб.<br /><span>Больше сочетаний.</span></h1>
           <p className="hero-description">Создаём ИИ-стилиста, который поможет выбирать одежду из ваших вещей — под погоду, планы и личные предпочтения.</p>
           <div className="hero-actions"><a className="button button-dark" href="#join">Записаться в тестирование <Arrow /></a><a className="hero-secondary" href="#wardrobe-lab">Посмотреть пример</a></div>
@@ -139,26 +137,26 @@ export default function Landing() {
         <p className="hero-caption wrap">Визуальная концепция ИИ-стилиста</p>
       </section>
 
-      <section className="intro-section wrap" id="how" aria-labelledby="how-heading">
-        <div className="intro-grid"><div><span className="eyebrow">Как это будет работать</span><h2 id="how-heading">Начните с того,<br />что уже носите</h2></div><p className="intro-text">Не обязательно оцифровывать весь шкаф за один раз. Для первого знакомства мы хотим начать с небольшой капсулы любимых вещей.</p></div>
+      <section className="intro-section" id="how" aria-labelledby="how-heading">
+        <div className="wrap"><div className="intro-grid"><div><span className="eyebrow">Как это будет работать</span><h2 id="how-heading">Начните с того,<br />что уже носите</h2></div><p className="intro-text">Несколько любимых вещей — для первых сочетаний.</p></div>
         <div className="steps">
-          {[{ n: "01", icon: Camera, title: "Добавьте вещи", text: "Загрузите фотографии. Приложение поможет собрать цифровой гардероб и определить характеристики одежды." }, { n: "02", icon: CalendarDays, title: "Расскажите о планах", text: "Подбор будет учитывать повод, погоду и ваши предпочтения: что удобно и что хочется надеть." }, { n: "03", icon: Layers2, title: "Получите сочетания", text: "Смотрите образы из своих вещей и отмечайте понравившиеся, чтобы уточнять рекомендации." }].map(step => <article className="step" key={step.n}><div className="step-topline"><span className="step-number">{step.n}</span><step.icon size={29} strokeWidth={1.3} aria-hidden="true" /></div><h3>{step.title}</h3><p>{step.text}</p></article>)}
+          {[{ n: "01", icon: Camera, title: "Добавьте вещи", text: "Сфотографируйте любимые вещи и соберите цифровой гардероб." }, { n: "02", icon: CalendarDays, title: "Расскажите о планах", text: "Укажите повод и погоду. Остальное подстроим под ваш день." }, { n: "03", icon: Layers2, title: "Получите сочетания", text: "Сохраняйте образы из своих вещей и отмечайте понравившиеся." }].map(step => <article className="step" key={step.n}><div className="step-topline"><span className="step-number">{step.n}</span><step.icon size={29} strokeWidth={1.3} aria-hidden="true" /></div><h3>{step.title}</h3><p>{step.text}</p></article>)}
         </div>
-        <p className="development-note">Это планируемый сценарий приложения. Сейчас команда разрабатывает и проверяет его части.</p>
+        <p className="development-note">Так будет устроено веб-приложение. Сейчас готовим первую версию.</p></div>
       </section>
 
       <WardrobeLab />
 
       <section className="project-section wrap" id="project" aria-labelledby="project-heading">
         <div className="project-grid">
-          <div><span className="eyebrow">О проекте</span><h2 id="project-heading">Команда проекта</h2><p className="project-description">Разрабатываем цифровой гардероб, проверяем подбор одежды на прототипах и готовимся к первому пилоту.</p>
-            <div className="team-credits"><p><span>Айназ Хайруллин</span><small>Приложение и серверная часть</small></p><p><span>Арина Коваленко</span><small>Обработка фотографий и рекомендации</small></p></div>
+          <div className="project-team"><span className="eyebrow">О проекте</span><h2 id="project-heading">Команда проекта</h2><p className="project-description">Делаем цифровой гардероб, которым удобно пользоваться каждый день — прямо в браузере.</p>
+            <div className="team-credits"><p><span>Айназ Хайруллин</span><small>Веб-приложение и серверная часть</small></p><p><span>Арина Коваленко</span><small>Обработка фотографий и рекомендации</small></p></div>
             <a href="https://t.me/DuImaran" target="_blank" rel="noreferrer" className="text-link">Связаться с командой <Arrow /></a>
           </div>
           <div className="project-progress">
-            <article><span className="progress-dot complete" /><div><span className="eyebrow">Проверено в прототипе</span><h3>Загрузка фотографий</h3><p>Предпросмотр, отправка и сохранение фото из Android-приложения.</p></div></article>
-            <article><span className="progress-dot current" /><div><span className="eyebrow">В разработке</span><h3>Распознавание одежды</h3><p>Выделение вещей на снимке и определение их характеристик.</p></div></article>
-            <article><span className="progress-dot" /><div><span className="eyebrow">Следующий этап</span><h3>Проверка с участниками</h3><p>Удобство первого гардероба и качество персональных сочетаний.</p></div></article>
+            <article><span className="progress-dot complete" /><div><span className="eyebrow">Проверено в прототипе</span><h3>Загрузка фотографий</h3><p>Загрузка и сохранение снимков вещей.</p></div></article>
+            <article><span className="progress-dot current" /><div><span className="eyebrow">В разработке</span><h3>Распознавание одежды</h3><p>Определение типа и характеристик вещей.</p></div></article>
+            <article><span className="progress-dot" /><div><span className="eyebrow">Следующий этап</span><h3>Проверка с участниками</h3><p>Первые гардеробы и обратная связь.</p></div></article>
           </div>
         </div>
       </section>
@@ -167,23 +165,22 @@ export default function Landing() {
         <div className="join-copy"><span className="eyebrow">Закрытое тестирование</span><h2 id="join-heading">Попробуйте ИИ-стилиста</h2><p>Оставьте контакт для приглашения в пилот. Нам важны ваши привычки и обратная связь.</p>
           <ol className="pilot-steps">
             <li><span>1</span><div><strong>Оставьте заявку</strong><p>Достаточно имени, возрастной группы и Telegram.</p></div></li>
-            <li><span>2</span><div><strong>Обсудите участие</strong><p>Уточним устройство и расскажем об условиях.</p></div></li>
-            <li><span>3</span><div><strong>Попробуйте на своих вещах</strong><p>Оцените загрузку одежды и предложенные сочетания.</p></div></li>
+            <li><span>2</span><div><strong>Обсудите участие</strong><p>Расскажем об условиях и пришлём ссылку на сервис.</p></div></li>
+            <li><span>3</span><div><strong>Попробуйте на своих вещах</strong><p>Соберите гардероб в браузере и поделитесь впечатлениями.</p></div></li>
           </ol>
         </div>
         <div className="form-container"><BetaForm /></div>
-        <div className="pilot-platform"><p><strong>Первая версия — Android.</strong> iPhone можно указать в дополнительных сведениях.</p><p><strong>Заявка бесплатна.</strong> Дату и условия пилота сообщим лично.</p></div>
       </section>
 
       <section className="faq-section wrap" id="faq" aria-labelledby="faq-heading">
-        <div className="faq-intro"><span className="eyebrow">Вопросы и ответы</span><h2 id="faq-heading">Что важно знать</h2><p>Про приложение, ваши вещи и участие в пилоте.</p><div className="faq-contact"><MessageCircle size={32} strokeWidth={1.3} aria-hidden="true" /><h3>А как это будет у вас?</h3><p>Расскажите, в каких ситуациях вам сложнее всего выбрать одежду. Ваш опыт поможет нам продумать приложение.</p><a href="https://t.me/DuImaran" target="_blank" rel="noreferrer" className="text-link">Написать команде <Arrow /></a><span className="faq-contact-handle">Telegram · @DuImaran</span></div></div>
+        <div className="faq-intro"><span className="eyebrow">Вопросы и ответы</span><h2 id="faq-heading">Что важно знать</h2></div>
         <Accordion type="single" collapsible className="faq-list">{faqs.map(([question, answer], index) => <AccordionItem key={question} value={`question-${index}`}><AccordionTrigger>{question}</AccordionTrigger><AccordionContent><p>{answer}</p></AccordionContent></AccordionItem>)}</Accordion>
       </section>
     </main>
 
     <footer className="site-footer"><div className="wrap">
       <div className="footer-grid">
-        <div className="footer-about"><a className="wordmark" href="#"><LabelMark /><span>ИИ-стилист</span></a><p>Цифровой гардероб и подбор сочетаний из ваших вещей. Приложение для Android в разработке.</p></div>
+        <div className="footer-about"><a className="wordmark" href="#"><LabelMark /><span>ИИ-стилист</span></a><p>Цифровой гардероб и подбор сочетаний из ваших вещей. Веб-приложение в разработке.</p></div>
         <nav className="footer-column" aria-label="Навигация внизу страницы"><h3>Проект</h3><a href="#how">Как работает</a><a href="#wardrobe-lab">Пример дня</a><a href="#project">Команда и разработка</a><a href="#faq">Вопросы и ответы</a></nav>
         <div className="footer-column"><h3>Тестирование</h3><p>Собираем заявки в первую пилотную группу. Дату и условия участия сообщим лично.</p><a href="#join">Оставить заявку <Arrow /></a></div>
         <div className="footer-column"><h3>Связь с командой</h3><a href="https://t.me/DuImaran" target="_blank" rel="noreferrer">Telegram: @DuImaran <Arrow /></a><p>Вопросы о проекте, участии, изменении или удалении заявки.</p></div>

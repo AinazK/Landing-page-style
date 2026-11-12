@@ -1,5 +1,15 @@
 # Визуальные материалы
 
+## linen-background — фон секции «Как это будет работать»
+
+Файл: `public/images/linen-background.webp` (1672 × 941, около 151 КиБ).
+Исходник: `work/original-assets/linen-background.png` (локально, не публикуется).
+Создан встроенным ImageGen, преобразован в WebP без изменения композиции.
+
+Полный промпт:
+
+> Use case: photorealistic-natural. Asset type: subtle photographic background for a Russian digital wardrobe website. Generate a wide 16:9 landscape editorial macro photograph of softly draped pale warm ivory linen and cotton fabric, with a few large gentle folds entering from the far left and lower right corners, and broad quiet almost flat negative space across the center and upper right. A tiny suggestion of muted sage cloth near the very bottom edge, not a separate object. Real fine woven textile fibers, beautiful diffuse morning window light, delicate soft shadows, sophisticated understated fashion atelier feeling. High key but tactile, all light creamy neutral colors, restrained tonal contrast suitable behind dark text and near-white UI cards. No dramatic dark folds, no bright colors, no red, no objects, no clothing silhouettes, no people, no hands, no logos, no writing, no typography, no border, no UI. One coherent natural photograph, not a gradient or collage. Save a copy into C:/ITMO/sites/ai-stylist/work/original-assets/linen-background.png if filesystem saving is supported.
+
 Созданы встроенным инструментом ImageGen, затем преобразованы в WebP без изменения композиции.
 
 ## editorial-wardrobe
