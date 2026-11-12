@@ -283,3 +283,66 @@ h3 { font-weight: 600; }
   .project-progress article:last-child { padding-bottom: 21px; }
   .form-container { padding: 23px 20px; }
 }
+
+/* Consistent card geometry and a clearer rhythm below the photos. */
+.project-grid, .join-section { grid-template-columns: repeat(2,minmax(0,1fr)); align-items: stretch; }
+.project-grid > *, .join-section > *, .footer-grid > *, .example-stages > * { min-width: 0; }
+.project-grid { gap: 20px; }
+.project-grid > div:first-child { display: flex; flex-direction: column; padding: 26px; background: #e6ede1; }
+.project-grid h2 { font-size: clamp(27px,2.6vw,34px); }
+.project-description { font-size: 13px; line-height: 1.85; }
+.team-credits { margin-block: 23px; }
+.project-grid > div:first-child > .text-link { align-self: start; margin-top: auto; }
+.project-progress { grid-template-rows: repeat(3,1fr); gap: 10px; }
+.project-progress article, .project-progress article:last-child { padding: 18px 21px; box-shadow: none; }
+.project-progress article:nth-child(1) { background: #e7efdf; }
+.project-progress article:nth-child(2) { background: #f6e7da; }
+.project-progress article:nth-child(3) { background: #ece8f2; }
+.project-progress .eyebrow { font-size: 10px; }
+.project-progress h3 { font-size: 17px; margin-block: 5px; }
+.project-progress p { font-size: 12px; line-height: 1.75; }
+.join-section { gap: 18px 30px; padding-top: 26px; }
+.join-copy { display: flex; flex-direction: column; padding: 8px 0; }
+.join-copy h2 { max-width: 440px; font-size: clamp(29px,2.8vw,38px); }
+.join-copy > p { font-size: 13px; max-width: 400px; margin-top: 13px; }
+.pilot-steps { flex: 1; display: grid; grid-template-rows: repeat(3,1fr); gap: 10px; margin: 22px 0 0; }
+.pilot-steps li { margin: 0; align-items: center; padding: 14px 16px; background: #ecefe7; }
+.pilot-steps li:first-child { background: #f4e7dc; }
+.pilot-steps li > span { color: var(--accent); }
+.pilot-steps p { font-size: 11px; line-height: 1.7; }
+.form-container { padding: 25px; box-shadow: 0 7px 30px #25292304; }
+.form-topline { margin-bottom: 20px; }
+.beta-form label { margin-bottom: 18px; }
+.form-footnote { font-size: 10px; }
+.pilot-platform { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 25px; background: #ebe8df; padding: 13px 18px; }
+.pilot-platform p { margin: 0; font-size: 11px; line-height: 1.8; }
+.faq-section { grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr); gap: 30px; align-items: start; }
+.faq-section > div:first-child { background: #e8ede4; border-radius: 15px; padding: 24px; }
+.faq-section h2 { font-size: 30px; }
+.faq-section > div > p { font-size: 12px; }
+.faq-list [data-slot="accordion-item"] { background: #fff; }
+.faq-list [data-slot="accordion-item"][data-state="open"] { background: #f5e7dc; }
+.faq-list [data-slot="accordion-trigger"] { padding: 15px 18px; }
+.site-footer { background: #273f35; color: #faf9f5; }
+.footer-grid { grid-template-columns: minmax(0,1.3fr) repeat(3,minmax(0,1fr)); gap: 28px; }
+.footer-about > p, .footer-column p { color: #ffffffb8; }
+.footer-column a { max-width: 100%; overflow-wrap: anywhere; }
+.site-footer .wordmark > svg { color: #f07854; }
+.footer-column a:hover { color: #ffab8c; }
+.footer-bottom { background: #ffffff0d; color: #ffffffb8; flex-wrap: wrap; gap: 10px 20px; }
+.footer-bottom > * { min-width: 0; }
+@media (max-width: 860px) {
+  .project-grid, .join-section, .faq-section { grid-template-columns: minmax(0,1fr); }
+  .project-grid > div:first-child { padding: 23px; }
+  .project-grid > div:first-child > .text-link { margin-top: 0; }
+  .project-progress { grid-template-rows: none; }
+  .join-section { gap: 16px; }
+  .join-copy { padding: 0; }
+  .pilot-steps { grid-template-rows: none; margin-top: 18px; }
+  .pilot-platform { grid-column: auto; grid-template-columns: 1fr; gap: 7px; }
+  .form-container { padding: 23px 20px; }
+  .faq-section { gap: 17px; }
+  .faq-section > div:first-child { padding: 22px; }
+  .footer-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; }
+}
+@media (max-width: 380px) { .footer-grid { grid-template-columns: minmax(0,1fr); } }

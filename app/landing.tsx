@@ -72,7 +72,7 @@ function BetaForm() {
       </div>
     ) : (
       <form onSubmit={submit} className="beta-form">
-        <div className="form-topline"><span>Заявка на тестирование</span><span>Имя, возраст и Telegram</span></div>
+        <div className="form-topline"><span>Заявка на тестирование</span></div>
         <div className="form-row">
           <label>Ваше имя<input name="name" autoComplete="given-name" placeholder="Как к вам обращаться" minLength={2} maxLength={60} required /></label>
           <label>Возраст<span className="select-wrap"><select name="ageGroup" defaultValue="" required><option value="" disabled>Возрастная группа</option>{["До 18", "18–24", "25–34", "35–44", "45+"].map(age => <option key={age}>{age}</option>)}</select><ChevronDown size={15} aria-hidden="true" /></span></label>
@@ -118,7 +118,7 @@ export default function Landing() {
   return <>
     <a className="skip-link" href="#main">К содержимому</a>
     <header className="site-header wrap">
-      <a href="#" className="wordmark" aria-label="ИИ-стилист — на главную"><LabelMark /><span>ИИ<span className="brand-dot">.</span>стилист</span></a>
+      <a href="#" className="wordmark" aria-label="ИИ-стилист — на главную"><LabelMark /><span>ИИ-стилист</span></a>
       <nav id="mobile-navigation" className={mobileMenu ? "main-nav is-open" : "main-nav"} aria-label="Основная навигация">
         <a href="#how" onClick={() => setMobileMenu(false)}>Как работает</a><a href="#wardrobe-lab" onClick={() => setMobileMenu(false)}>Пример дня</a><a href="#project" onClick={() => setMobileMenu(false)}>О проекте</a>
       </nav>
@@ -151,7 +151,7 @@ export default function Landing() {
 
       <section className="project-section wrap" id="project" aria-labelledby="project-heading">
         <div className="project-grid">
-          <div><span className="eyebrow">О проекте</span><h2 id="project-heading">Кто делает ИИ-стилиста</h2><p className="project-description">Разрабатываем цифровой гардероб и исследуем, как сделать подбор одежды полезным в обычной жизни. Проверяем идеи на прототипах и готовимся к работе с первыми участниками.</p>
+          <div><span className="eyebrow">О проекте</span><h2 id="project-heading">Команда проекта</h2><p className="project-description">Разрабатываем цифровой гардероб, проверяем подбор одежды на прототипах и готовимся к первому пилоту.</p>
             <div className="team-credits"><p><span>Айназ Хайруллин</span><small>Приложение и серверная часть</small></p><p><span>Арина Коваленко</span><small>Обработка фотографий и рекомендации</small></p></div>
             <a href="https://t.me/DuImaran" target="_blank" rel="noreferrer" className="text-link">Связаться с командой <Arrow /></a>
           </div>
@@ -164,15 +164,15 @@ export default function Landing() {
       </section>
 
       <section ref={joinRef} className="join-section wrap" id="join" aria-labelledby="join-heading">
-        <div className="join-copy"><span className="eyebrow">Закрытое тестирование</span><h2 id="join-heading">Попробуйте приложение<br />одним из первых</h2><p>Оставьте контакт, если хотите поучаствовать в пилоте. Нам важны разные гардеробы, привычки и честная обратная связь.</p>
+        <div className="join-copy"><span className="eyebrow">Закрытое тестирование</span><h2 id="join-heading">Попробуйте ИИ-стилиста</h2><p>Оставьте контакт для приглашения в пилот. Нам важны ваши привычки и обратная связь.</p>
           <ol className="pilot-steps">
             <li><span>1</span><div><strong>Оставьте заявку</strong><p>Достаточно имени, возрастной группы и Telegram.</p></div></li>
-            <li><span>2</span><div><strong>Получите сообщение команды</strong><p>Уточним устройство, расскажем о прототипе и согласуем участие.</p></div></li>
-            <li><span>3</span><div><strong>Проверьте приложение на своих вещах</strong><p>Расскажите, удобно ли добавлять одежду и подходят ли предложенные сочетания.</p></div></li>
+            <li><span>2</span><div><strong>Обсудите участие</strong><p>Уточним устройство и расскажем об условиях.</p></div></li>
+            <li><span>3</span><div><strong>Попробуйте на своих вещах</strong><p>Оцените загрузку одежды и предложенные сочетания.</p></div></li>
           </ol>
-          <div className="pilot-platform"><p><strong>Первая версия — Android.</strong> Если у вас iPhone, это можно указать в дополнительных сведениях.</p><p>Дата начала пилота пока не объявлена. Заявка бесплатна и не предполагает оплаты; условия сообщим до начала участия.</p></div>
         </div>
         <div className="form-container"><BetaForm /></div>
+        <div className="pilot-platform"><p><strong>Первая версия — Android.</strong> iPhone можно указать в дополнительных сведениях.</p><p><strong>Заявка бесплатна.</strong> Дату и условия пилота сообщим лично.</p></div>
       </section>
 
       <section className="faq-section wrap" id="faq" aria-labelledby="faq-heading">
@@ -183,7 +183,7 @@ export default function Landing() {
 
     <footer className="site-footer"><div className="wrap">
       <div className="footer-grid">
-        <div className="footer-about"><a className="wordmark" href="#"><LabelMark /><span>ИИ<span className="brand-dot">.</span>стилист</span></a><p>Цифровой гардероб и подбор сочетаний из ваших вещей. Приложение для Android в разработке.</p></div>
+        <div className="footer-about"><a className="wordmark" href="#"><LabelMark /><span>ИИ-стилист</span></a><p>Цифровой гардероб и подбор сочетаний из ваших вещей. Приложение для Android в разработке.</p></div>
         <nav className="footer-column" aria-label="Навигация внизу страницы"><h3>Проект</h3><a href="#how">Как работает</a><a href="#wardrobe-lab">Пример дня</a><a href="#project">Команда и разработка</a><a href="#faq">Вопросы и ответы</a></nav>
         <div className="footer-column"><h3>Тестирование</h3><p>Собираем заявки в первую пилотную группу. Дату и условия участия сообщим лично.</p><a href="#join">Оставить заявку <Arrow /></a></div>
         <div className="footer-column"><h3>Связь с командой</h3><a href="https://t.me/DuImaran" target="_blank" rel="noreferrer">Telegram: @DuImaran <Arrow /></a><p>Вопросы о проекте, участии, изменении или удалении заявки.</p></div>
