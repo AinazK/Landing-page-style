@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ИИ-стилист — знакомые вещи, новые образы",
-  description: "Создаём цифровой гардероб и ИИ-стилиста для подбора образов из ваших вещей. Оставьте заявку в закрытое тестирование.",
+  title: "ИИ-стилист — один гардероб, весь ваш день",
+  description: "Попробуйте маршрут дня: закрепите любимую вещь и посмотрите, как меняется образ под погоду и планы. Приложение для Android в разработке.",
   metadataBase: new URL("https://ai-stylist-editorial.abuzzether.chatgpt.site"),
-  openGraph: { title: "Знакомые вещи. Новые образы.", description: "Ваш стиль уже есть в вашем шкафу. Запишитесь в закрытое тестирование ИИ-стилиста.", locale: "ru_RU", type: "website", images: [{ url: "/images/editorial-wardrobe.webp", width: 1536, height: 1024 }] },
+  openGraph: { title: "Один гардероб. Весь ваш день.", description: "Интерактивный маршрут из своих вещей: встречи, погода, прогулки. Первая версия для Android в разработке.", locale: "ru_RU", type: "website", images: [{ url: "/images/editorial-wardrobe.webp", width: 1536, height: 1024 }] },
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",

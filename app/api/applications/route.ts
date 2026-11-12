@@ -2,6 +2,7 @@ import { env } from "cloudflare:workers";
 import { z } from "zod";
 import { applications } from "@/db/schema";
 import { getDb } from "@/db";
+import { BodyError, readJson } from "../request-body";
 
 const schema = z.object({
   name: z.string().trim().min(2).max(60),
@@ -10,6 +11,9 @@ const schema = z.object({
   phone: z.string().trim().max(24).transform(value => value.replace(/[\s()\-]/g, "")).refine(value => !value || /^\+?\d{10,15}$/.test(value)),
   website: z.string().max(200).optional(),
   consent: z.literal(true),
+  platform: z.enum(["android", "ios", "both"]).nullable().optional(),
+  priority: z.enum(["daily", "wardrobe", "day-route"]).nullable().optional(),
+  routeSummary: z.string().trim().max(800).nullable().optional(),
 });
 function json(body: object, status = 200) {
   return Response.json(body, { status, headers: { "Cache-Control": "no-store" } });
@@ -17,14 +21,9 @@ function json(body: object, status = 200) {
 export async function POST(request: Request) {
   const origin = request.headers.get("origin");
   if (origin && origin !== new URL(request.url).origin) return json({ error: "Откройте форму на сайте проекта." }, 403);
-  if (!request.headers.get("content-type")?.includes("application/json")) return json({ error: "Неверный формат заявки." }, 415);
-  if (Number(request.headers.get("content-length") || 0) > 4096) return json({ error: "Заявка слишком большая." }, 413);
   let input: unknown;
-  try {
-    const body = await request.text();
-    if (body.length > 4096) return json({ error: "Заявка слишком большая." }, 413);
-    input = JSON.parse(body);
-  } catch { return json({ error: "Не удалось прочитать заявку." }, 400); }
+  try { input = await readJson(request); }
+  catch (error) { return json({ error: error instanceof BodyError ? error.message : "Не удалось прочитать заявку." }, error instanceof BodyError ? error.status : 400); }
   const parsed = schema.safeParse(input);
   if (!parsed.success) {
     const field = parsed.error.issues[0]?.path[0];
@@ -41,7 +40,7 @@ export async function POST(request: Request) {
     const counter = await env.DB.prepare("INSERT INTO rate_limits (key, window, hits) VALUES (?, ?, 1) ON CONFLICT(key) DO UPDATE SET hits = hits + 1 RETURNING hits").bind(`${hash}:${window}`, window).first<{ hits: number }>();
     if (counter && counter.hits > 10) return json({ error: "Слишком много заявок. Попробуйте через час или напишите @DuImaran." }, 429);
     await env.DB.prepare("DELETE FROM rate_limits WHERE window < ?").bind(window - 48).run();
-    await getDb().insert(applications).values({ id: crypto.randomUUID(), name: parsed.data.name, ageGroup: parsed.data.ageGroup, telegram: parsed.data.telegram, phone: parsed.data.phone || null, consentVersion: "beta-2026-11-12", createdAt: Date.now() }).onConflictDoNothing({ target: applications.telegram });
+    await getDb().insert(applications).values({ id: crypto.randomUUID(), name: parsed.data.name, ageGroup: parsed.data.ageGroup, telegram: parsed.data.telegram, phone: parsed.data.phone || null, platform: parsed.data.platform || null, priority: parsed.data.priority || null, routeSummary: parsed.data.routeSummary || null, consentVersion: "beta-route-2026-11-12", createdAt: Date.now() }).onConflictDoNothing({ target: applications.telegram });
     return json({ ok: true });
   } catch {
     return json({ error: "Не удалось сохранить заявку. Попробуйте позже или напишите @DuImaran в Telegram." }, 503);

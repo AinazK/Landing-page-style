@@ -8,6 +8,13 @@
       "when": 1794477042433,
       "tag": "0000_fantastic_wolfsbane",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1794481701559,
+      "tag": "0001_lucky_power_pack",
+      "breakpoints": true
     }
   ]
 }
