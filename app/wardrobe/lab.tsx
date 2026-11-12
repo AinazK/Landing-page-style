@@ -2,7 +2,7 @@ export default function WardrobeLab() {
   return (
     <section className="lab-section" id="wardrobe-lab" aria-labelledby="lab-heading">
       <div className="example-heading wrap">
-        <div><span className="eyebrow">Знакомые вещи, новые сочетания</span><h2 id="lab-heading">У вашего гардероба<br />есть продолжение</h2></div>
+        <div><span className="eyebrow">Знакомые вещи, новые сочетания</span><h2 id="lab-heading">У вашего гардероба есть продолжение</h2></div>
       </div>
 
       <div className="wrap">

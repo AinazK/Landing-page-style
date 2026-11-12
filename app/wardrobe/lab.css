@@ -47,9 +47,9 @@
   .example-stages h3 { min-height: 0; }
 }
 
-.lab-section { padding-block: 82px 0; }
-.example-heading { display: flex; justify-content: flex-end; }
-.example-heading > div { max-width: 630px; text-align: right; }
+.lab-section { padding-block: 82px 0; background: #f2efe9; }
+.example-heading { display: flex; justify-content: center; }
+.example-heading > div { max-width: 750px; text-align: center; }
 .example-heading h2 { max-width: none; margin-top: 15px; }
 .example-heading { margin-bottom: 38px; }
 .wardrobe-panorama { margin-block: 48px 0; }
@@ -60,7 +60,7 @@
 .example-caption { margin-top: 28px; }
 @media (max-width: 860px) {
   .lab-section { padding-block: 58px 0; }
-  .example-heading > div { text-align: right; }
+  .example-heading > div { text-align: center; }
   .example-heading { margin-bottom: 29px; }
   .wardrobe-panorama { margin-block: 32px 0; }
   .example-stages { gap: 16px; }
