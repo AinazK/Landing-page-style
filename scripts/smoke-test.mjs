@@ -9,7 +9,7 @@ const send = (value, origin = base) => fetch(`${base}/api/applications`, { metho
 
 const home = await fetch(base);
 assert.equal(home.status, 200);
-assert.match(await home.text(), /Маршрут дня/);
+assert.match(await home.text(), /Пример дня/);
 for (const asset of ["editorial-wardrobe", "city-editorial"]) {
   const image = await fetch(`${base}/images/${asset}.webp`);
   assert.equal(image.status, 200);
