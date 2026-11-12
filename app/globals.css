@@ -365,6 +365,11 @@ h3 { font-weight: 600; }
 .faq-list [data-slot="accordion-trigger"] { padding: 20px 24px; }
 .faq-list [data-slot="accordion-content"] > div { padding: 0 24px 22px; }
 .site-footer { padding-top: 48px; }
+.team-credits { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.team-credits .team-avatar { display: grid; place-items: center; width: 64px; height: 64px; margin-bottom: 17px; border-radius: 50%; background: #e6eade; color: #4c5849; font-size: 20px; font-weight: 500; letter-spacing: -.5px; }
+.join-copy h2 { max-width: none; font-size: clamp(25px,2.4vw,32px); }
+.brand-name { white-space: nowrap; }
+@media (min-width: 861px) { .join-copy h2 { white-space: nowrap; } }
 @media (max-width: 860px) {
   .intro-section { padding-block: 58px 62px; }
   .steps { margin-top: 31px; gap: 15px; }
@@ -378,6 +383,7 @@ h3 { font-weight: 600; }
   .project-team > .text-link { margin-top: 0; }
   .project-progress article, .project-progress article:last-child { padding: 24px; }
   .join-section { padding-block: 46px 62px; gap: 30px; }
+  .join-copy h2 { font-size: clamp(25px,5vw,29px); }
   .pilot-steps { gap: 13px; margin-top: 25px; }
   .pilot-steps li { padding: 19px; }
   .form-container { padding: 25px 21px; }

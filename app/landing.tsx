@@ -150,7 +150,7 @@ export default function Landing() {
       <section className="project-section wrap" id="project" aria-labelledby="project-heading">
         <div className="project-grid">
           <div className="project-team"><span className="eyebrow">О проекте</span><h2 id="project-heading">Команда проекта</h2><p className="project-description">Делаем цифровой гардероб, которым удобно пользоваться каждый день — прямо в браузере.</p>
-            <div className="team-credits"><p><span>Айназ Хайруллин</span><small>Веб-приложение и серверная часть</small></p><p><span>Арина Коваленко</span><small>Обработка фотографий и рекомендации</small></p></div>
+            <div className="team-credits"><p><span className="team-avatar" aria-hidden="true">АХ</span><span>Айназ Хайруллин</span><small>Веб-приложение и серверная часть</small></p><p><span className="team-avatar" aria-hidden="true">АК</span><span>Арина Коваленко</span><small>Обработка фотографий и рекомендации</small></p></div>
             <a href="https://t.me/DuImaran" target="_blank" rel="noreferrer" className="text-link">Связаться с командой <Arrow /></a>
           </div>
           <div className="project-progress">
@@ -162,7 +162,7 @@ export default function Landing() {
       </section>
 
       <section ref={joinRef} className="join-section wrap" id="join" aria-labelledby="join-heading">
-        <div className="join-copy"><span className="eyebrow">Закрытое тестирование</span><h2 id="join-heading">Попробуйте ИИ-стилиста</h2><p>Оставьте контакт для приглашения в пилот. Нам важны ваши привычки и обратная связь.</p>
+        <div className="join-copy"><span className="eyebrow">Закрытое тестирование</span><h2 id="join-heading">Попробуйте <span className="brand-name">ИИ-стилиста</span></h2><p>Оставьте контакт для приглашения в пилот. Нам важны ваши привычки и обратная связь.</p>
           <ol className="pilot-steps">
             <li><span>1</span><div><strong>Оставьте заявку</strong><p>Достаточно имени, возрастной группы и Telegram.</p></div></li>
             <li><span>2</span><div><strong>Обсудите участие</strong><p>Расскажем об условиях и пришлём ссылку на сервис.</p></div></li>

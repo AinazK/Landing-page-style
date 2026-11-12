@@ -5,10 +5,6 @@ export default function WardrobeLab() {
         <div><span className="eyebrow">Знакомые вещи, новые сочетания</span><h2 id="lab-heading">У вашего гардероба<br />есть продолжение</h2></div>
       </div>
 
-      <figure className="wardrobe-panorama">
-        <img src="/images/capsule-panorama.webp" width={1672} height={941} loading="lazy" alt="Капсула одежды на большом столе: хлопковые футболка и рубашки, джинсы, брюки, жакет, плащ, три пары обуви и шерстяной шарф" />
-      </figure>
-
       <div className="wrap">
         <div className="example-stages">
           <article><div className="example-time"><span>Утро</span><time>09:00</time></div><h3>Рабочая встреча</h3><p>Футболка, брюки, кеды и жакет — основа на весь день.</p></article>
@@ -18,6 +14,10 @@ export default function WardrobeLab() {
 
         <p className="example-caption">Пример на готовом гардеробе. Персональный подбор разрабатываем для веб-приложения.</p>
       </div>
+
+      <figure className="wardrobe-panorama">
+        <img src="/images/capsule-panorama.webp" width={1672} height={941} loading="lazy" alt="Капсула одежды на большом столе: хлопковые футболка и рубашки, джинсы, брюки, жакет, плащ, три пары обуви и шерстяной шарф" />
+      </figure>
     </section>
   );
 }

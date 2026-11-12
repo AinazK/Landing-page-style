@@ -47,20 +47,22 @@
   .example-stages h3 { min-height: 0; }
 }
 
-.lab-section { padding-block: 82px 88px; }
+.lab-section { padding-block: 82px 0; }
 .example-heading { display: flex; justify-content: flex-end; }
 .example-heading > div { max-width: 630px; text-align: right; }
 .example-heading h2 { max-width: none; margin-top: 15px; }
-.wardrobe-panorama { margin-block: 43px 46px; }
+.example-heading { margin-bottom: 38px; }
+.wardrobe-panorama { margin-block: 48px 0; }
 .example-stages { gap: 22px; margin-top: 0; }
 .example-stages article { padding: 31px 28px; }
 .example-stages h3 { min-height: 0; margin-top: 24px; }
 .example-stages article > p { max-width: 270px; margin-block: 22px 6px; }
 .example-caption { margin-top: 28px; }
 @media (max-width: 860px) {
-  .lab-section { padding-block: 58px 62px; }
+  .lab-section { padding-block: 58px 0; }
   .example-heading > div { text-align: right; }
-  .wardrobe-panorama { margin-block: 29px 30px; }
+  .example-heading { margin-bottom: 29px; }
+  .wardrobe-panorama { margin-block: 32px 0; }
   .example-stages { gap: 16px; }
   .example-stages article { padding: 26px; }
   .example-stages article > p { max-width: none; margin-top: 17px; }
