@@ -39,10 +39,7 @@
 .example-base { background: #fff; border-radius: 14px; gap: 0; }
 .example-base > div { grid-column: span 3; background: transparent; }
 .example-stages article { grid-column: span 2; min-width: 0; }
-.example-stages article:nth-child(1) { background: #f5e9d8; }
-.example-stages article:nth-child(2) { background: #e2ecdf; }
-.example-stages article:nth-child(3) { background: #e9e4f0; }
-.example-action { background: #ffffff8c; }
+.example-action { color: var(--accent); }
 .example-stages h3 { min-height: 2.7em; font-size: 18px; }
 @media (max-width: 860px) {
   .example-base, .example-stages { grid-template-columns: minmax(0,1fr); }
