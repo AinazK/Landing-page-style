@@ -172,7 +172,7 @@ export default function Landing() {
             <li><span>2</span><div><strong>Обсудите участие</strong><p>Расскажем об условиях и пришлём ссылку на сервис.</p></div></li>
             <li><span>3</span><div><strong>Попробуйте на своих вещах</strong><p>Соберите гардероб в браузере и поделитесь впечатлениями.</p></div></li>
           </ol>
-          <img className="signup-scarf" src="/images/signup-scarf-soft.webp" width={400} height={1200} loading="lazy" alt="" aria-hidden="true" />
+          <img className="signup-scarf" src="/images/signup-scarf.webp" width={480} height={1440} loading="lazy" alt="" aria-hidden="true" />
           </div>
         </div>
         <div className="form-container"><BetaForm /></div>

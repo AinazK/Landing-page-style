@@ -362,7 +362,7 @@ h3 { font-weight: 600; }
 .pilot-scene { position: relative; flex: 1; display: flex; margin-top: 34px; isolation: isolate; }
 .pilot-scene .pilot-steps { width: 100%; margin: 0; }
 .pilot-scene .pilot-steps li { padding-right: 88px; }
-.signup-scarf { position: absolute; z-index: 1; right: -12px; top: -5px; width: 104px; height: auto; max-height: 350px; object-fit: contain; object-position: top; pointer-events: none; user-select: none; }
+.signup-scarf { position: absolute; z-index: 1; right: -12px; top: -18px; width: 104px; height: auto; max-height: 350px; object-fit: contain; object-position: top; pointer-events: none; user-select: none; }
 .form-container { padding: 32px; }
 .faq-section { display: block; padding-block: 66px 100px; }
 .faq-section > .faq-intro { text-align: center; padding: 0; margin-bottom: 35px; }
@@ -449,7 +449,7 @@ h3 { font-weight: 600; }
   .pilot-steps li { padding: 19px; }
   .pilot-scene { margin-top: 25px; }
   .pilot-scene .pilot-steps li { padding-right: 74px; }
-  .signup-scarf { width: 76px; right: 0; top: -3px; max-height: 260px; }
+  .signup-scarf { width: 76px; right: 0; top: -15px; max-height: 260px; }
   .form-container { padding: 25px 21px; }
   .faq-section { padding-block: 35px 65px; }
   .faq-list [data-slot="accordion-trigger"] { padding: 18px 20px; }
