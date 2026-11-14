@@ -1,5 +1,15 @@
 # Визуальные материалы
 
+## signup-scarf-soft — мягкая версия декоративного шарфа
+
+Текущий файл: `public/images/signup-scarf-soft.webp` (400 × 1200, около 45 КиБ, альфа сохранена).
+Исходник правки: `work/original-assets/signup-scarf-soft.png`. Встроенный ImageGen отредактировал прежний `work/original-assets/signup-scarf.png`.
+Ткань стала тоньше, оттенок светлее и спокойнее, складки — свободнее. На сайте уменьшен размер, высота определяется пропорциями самого изображения. Предыдущий вариант сохранён отдельно.
+
+Полный промпт:
+
+> Use case: precise-object-edit / background-extraction. Edit target: supplied isolated long rust-red scarf. Preserve the concept of a single scarf cascading beside signup cards and preserve genuinely transparent background, entire object inside a tall 1:3 canvas. Change fabric and gravity substantially: replace the heavy wool with very fine lightweight soft cashmere/viscose gauze, muted dusty terracotta / warm rose-clay (roughly #b98370), visibly less saturated and much lighter than the input. Natural gentle drape under gravity, mostly vertical with only ONE shallow loose bend, small soft fold resting at top instead of a rigid hooked arch, thin narrow textile, soft edges, delicate short fine fringe, subtle broad shallow folds and low contrast soft daylight. It must feel light and supple, not twisted, not a corkscrew, not a sculpted rigid S, not bulky fleece. Long calm graceful silhouette with a little air at bottom, no wind or floating motion. Preserve transparent pixels outside the scarf; no background square, no checkerboard, no supporting card, no hand, no hanger, no text, no logos, no shadow on imaginary background. One scarf only. This is a subtle decorative element, not the main subject of a webpage.
+
 ## chat-outfit и signup-scarf
 
 Созданы встроенным ImageGen как новые изображения.
