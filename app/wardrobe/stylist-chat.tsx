@@ -26,16 +26,16 @@ export default function StylistChat() {
         <ol className="stylist-chat-messages">
           <li className="stylist-chat-user">
             <span className="stylist-chat-speaker">Вы</span>
-            <p>Еду на три дня: прогулки и ужин с друзьями. Обещают +12° и дождь. Что взять из моих вещей?</p>
+            <p>Еду в Петербург на три дня: прогулки и ужин с друзьями. Что взять из моих вещей?</p>
           </li>
           <li className="stylist-chat-answer">
             <span className="stylist-chat-speaker">ИИ-стилист</span>
-            <p>Возьмите белую футболку, тёмные брюки и удобные кеды. Добавьте жакет для ужина и плащ для дождя. Эти вещи сочетаются между собой — получится капсула на поездку.</p>
+            <p>Прогноз на поездку — +12° и дождь. Возьмите белую футболку, тёмные брюки и кеды. Жакет — для ужина, плащ — от дождя. Из этих вещей получится несколько сочетаний.</p>
             <button ref={outfitOpener} type="button" className="stylist-chat-outfit" onClick={openOutfit} aria-haspopup="dialog" aria-controls={outfitDialogId}>
               <img src="/images/chat-outfit.webp" width={1024} height={1536} alt="" loading="lazy" />
               <span><strong>Образ для поездки</strong><span>Нажмите, чтобы рассмотреть</span><span className="stylist-chat-outfit-action" aria-hidden="true">Открыть образ ↗</span></span>
             </button>
-            <span className="stylist-chat-context">Капсула из вашего гардероба</span>
+            <span className="stylist-chat-context">Погода учтена автоматически · вещи из вашего гардероба</span>
           </li>
         </ol>
       </div>

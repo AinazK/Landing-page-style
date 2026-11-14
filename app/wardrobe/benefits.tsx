@@ -19,7 +19,7 @@ export default function WardrobeBenefits() {
         <small>Одна капсула. Несколько сочетаний.</small>
       </div>
       <h3>Капсула для поездки</h3>
-      <p>Расскажите, куда едете и что планируете. Соберём сочетающиеся вещи под поездку, погоду и поводы.</p>
+      <p>Расскажите, куда едете и что планируете. Прогноз получим автоматически и учтём при создании капсулы.</p>
     </article>
     <article className="benefit-card">
       <div className="benefit-preview saved-preview" aria-label="Пример сохранённого сочетания">
