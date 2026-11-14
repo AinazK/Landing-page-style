@@ -165,15 +165,19 @@ export default function Landing() {
       </section>
 
       <section ref={joinRef} className="join-section wrap" id="join" aria-labelledby="join-heading">
-        <div className="join-copy"><span className="eyebrow">Закрытое тестирование</span><h2 id="join-heading">Попробуйте <span className="brand-name">ИИ-стилиста</span></h2><p>Оставьте контакт для приглашения в пилот. Нам важны ваши привычки и обратная связь.</p>
-          <div className="pilot-scene">
-          <ol className="pilot-steps">
-            <li><span>1</span><div><strong>Оставьте заявку</strong><p>Достаточно имени, возрастной группы и Telegram.</p></div></li>
-            <li><span>2</span><div><strong>Обсудите участие</strong><p>Расскажем об условиях и пришлём ссылку на сервис.</p></div></li>
-            <li><span>3</span><div><strong>Попробуйте на своих вещах</strong><p>Соберите гардероб в браузере и поделитесь впечатлениями.</p></div></li>
-          </ol>
-          <img className="signup-scarf" src="/images/signup-scarf.webp" width={480} height={1440} loading="lazy" alt="" aria-hidden="true" />
+        <div className="pilot-invitation">
+          <div className="invitation-topline">
+            <span className="invitation-label">Приглашение к знакомству</span>
+            <span className="pilot-seal">Закрытый<br />пилот</span>
           </div>
+          <h2 id="join-heading">Попробуйте<br /><span className="brand-name">ИИ-стилиста</span> первыми</h2>
+          <p className="invitation-lead">Помогите сделать подбор одежды удобнее — на&nbsp;примере вашего гардероба.</p>
+          <ol className="invitation-steps">
+            <li><span aria-hidden="true">01</span><div><strong>Оставьте заявку</strong><p>Имя, возрастная группа и Telegram.</p></div></li>
+            <li><span aria-hidden="true">02</span><div><strong>Познакомимся</strong><p>Расскажем об условиях и согласуем участие.</p></div></li>
+            <li><span aria-hidden="true">03</span><div><strong>Попробуйте на своих вещах</strong><p>После приглашения соберите гардероб в браузере и поделитесь впечатлениями.</p></div></li>
+          </ol>
+          <p className="invitation-note"><span aria-hidden="true" />Дату начала пилота сообщим в Telegram.</p>
         </div>
         <div className="form-container"><BetaForm /></div>
       </section>
