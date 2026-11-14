@@ -4,7 +4,7 @@ export default function StylistChat() {
       <div className="stylist-chat-copy">
         <span className="stylist-chat-kicker">ИИ-стилист рядом</span>
         <h2 id="stylist-chat-heading">Не знаете, что надеть?<br /><span>Спросите стилиста.</span></h2>
-        <p>Объясните задачу своими словами. Чат поможет разобраться в сочетаниях из вашего гардероба.</p>
+        <p>Спросите про образ на вечер или капсулу для поездки. Чат поможет выбрать сочетающиеся вещи из вашего гардероба.</p>
         <span className="stylist-chat-note">Готовим для веб-приложения</span>
       </div>
 
@@ -13,12 +13,12 @@ export default function StylistChat() {
         <ol className="stylist-chat-messages">
           <li className="stylist-chat-user">
             <span className="stylist-chat-speaker">Вы</span>
-            <p>После работы иду на ужин. Что надеть из моих вещей?</p>
+            <p>Еду на три дня: прогулки и ужин с друзьями. Обещают +12° и дождь. Что взять из моих вещей?</p>
           </li>
           <li className="stylist-chat-answer">
             <span className="stylist-chat-speaker">ИИ-стилист</span>
-            <p>Белая футболка, тёмные брюки и шоколадный жакет — готовый комплект для ужина. Если вечером прохладно, возьмите плащ. Всё уже есть в вашем гардеробе.</p>
-            <span className="stylist-chat-context">Совет с опорой на ваши вещи</span>
+            <p>Возьмите белую футболку, тёмные брюки и удобные кеды. Добавьте жакет для ужина и плащ для дождя. Эти вещи сочетаются между собой — получится капсула на поездку.</p>
+            <span className="stylist-chat-context">Капсула из вашего гардероба</span>
           </li>
         </ol>
       </div>

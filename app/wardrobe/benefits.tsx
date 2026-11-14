@@ -1,4 +1,4 @@
-import { Bookmark, Sun } from "lucide-react";
+import { Bookmark, CloudRain } from "lucide-react";
 import { GarmentDrawing } from "./garment";
 
 export default function WardrobeBenefits() {
@@ -9,17 +9,17 @@ export default function WardrobeBenefits() {
         <span><GarmentDrawing id="shirt" color="#bac8cf" /><small>Рубашка</small></span>
         <span><GarmentDrawing id="trousers" color="#65665b" /><small>Брюки</small></span>
       </div>
-      <h3>Вещи перед глазами</h3>
-      <p>Соберите гардероб в одном месте. Вспомните даже то, что давно не носили.</p>
+      <h3>Гардероб из фотографии</h3>
+      <p>Загрузите фото на человеке. ИИ автоматически определит категорию, цвет и другие характеристики одежды.</p>
     </article>
     <article className="benefit-card">
-      <div className="benefit-preview plans-preview" aria-label="Пример планов и погоды">
-        <div><span>Ваш день</span><span><Sun size={17} strokeWidth={1.4} aria-hidden="true" /> +11°</span></div>
-        <strong>Встреча <span aria-hidden="true">→</span> Прогулка</strong>
-        <small>Один комплект. Под разные планы.</small>
+      <div className="benefit-preview plans-preview" aria-label="Пример капсулы для поездки на три дня">
+        <div><span>Поездка · 3 дня</span><span><CloudRain size={17} strokeWidth={1.4} aria-hidden="true" /> +12°</span></div>
+        <strong>Прогулки <span aria-hidden="true">+</span> Ужин</strong>
+        <small>Одна капсула. Несколько сочетаний.</small>
       </div>
-      <h3>Сочетания под ваши планы</h3>
-      <p>Из вашей одежды — с учётом погоды, повода и того, в чём вам удобно.</p>
+      <h3>Капсула для поездки</h3>
+      <p>Расскажите, куда едете и что планируете. Соберём сочетающиеся вещи под поездку, погоду и поводы.</p>
     </article>
     <article className="benefit-card">
       <div className="benefit-preview saved-preview" aria-label="Пример сохранённого сочетания">

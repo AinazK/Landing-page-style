@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "ИИ-стилист — больше сочетаний из ваших вещей",
-  description: "Создаём цифровой гардероб и ИИ-стилиста для подбора одежды под погоду, планы и предпочтения. Оставьте заявку в закрытое тестирование веб-приложения.",
+  description: "ИИ-стилист: автоматическое распознавание одежды по фото на человеке, цифровой гардероб, капсулы для поездок и чат со стилистом. Веб-приложение в разработке.",
   metadataBase: new URL("https://ai-stylist-editorial.abuzzether.chatgpt.site"),
   openGraph: { title: "Ваш гардероб. Больше сочетаний.", description: "Цифровой гардероб и ИИ-стилист. Веб-приложение в разработке. Гардероб прямо в браузере.", locale: "ru_RU", type: "website", images: [{ url: "/images/city-day-hero.webp", width: 1672, height: 941 }] },
   icons: {

@@ -12,10 +12,10 @@ import { track } from "./telemetry";
 const Arrow = () => <ArrowUpRight size={18} strokeWidth={1.5} aria-hidden="true" />;
 const faqs = [
   ["Сервис уже доступен?", "Веб-приложение в разработке. Сейчас собираем первую пилотную группу. О начале тестирования сообщим в Telegram."],
-  ["О чём можно спросить ИИ-стилиста?", "Например: что надеть на ужин после работы, с чем сочетать любимый жакет или как одеться в прохладную погоду. Чат разрабатываем как часть веб-приложения, с опорой на вещи из вашего гардероба."],
+  ["О чём можно спросить ИИ-стилиста?", "Например: что надеть на ужин, с чем сочетать любимый жакет или какую капсулу собрать в поездку. Укажите погоду и планы — советы будут опираться на вещи из вашего гардероба. Чат готовим как часть веб-приложения."],
   ["Нужно что-то устанавливать?", "Планируем доступ через браузер на телефоне и компьютере. Отдельное приложение скачивать не потребуется. Поддерживаемые браузеры уточним перед пилотом."],
   ["Что будет после заявки?", "Команда напишет в Telegram, расскажет об условиях и пришлёт ссылку, когда начнётся тестирование. Точная дата пока не объявлена."],
-  ["Нужно фотографировать весь шкаф?", "Начнём с небольшой подборки любимых вещей. Личные фотографии на этот лендинг загружать не нужно."],
+  ["Как вещи попадут в гардероб?", "Планируем добавление по фотографии на человеке: ИИ автоматически определит категорию, цвет и другие характеристики одежды. Начать можно с нескольких любимых вещей. Сейчас личные фотографии на лендинг загружать не нужно."],
   ["Сколько это стоит?", "Заявка бесплатна. Условия пилота и стоимость будущего сервиса сообщим до начала участия."],
   ["Как изменить или удалить заявку?", "Напишите @DuImaran в Telegram и укажите имя пользователя из анкеты. Команда изменит или удалит заявку и прекратит дальнейшую связь."],
 ];
@@ -121,7 +121,7 @@ export default function Landing() {
     <header className="site-header wrap">
       <a href="#" className="wordmark" aria-label="ИИ-стилист — на главную"><LabelMark /><span>ИИ-стилист</span></a>
       <nav id="mobile-navigation" className={mobileMenu ? "main-nav is-open" : "main-nav"} aria-label="Основная навигация">
-        <a href="#how" onClick={() => setMobileMenu(false)}>Как работает</a><a href="#wardrobe-lab" onClick={() => setMobileMenu(false)}>Пример дня</a><a href="#stylist-chat" onClick={() => setMobileMenu(false)}>ИИ-чат</a><a href="#project" onClick={() => setMobileMenu(false)}>О проекте</a>
+        <a href="#how" onClick={() => setMobileMenu(false)}>Как работает</a><a href="#stylist-chat" onClick={() => setMobileMenu(false)}>ИИ-чат</a><a href="#wardrobe-lab" onClick={() => setMobileMenu(false)}>Капсулы</a><a href="#project" onClick={() => setMobileMenu(false)}>О проекте</a>
       </nav>
       <a className="header-cta" href="#join">Оставить заявку <Arrow /></a>
       <button className="menu-toggle icon-button" aria-label={mobileMenu ? "Закрыть меню" : "Открыть меню"} aria-expanded={mobileMenu} aria-controls="mobile-navigation" onClick={() => setMobileMenu(!mobileMenu)}>{mobileMenu ? <X size={23} /> : <Menu size={23} />}</button>
@@ -134,8 +134,8 @@ export default function Landing() {
         <div className="hero-content wrap"><div className="hero-copy">
           <div className="launch-label"><span />Веб-приложение в разработке</div>
           <h1 id="hero-heading">Ваш гардероб.<br /><span>Больше сочетаний.</span></h1>
-          <p className="hero-description">Создаём веб-гардероб и чат со стилистом: сочетания из ваших вещей — под погоду, планы и личные предпочтения.</p>
-          <div className="hero-actions"><a className="button button-dark" href="#join">Записаться в тестирование <Arrow /></a><a className="hero-secondary" href="#wardrobe-lab">Посмотреть пример</a></div>
+          <p className="hero-description">Создаём веб-гардероб по фото на человеке: распознавание вещей, капсулы для поездок и советы ИИ-стилиста в чате.</p>
+          <div className="hero-actions"><a className="button button-dark" href="#join">Записаться в тестирование <Arrow /></a><a className="hero-secondary" href="#stylist-chat">Как помогает чат</a></div>
         </div></div>
         <p className="hero-caption wrap">Визуальная концепция ИИ-стилиста</p>
       </section>
@@ -144,11 +144,11 @@ export default function Landing() {
         <img className="intro-fabric" src="/images/linen-edge.webp" width={1672} height={941} loading="lazy" alt="" aria-hidden="true" />
         <div className="wrap"><div className="intro-grid"><div><span className="eyebrow">Что даст ИИ-стилист</span><h2 id="how-heading">Ваши вещи.<br />Готовые сочетания.</h2></div><p className="intro-text">Чтобы выбирать, что надеть, было проще.</p></div>
         <WardrobeBenefits />
-        <p className="development-note">Так будет устроено веб-приложение. Сейчас готовим первую версию.</p></div>
+        <p className="development-note">Распознавание, капсулы и чат готовим для веб-приложения.</p></div>
       </section>
 
-      <WardrobeLab />
       <StylistChat />
+      <WardrobeLab />
 
       <section className="project-section wrap" id="project" aria-labelledby="project-heading">
         <div className="project-grid">
@@ -158,7 +158,7 @@ export default function Landing() {
           </div>
           <div className="project-progress">
             <article className="development-tag"><span className="tag-eyelet" aria-hidden="true" /><div><span className="eyebrow"><span className="tag-serial">01</span>Уже в прототипе</span><h3>Фотографии вещей</h3><p>Добавление и сохранение вашего гардероба.</p></div></article>
-            <article className="development-tag"><span className="tag-eyelet" aria-hidden="true" /><div><span className="eyebrow"><span className="tag-serial">02</span>Сейчас делаем</span><h3>Подбор и чат со стилистом</h3><p>Сочетания и советы с опорой на ваши вещи.</p></div></article>
+            <article className="development-tag"><span className="tag-eyelet" aria-hidden="true" /><div><span className="eyebrow"><span className="tag-serial">02</span>Сейчас делаем</span><h3>Подбор и чат со стилистом</h3><p>Распознавание вещей по фото и капсулы для поездок.</p></div></article>
             <article className="development-tag"><span className="tag-eyelet" aria-hidden="true" /><div><span className="eyebrow"><span className="tag-serial">03</span>Дальше — пилот</span><h3>Тестирование вместе с вами</h3><p>Первые гардеробы, впечатления и улучшения.</p></div></article>
           </div>
         </div>
@@ -184,7 +184,7 @@ export default function Landing() {
     <footer className="site-footer"><div className="wrap">
       <div className="footer-grid">
         <div className="footer-about"><a className="wordmark" href="#"><LabelMark /><span>ИИ-стилист</span></a><p>Цифровой гардероб и подбор сочетаний из ваших вещей. Веб-приложение в разработке.</p></div>
-        <nav className="footer-column" aria-label="Навигация внизу страницы"><h3>Проект</h3><a href="#how">Как работает</a><a href="#wardrobe-lab">Пример дня</a><a href="#stylist-chat">Чат со стилистом</a><a href="#project">Команда и разработка</a><a href="#faq">Вопросы и ответы</a></nav>
+        <nav className="footer-column" aria-label="Навигация внизу страницы"><h3>Проект</h3><a href="#how">Как работает</a><a href="#stylist-chat">Чат со стилистом</a><a href="#wardrobe-lab">Капсулы</a><a href="#project">Команда и разработка</a><a href="#faq">Вопросы и ответы</a></nav>
         <div className="footer-column"><h3>Тестирование</h3><p>Собираем заявки в первую пилотную группу. Дату и условия участия сообщим лично.</p><a href="#join">Оставить заявку <Arrow /></a></div>
         <div className="footer-column"><h3>Связь с командой</h3><a href="https://t.me/DuImaran" target="_blank" rel="noreferrer">Telegram: @DuImaran <Arrow /></a><p>Вопросы о проекте, участии, изменении или удалении заявки.</p></div>
       </div>
