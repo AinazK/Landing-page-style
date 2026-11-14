@@ -1,5 +1,16 @@
 # Визуальные материалы
 
+## linen-edge — ткань с естественным прозрачным краем
+
+Отредактирован встроенным ImageGen по исходнику `work/original-assets/linen-background.png`.
+Новый PNG: `public/images/linen-edge.png` (1672 × 941, RGBA). Локальная копия: `work/original-assets/linen-edge.png`.
+Для сайта используется `public/images/linen-edge.webp` (около 205 КиБ) с сохранённой прозрачностью. PNG сохранён отдельно как редактируемый материал.
+Край вырезан в самом изображении; CSS не имитирует его волной. Нижняя область действительно прозрачная, а граница идёт вдоль складки. При проверке нижняя непрозрачная точка в разных столбцах находилась на высотах 738–872 пикселя.
+
+Полный промпт правки:
+
+> Use case: background-extraction / precise-object-edit. Edit target: the supplied ivory linen photograph used as a website section backdrop. Preserve the upper 65 percent of the image, the fine natural weave, its warm ivory palette, lighting, left draped folds and quiet central space. Change ONLY the bottom silhouette: make the photographed linen a single full-width draped cloth with a real exposed lower fabric edge, gently undulating along the existing broad folds, and REMOVE everything below that physical edge to real alpha transparency. The cloth should occupy the top 75-90 percent of the canvas, flush to the full top edge and side edges; bottom 10-25 percent is completely transparent. Bottom silhouette roughly flows from 82 percent height at left, gently up to 74 percent around left-center, down to 90 percent at center-right, then up to 76 percent at far right, naturally following the fold geometry. Preserve subtle woven fibers at the edge, but no torn paper scallops, no huge fringe, no hard rectangular crop, no geometric sinewave or white fade. Slight soft drape shadow attached to fabric is fine. Broad usable opaque center for dark text placed later in code. Same landscape 16:9 composition. Output a genuine RGBA PNG with transparent bottom; NOT a baked checkerboard, not a solid-colored replacement background. No text, no new objects, no graphic shapes.
+
 ## linen-background — фон секции «Как это будет работать»
 
 Файл: `public/images/linen-background.webp` (1672 × 941, около 151 КиБ).

@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { ArrowUpRight, Camera, CalendarDays, Layers2, Check, ChevronDown, Menu, Plus, X } from "lucide-react";
+import { ArrowUpRight, Check, ChevronDown, Menu, Plus, X } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import WardrobeLab from "./wardrobe/lab";
+import WardrobeBenefits from "./wardrobe/benefits";
 import { LabelMark } from "./wardrobe/garment";
 import { track } from "./telemetry";
 
@@ -138,10 +139,9 @@ export default function Landing() {
       </section>
 
       <section className="intro-section" id="how" aria-labelledby="how-heading">
-        <div className="wrap"><div className="intro-grid"><div><span className="eyebrow">Как это будет работать</span><h2 id="how-heading">Начните с того,<br />что уже носите</h2></div><p className="intro-text">Несколько любимых вещей — для первых сочетаний.</p></div>
-        <div className="steps">
-          {[{ n: "01", icon: Camera, title: "Добавьте вещи", text: "Сфотографируйте любимые вещи и соберите цифровой гардероб." }, { n: "02", icon: CalendarDays, title: "Расскажите о планах", text: "Укажите повод и погоду. Остальное подстроим под ваш день." }, { n: "03", icon: Layers2, title: "Получите сочетания", text: "Сохраняйте образы из своих вещей и отмечайте понравившиеся." }].map(step => <article className="step" key={step.n}><div className="step-topline"><span className="step-number">{step.n}</span><step.icon size={29} strokeWidth={1.3} aria-hidden="true" /></div><h3>{step.title}</h3><p>{step.text}</p></article>)}
-        </div>
+        <img className="intro-fabric" src="/images/linen-edge.webp" width={1672} height={941} loading="lazy" alt="" aria-hidden="true" />
+        <div className="wrap"><div className="intro-grid"><div><span className="eyebrow">Что даст ИИ-стилист</span><h2 id="how-heading">Ваши вещи.<br />Готовые сочетания.</h2></div><p className="intro-text">Чтобы выбирать, что надеть, было проще.</p></div>
+        <WardrobeBenefits />
         <p className="development-note">Так будет устроено веб-приложение. Сейчас готовим первую версию.</p></div>
       </section>
 
@@ -154,9 +154,9 @@ export default function Landing() {
             <a href="https://t.me/DuImaran" target="_blank" rel="noreferrer" className="text-link">Связаться с командой <Arrow /></a>
           </div>
           <div className="project-progress">
-            <article><span className="progress-dot complete" /><div><span className="eyebrow">Проверено в прототипе</span><h3>Загрузка фотографий</h3><p>Загрузка и сохранение снимков вещей.</p></div></article>
-            <article><span className="progress-dot current" /><div><span className="eyebrow">В разработке</span><h3>Распознавание одежды</h3><p>Определение типа и характеристик вещей.</p></div></article>
-            <article><span className="progress-dot" /><div><span className="eyebrow">Следующий этап</span><h3>Проверка с участниками</h3><p>Первые гардеробы и обратная связь.</p></div></article>
+            <article className="development-tag"><span className="tag-eyelet" aria-hidden="true" /><div><span className="eyebrow"><span className="tag-serial">01</span>Проверено в прототипе</span><h3>Вещи можно добавить</h3><p>Загрузка и сохранение фотографий.</p></div></article>
+            <article className="development-tag"><span className="tag-eyelet" aria-hidden="true" /><div><span className="eyebrow"><span className="tag-serial">02</span>В разработке</span><h3>Учимся узнавать одежду</h3><p>Тип, цвет и особенности каждой вещи.</p></div></article>
+            <article className="development-tag"><span className="tag-eyelet" aria-hidden="true" /><div><span className="eyebrow"><span className="tag-serial">03</span>Следующий этап</span><h3>Проверим на ваших гардеробах</h3><p>Первые участники и честная обратная связь.</p></div></article>
           </div>
         </div>
       </section>
@@ -173,7 +173,7 @@ export default function Landing() {
       </section>
 
       <section className="faq-section wrap" id="faq" aria-labelledby="faq-heading">
-        <div className="faq-intro"><span className="eyebrow">Вопросы и ответы</span><h2 id="faq-heading">Что важно знать</h2></div>
+        <div className="faq-intro"><span className="eyebrow">Вопросы и ответы</span><h2 id="faq-heading">Перед первым знакомством</h2></div>
         <Accordion type="single" collapsible className="faq-list">{faqs.map(([question, answer], index) => <AccordionItem key={question} value={`question-${index}`}><AccordionTrigger>{question}</AccordionTrigger><AccordionContent><p>{answer}</p></AccordionContent></AccordionItem>)}</Accordion>
       </section>
     </main>

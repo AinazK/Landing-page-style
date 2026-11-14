@@ -58,6 +58,18 @@
 .example-stages h3 { min-height: 0; margin-top: 24px; }
 .example-stages article > p { max-width: 270px; margin-block: 22px 6px; }
 .example-caption { margin-top: 28px; }
+.day-composition { display: grid; grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); gap: 54px; align-items: center; padding-block: 10px 15px; }
+.day-base { padding: 28px; background: #f9f8f3; border-radius: 50% 50% 12px 12px / 25% 25% 12px 12px; text-align: center; }
+.day-base > .eyebrow { margin-top: 12px; font-size: 11px; }
+.day-garments { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); align-items: center; gap: 8px; margin-block: 21px 16px; }
+.day-garments .garment-drawing { width: 100%; height: 140px; max-width: 122px; margin-inline: auto; }
+.day-base > p { font-size: 11px; color: var(--muted); line-height: 1.8; }
+.day-changes h3 { font-size: 26px; line-height: 1.25; letter-spacing: -.7px; font-weight: 500; margin-bottom: 27px; }
+.day-changes ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 24px; }
+.day-changes li { display: grid; grid-template-columns: 43px minmax(0,1fr); gap: 15px; align-items: baseline; }
+.day-changes time { font-size: 10px; color: var(--muted); }
+.day-changes strong { font-size: 13px; font-weight: 500; }
+.day-changes p { margin-top: 5px; font-size: 12px; line-height: 1.75; color: var(--muted); }
 @media (max-width: 860px) {
   .lab-section { padding-block: 58px 0; }
   .example-heading > div { text-align: right; }
@@ -66,4 +78,10 @@
   .example-stages { gap: 16px; }
   .example-stages article { padding: 26px; }
   .example-stages article > p { max-width: none; margin-top: 17px; }
+  .day-composition { grid-template-columns: minmax(0,1fr); gap: 31px; }
+  .day-base { padding: 26px 20px; }
+  .day-garments .garment-drawing { height: 115px; }
+  .day-changes h3 { font-size: 25px; }
+  .day-changes ol { gap: 23px; }
+  .day-changes p { font-size: 13px; }
 }

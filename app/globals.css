@@ -335,7 +335,8 @@ h3 { font-weight: 600; }
 @media (max-width: 380px) { .footer-grid { grid-template-columns: minmax(0,1fr); } }
 
 /* Spacious compositions: tactile opening, alternating headings, quiet text. */
-.intro-section { padding-block: 88px 92px; background: linear-gradient(#faf9f54a,#faf9f57a), url('/images/linen-background.webp') center / cover; }
+.intro-section { position: relative; isolation: isolate; padding-block: 88px 170px; background: #eeefe9; }
+.intro-fabric { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; object-fit: fill; pointer-events: none; }
 .intro-grid { display: block; text-align: center; }
 .intro-grid h2 { max-width: 630px; margin: 12px auto 0; }
 .intro-text { max-width: 520px; margin: 20px auto 0; }
@@ -369,9 +370,58 @@ h3 { font-weight: 600; }
 .team-credits .team-avatar { display: grid; place-items: center; width: 64px; height: 64px; margin-bottom: 17px; border-radius: 50%; background: #e6eade; color: #4c5849; font-size: 20px; font-weight: 500; letter-spacing: -.5px; }
 .join-copy h2 { max-width: none; font-size: clamp(25px,2.4vw,32px); }
 .brand-name { white-space: nowrap; }
+
+/* Each benefit includes one small, illustrative result rather than a process icon. */
+.benefit-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 22px; margin-top: 42px; }
+.benefit-card { padding: 23px; border-radius: 14px; background: #fffdf9f0; min-width: 0; }
+.benefit-card h3 { font-size: 17px; line-height: 1.4; letter-spacing: -.35px; margin-top: 23px; }
+.benefit-card > p { font-size: 12px; line-height: 1.85; color: var(--muted); margin-top: 11px; max-width: 280px; }
+.benefit-preview { height: 116px; border-radius: 9px; background: #efeee7; }
+.wardrobe-preview { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; padding: 12px; }
+.wardrobe-preview > span { display: flex; flex-direction: column; align-items: center; min-width: 0; }
+.wardrobe-preview .garment-drawing { width: 52px; height: 65px; }
+.wardrobe-preview small { font-size: 8px; margin-top: 5px; color: var(--muted); }
+.plans-preview { padding: 17px; }
+.plans-preview > div { display: flex; justify-content: space-between; gap: 10px; font-size: 9px; color: var(--muted); }
+.plans-preview > div > span:last-child { display: inline-flex; gap: 6px; align-items: center; }
+.plans-preview > strong { display: block; font-size: 13px; font-weight: 500; margin-top: 13px; white-space: nowrap; }
+.plans-preview > strong > span { padding-inline: 7px; color: var(--muted); }
+.plans-preview > small { display: block; font-size: 8px; color: var(--muted); margin-top: 7px; }
+.saved-preview { display: flex; align-items: center; justify-content: center; gap: 13px; padding: 15px; }
+.saved-garments { display: flex; align-items: center; width: 91px; flex-shrink: 0; }
+.saved-garments .garment-drawing { width: 61px; height: 80px; flex-shrink: 0; }
+.saved-garments .garment-drawing + .garment-drawing { margin-left: -28px; transform: translateY(8px); }
+.saved-preview > div:last-child > svg { color: var(--muted); margin-bottom: 9px; }
+.saved-preview > div:last-child { min-width: 0; }
+.saved-preview strong { display: block; font-size: 11px; font-weight: 500; }
+.saved-preview small { display: block; font-size: 8px; color: var(--muted); margin-top: 5px; }
+
+/* Small punched holes give the development notes the character of garment labels. */
+.project-progress article.development-tag { position: relative; padding: 23px 24px 23px 58px; border-radius: 5px 13px 13px 5px; background: #f5f2ea; }
+.tag-eyelet { position: absolute; width: 13px; height: 13px; border: 1px solid #b9b9ab; border-radius: 50%; background: var(--paper); left: 22px; top: 28px; box-shadow: inset 0 0 0 3px #e5e3da; }
+.project-progress .eyebrow { display: flex; gap: 10px; align-items: center; }
+.tag-serial { font-size: 9px; letter-spacing: 1px; opacity: .7; }
+.development-tag h3 { max-width: 330px; }
+
+/* Chrome autofill uses the same surface as untouched fields; keyboard focus stays visible. */
+.beta-form { --field-bg: #f1f3ed; }
+.beta-form input:not([type="checkbox"]), .beta-form select { background: var(--field-bg); }
+.beta-form input:-webkit-autofill,
+.beta-form input:-webkit-autofill:hover,
+.beta-form input:-webkit-autofill:focus,
+.beta-form input:-webkit-autofill:active { -webkit-box-shadow: 0 0 0 1000px var(--field-bg) inset; box-shadow: 0 0 0 1000px var(--field-bg) inset; -webkit-text-fill-color: var(--ink); caret-color: var(--ink); }
+.beta-form input:autofill { box-shadow: 0 0 0 1000px var(--field-bg) inset; color: var(--ink); }
+
 @media (min-width: 861px) { .join-copy h2 { white-space: nowrap; } }
 @media (max-width: 860px) {
-  .intro-section { padding-block: 58px 62px; }
+  .intro-section { padding-block: 58px 140px; }
+  .benefit-grid { grid-template-columns: minmax(0,1fr); gap: 17px; margin-top: 30px; }
+  .benefit-card { padding: 23px; }
+  .benefit-card > p { max-width: none; font-size: 13px; }
+  .benefit-preview { max-width: 380px; }
+  .benefit-card h3 { font-size: 19px; }
+  .project-progress article.development-tag { padding: 24px 22px 24px 52px; }
+  .tag-eyelet { left: 19px; top: 28px; }
   .steps { margin-top: 31px; gap: 15px; }
   .step, .step:nth-child(2), .step:nth-child(3) { padding: 25px; }
   .step p { max-width: none; }

@@ -1,3 +1,5 @@
+import { GarmentDrawing } from "./garment";
+
 export default function WardrobeLab() {
   return (
     <section className="lab-section" id="wardrobe-lab" aria-labelledby="lab-heading">
@@ -6,13 +8,22 @@ export default function WardrobeLab() {
       </div>
 
       <div className="wrap">
-        <div className="example-stages">
-          <article><div className="example-time"><span>Утро</span><time>09:00</time></div><h3>Рабочая встреча</h3><p>Футболка, брюки, кеды и жакет — основа на весь день.</p></article>
-          <article><div className="example-time"><span>День</span><time>14:00</time></div><h3>Прогулка по городу</h3><p>Стало прохладнее — добавьте плащ и шарф.</p></article>
-          <article><div className="example-time"><span>Вечер</span><time>19:00</time></div><h3>Ужин с друзьями</h3><p>Снимите верхние слои. Знакомый комплект готов к вечеру.</p></article>
+        <div className="day-composition">
+          <div className="day-base">
+            <span className="eyebrow">Основа остаётся с вами</span>
+            <div className="day-garments"><GarmentDrawing id="tee" color="#eee9dd" /><GarmentDrawing id="trousers" color="#65665b" /><GarmentDrawing id="sneakers" color="#ddd9cb" /></div>
+            <p>Футболка, брюки и удобные кеды.</p>
+          </div>
+          <div className="day-changes">
+            <h3>Меняются планы —<br />не весь комплект.</h3>
+            <ol>
+              <li><time>09:00</time><div><strong>На встречу</strong><p>Добавьте жакет — образ собран.</p></div></li>
+              <li><time>14:00</time><div><strong>На прогулку</strong><p>Стало прохладно? Возьмите плащ и шарф.</p></div></li>
+              <li><time>19:00</time><div><strong>На ужин</strong><p>Снимите верхний слой. Вы уже готовы.</p></div></li>
+            </ol>
+          </div>
         </div>
-
-        <p className="example-caption">Пример на готовом гардеробе. Персональный подбор разрабатываем для веб-приложения.</p>
+        <p className="example-caption">Иллюстрация идеи на готовом гардеробе. Персональный подбор — в разработке.</p>
       </div>
 
       <figure className="wardrobe-panorama">
