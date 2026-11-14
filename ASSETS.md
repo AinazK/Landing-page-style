@@ -1,5 +1,24 @@
 # Визуальные материалы
 
+## lofi — одежда в стиле скетчбука стилиста
+
+Созданы встроенным ImageGen, пять отдельных изображений с настоящим прозрачным фоном.
+В проекте: `public/images/lofi/tee.webp`, `shirt.webp`, `trousers.webp`, `blazer.webp`, `sneakers.webp` (до 512 × 512, примерно 55–78 КиБ каждый).
+Исходники: `work/original-assets/lofi-tee.png`, `lofi-shirt.png`, `lofi-trousers.png`, `lofi-blazer.png`, `lofi-sneakers.png`.
+Используются во всех иллюстративных превью гардероба и в примере дня. Размер и формат уменьшены без изменения композиции; альфа сохранена.
+
+Общий промпт для каждого изображения:
+
+> Asset type: one transparent clothing illustration for a lo-fi digital wardrobe website. Style: warm fashion sketchbook, loose colored pencil and wax pastel over visible fibrous paper texture INSIDE the garment, slightly imperfect charcoal contour, tactile hand-cut collage feeling, quiet sophisticated adult editorial style, friendly and human, NOT flat vector or technical CAD drawing, not childish cartoon, no glossy 3D. One single clothing item centered, comfortably within canvas with equal transparent margins. Front or readable three-quarter view. Simple silhouette with a few expressive seam/fold marks; rich tactile texture at small size. Genuine transparent alpha background outside the garment. No surrounding paper square, no floor, no background, no cast shadow, no text, no labels, no logo, no border, no sparkles, no extra objects. Square composition.
+
+К общему промпту добавлялся один соответствующий Subject:
+
+- `tee`: A relaxed ivory cotton T-shirt, front view, warm cream body with a tiny brick red seam accent at the hem, short sleeves, softly wrinkled. Whole garment including sleeves visible.
+- `shirt`: A casual dusty sky-blue button shirt, front view, sleeves casually folded, muted blue body with a few graphite seam lines, one small warm rust button detail. Whole shirt visible.
+- `trousers`: A pair of graphite wide straight-leg trousers, front view, complete waistband and both long trouser legs visible, muted charcoal and warm grey pencil texture, tiny warm red stitched label at waistband.
+- `blazer`: A relaxed chocolate-brown blazer, front view, whole sleeves and hem visible, one expressive lapel and a small brick red lining detail, warm brown pencil and paper texture.
+- `sneakers`: A matching pair of low-top ivory sneakers viewed in a readable three-quarter angle, soft beige soles, a little brick red heel tab and tiny red stitch, both complete shoes visible, casual worn-in feel, no brands.
+
 ## linen-edge — ткань с естественным прозрачным краем
 
 Отредактирован встроенным ImageGen по исходнику `work/original-assets/linen-background.png`.
