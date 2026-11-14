@@ -1,5 +1,20 @@
 # Визуальные материалы
 
+## chat-outfit и signup-scarf
+
+Созданы встроенным ImageGen как новые изображения.
+
+- `public/images/chat-outfit.webp` — 1024 × 1536, около 184 КиБ. Иллюстративное фото полного образа для вложения в чате; миниатюра открывает тот же файл крупно. Исходник: `work/original-assets/chat-outfit.png`.
+- `public/images/signup-scarf.webp` — 480 × 1440, около 129 КиБ, с прозрачностью. Декоративный шарф у края карточек участия, не получает фокус и не перехватывает нажатия. Исходник: `work/original-assets/signup-scarf.png` (724 × 2172).
+
+Промпт `chat-outfit`:
+
+> Use case: photorealistic-natural. Asset type: full-size outfit photo sent in an illustrative AI stylist chat on a Russian digital wardrobe landing. Create a tall portrait 2:3 fashion editorial photograph, full body including complete shoes and generous margin above head. One adult woman around 30 with natural shoulder-length dark hair and an ordinary relaxed body, confidently standing on a quiet pale stone city sidewalk after light rain. Wear EXACTLY a plain white cotton T-shirt, relaxed chocolate-brown blazer, charcoal straight-leg trousers and minimal ivory low-top sneakers. A simple taupe trench coat draped over one forearm as an extra layer for travel. Natural candid pose, slight smile, no dramatic runway pose. Soft overcast daylight, tactile honest fabric, muted warm film character. Outfit is the focus, whole silhouette readable on a phone. Minimal uncluttered warm grey urban background, no other people, no shops or signs. No visible brands, no logo, no text, no typography, no UI, no collage, no watermark. Refined and realistic, not glossy or plastic. Opaque photographic background.
+
+Промпт `signup-scarf`:
+
+> Use case: product-mockup / background-extraction. Asset type: single decorative scarf cutout for the side of a website signup section. A beautiful long narrow rust-red / burnt vermilion wool scarf, soft natural photographed textile with fine woven fibers and a few gentle creases. The scarf is draped as though its top short end rests over a rounded card corner: small curved hook/fold near top, then one long flowing S-shaped strip cascading vertically down, with one short naturally tasseled end near the bottom. Tall portrait 1:3 composition, entire scarf within canvas, side-to-side width modest, realistic gravity, not a perfect ribbon or flat graphic. Rich but restrained warm red #bd4a31 close to terracotta, subtle folds create depth, soft studio daylight. One single scarf only, suspended on a genuinely transparent alpha background; no card, no hanger, no person, no hand, no table or other supporting object, no floor, no cast background shadow. All pixels outside scarf transparent. No text, no logos, no watermarks, no extra decorative objects.
+
 ## lofi — одежда в стиле скетчбука стилиста
 
 Созданы встроенным ImageGen, пять отдельных изображений с настоящим прозрачным фоном.

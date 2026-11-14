@@ -166,11 +166,14 @@ export default function Landing() {
 
       <section ref={joinRef} className="join-section wrap" id="join" aria-labelledby="join-heading">
         <div className="join-copy"><span className="eyebrow">Закрытое тестирование</span><h2 id="join-heading">Попробуйте <span className="brand-name">ИИ-стилиста</span></h2><p>Оставьте контакт для приглашения в пилот. Нам важны ваши привычки и обратная связь.</p>
+          <div className="pilot-scene">
           <ol className="pilot-steps">
             <li><span>1</span><div><strong>Оставьте заявку</strong><p>Достаточно имени, возрастной группы и Telegram.</p></div></li>
             <li><span>2</span><div><strong>Обсудите участие</strong><p>Расскажем об условиях и пришлём ссылку на сервис.</p></div></li>
             <li><span>3</span><div><strong>Попробуйте на своих вещах</strong><p>Соберите гардероб в браузере и поделитесь впечатлениями.</p></div></li>
           </ol>
+          <img className="signup-scarf" src="/images/signup-scarf.webp" width={480} height={1440} loading="lazy" alt="" aria-hidden="true" />
+          </div>
         </div>
         <div className="form-container"><BetaForm /></div>
       </section>
