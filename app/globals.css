@@ -153,7 +153,7 @@ h3 { font-weight: 600; }
 .faq-list [data-slot="accordion-item"] { border: 0; border-radius: 11px; background: #eef1e9; overflow: hidden; }
 .faq-list [data-slot="accordion-trigger"] { display: flex; align-items: center; justify-content: space-between; gap: 22px; width: 100%; padding: 17px 19px; font: 400 13px/1.65 var(--sans); border: 0; border-radius: 0; background: none; text-align: left; }
 .faq-list [data-slot="accordion-trigger"]:hover { color: var(--accent); text-decoration: none; }
-.faq-list [data-slot="accordion-trigger"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.faq-list [data-slot="accordion-trigger"]:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; }
 .faq-list [data-slot="accordion-trigger"] > svg { color: var(--muted); }
 .faq-list [data-slot="accordion-content"] > div { padding: 0 19px 18px; }
 .faq-list [data-slot="accordion-content"] p { padding: 0; color: var(--muted); font-size: 13px; line-height: 1.85; }
@@ -415,6 +415,7 @@ h3 { font-weight: 600; }
 @media (min-width: 861px) { .join-copy h2 { white-space: nowrap; } }
 @media (max-width: 860px) {
   .intro-section { padding-block: 58px 140px; }
+  .intro-fabric { object-fit: cover; object-position: center bottom; }
   .benefit-grid { grid-template-columns: minmax(0,1fr); gap: 17px; margin-top: 30px; }
   .benefit-card { padding: 23px; }
   .benefit-card > p { max-width: none; font-size: 13px; }
