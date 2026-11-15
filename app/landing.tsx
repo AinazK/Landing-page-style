@@ -159,7 +159,7 @@ export default function Landing() {
             <div className="team-credits">
               <p><span className="team-avatar" aria-hidden="true"><img className="team-photo-ainaz" src="/images/team-ainaz.png" width={640} height={640} loading="lazy" alt="" /></span><span>Айназ Хайруллин</span><small>Веб-приложение и серверная часть</small></p>
               <p><span className="team-avatar" aria-hidden="true"><img className="team-photo-arina" src="/images/team-arina.png" width={1023} height={1021} loading="lazy" alt="" /></span><span>Арина Коваленко</span><small>Обработка фотографий и рекомендации</small></p>
-              <p><span className="team-avatar" aria-hidden="true">АЕ</span><span>Алена Елагина</span><small>Дизайн интерфейса</small></p>
+              <p><span className="team-avatar" aria-hidden="true"><img src="/images/team-alena.png" width={640} height={640} loading="lazy" alt="" /></span><span>Алена Елагина</span><small>Дизайн интерфейса</small></p>
             </div>
             <a href="https://t.me/DuImaran" target="_blank" rel="noreferrer" className="text-link">Связаться с командой <Arrow /></a>
           </div>
@@ -173,17 +173,17 @@ export default function Landing() {
 
       <section ref={joinRef} className="join-section wrap" id="join" aria-labelledby="join-heading">
         <div className="pilot-invitation">
+          <span className="pilot-label">Закрытый пилот</span>
           <div className="invitation-heading">
             <h2 id="join-heading">Попробуйте<br /><span className="brand-name">ИИ-стилиста</span> первыми</h2>
-            <span className="pilot-seal">Закрытый<br />пилот</span>
           </div>
           <p className="invitation-lead">Помогите сделать подбор одежды удобнее — на&nbsp;примере вашего гардероба.</p>
           <ol className="invitation-steps">
-            <li><span aria-hidden="true">01</span><div><strong>Оставьте заявку</strong><p>Имя, возрастная группа и Telegram.</p></div></li>
-            <li><span aria-hidden="true">02</span><div><strong>Познакомимся</strong><p>Расскажем об условиях и согласуем участие.</p></div></li>
-            <li><span aria-hidden="true">03</span><div><strong>Попробуйте на своих вещах</strong><p>После приглашения соберите гардероб и поделитесь впечатлениями.</p></div></li>
+            <li><span aria-hidden="true">01</span><div><strong>Заявка</strong><p>Оставьте контакт для связи.</p></div></li>
+            <li><span aria-hidden="true">02</span><div><strong>Знакомство</strong><p>Обсудим условия участия.</p></div></li>
+            <li><span aria-hidden="true">03</span><div><strong>Ваш гардероб</strong><p>После приглашения — тест на своих вещах.</p></div></li>
           </ol>
-          <p className="invitation-note"><span aria-hidden="true" />Дату начала пилота сообщим в Telegram.</p>
+          <p className="invitation-note">Дату начала пилота сообщим в Telegram.</p>
         </div>
         <div className="form-container"><BetaForm /></div>
       </section>
