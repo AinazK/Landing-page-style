@@ -340,11 +340,10 @@ h3 { font-weight: 600; }
 .join-section { padding-block: 48px 56px; gap: 28px; align-items: stretch; }
 /* One invitation, with the steps printed directly on its paper surface. */
 .pilot-invitation { display: flex; flex-direction: column; min-width: 0; padding: 24px 28px; border-radius: 16px; background: #f1eee5; }
-.invitation-topline { position: relative; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; min-height: 28px; }
-.invitation-label { max-width: 160px; padding-top: 5px; font-size: 10px; line-height: 1.6; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); }
-.pilot-seal { position: absolute; top: 0; right: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; width: 66px; height: 66px; border: 1.5px solid var(--accent); border-radius: 50%; color: var(--accent); font-size: 8px; font-weight: 600; line-height: 1.6; letter-spacing: .6px; text-align: center; text-transform: uppercase; transform: rotate(9deg); }
+.invitation-heading { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: start; gap: 16px; }
+.pilot-seal { position: relative; display: flex; align-items: center; justify-content: center; flex-direction: column; width: 66px; height: 66px; border: 1.5px solid var(--accent); border-radius: 50%; color: var(--accent); font-size: 8px; font-weight: 600; line-height: 1.6; letter-spacing: .6px; text-align: center; text-transform: uppercase; transform: rotate(9deg); }
 .pilot-seal::before { content: ""; position: absolute; inset: 5px; border: 1px solid var(--accent); border-radius: inherit; opacity: .4; }
-.pilot-invitation h2 { margin-top: 10px; font-size: clamp(27px,2.5vw,34px); line-height: 1.18; letter-spacing: -1px; text-wrap: balance; }
+.pilot-invitation h2 { min-width: 0; margin: 0; font-size: clamp(27px,2.5vw,34px); line-height: 1.18; letter-spacing: -1px; text-wrap: balance; }
 .invitation-lead { max-width: 365px; margin-top: 16px; font-size: 14px; line-height: 1.8; color: var(--muted); }
 .invitation-steps { display: grid; gap: 14px; padding: 0; margin: 20px 0 16px; list-style: none; }
 .invitation-steps li { display: grid; grid-template-columns: 27px minmax(0,1fr); gap: 13px; }
@@ -437,7 +436,6 @@ h3 { font-weight: 600; }
   .project-progress article, .project-progress article:last-child { padding: 24px; }
   .join-section { padding-block: 32px 42px; gap: 18px; }
   .pilot-invitation { padding: 22px 24px; }
-  .invitation-topline { min-height: 54px; }
   .pilot-seal { width: 64px; height: 64px; font-size: 8px; }
   .pilot-invitation h2 { max-width: 440px; font-size: clamp(27px,4.6vw,34px); text-wrap: initial; }
   .invitation-lead { max-width: 420px; }
@@ -447,4 +445,9 @@ h3 { font-weight: 600; }
   .form-container { padding: 22px 21px; }
   .faq-section { padding-block: 35px 65px; }
   .faq-list [data-slot="accordion-trigger"] { padding: 18px 20px; }
+}
+@media (max-width: 480px) {
+  .invitation-heading { gap: 12px; }
+  .invitation-heading h2 { font-size: 24px; }
+  .pilot-seal { width: 48px; height: 48px; font-size: 6px; letter-spacing: .3px; }
 }
