@@ -113,3 +113,12 @@
 
 `public/images/team-alena-portrait.jpg` — фотография Алены Елагиной у книжной полки, предоставленная пользователем для замены аватара 15 ноября 2026 года. Оригинал сохранён без изменений, круглое кадрирование и приближение лица выполнены CSS.
 
+## Логотип «Стилистика»
+
+Файл: `public/images/fox-color.png`. Исходный цветной знак с лисой и короной предоставлен пользователем. Фон и края очищены встроенным imagegen, выход PNG с прозрачным alpha. В подвале используется цветной вариант, в шапке этот же знак отображается белым через CSS `brightness(0) invert(1)`. Иконка вкладки использует цветной PNG.
+
+Промпты встроенного imagegen для использованного изображения:
+
+1. Use case: background-extraction. Edit target: supplied red/brown, silver-white crowned fox logo. Produce a faithful clean transparent PNG cutout of THIS EXACT fox and small black crown, preserving shape, proportions, red/brown coloring, white/silver chest and internal negative spaces. Remove only the large white outside background to actual transparency, while keeping the emblem's silver-white inner fur opaque. No redesign, no new details, no text, no shadow, no new gradient, no white square background or checkerboard. Center logo on square canvas tightly framed with about 8 percent transparent padding. Intended small footer website logo. Preserve the exact provided fox, not a new mascot.
+
+2. Edit target: supplied colored crowned fox cutout. FINAL CLEAN LOGO ASSET. Keep its red-brown fox profile, black crown, silver-white chest, pointed ear and sweeping neck shape, proportions, composition and recognizable design. Precisely clean ALL edges into smooth vector-like contours, remove every stray detached speckle, rough fringe, scratch, noisy alpha debris and artifacts around bottom and tail. Interior silver/white fur stays opaque. Outside and intentional negative spaces must be completely transparent alpha. Do not invent details or change design. No halo, no background, no checkerboard, no shadow. Center with 8% transparent padding on square canvas, for a tiny website icon.

@@ -16,7 +16,7 @@ export default function StylistChat() {
   return (
     <section className="stylist-chat-section wrap" id="stylist-chat" aria-labelledby="stylist-chat-heading">
       <div className="stylist-chat-copy">
-        <span className="stylist-chat-kicker">ИИ-стилист рядом</span>
+        <span className="stylist-chat-kicker">Стилистика рядом</span>
         <h2 id="stylist-chat-heading">Не знаете, что надеть?<br /><span>Спросите стилиста</span></h2>
         <p>Спросите про образ на вечер или капсулу для поездки. Чат поможет выбрать сочетающиеся вещи из вашего гардероба.</p>
         <span className="stylist-chat-note">Готовим для веб-приложения</span>
@@ -30,7 +30,7 @@ export default function StylistChat() {
             <p>Еду в Петербург на три дня: прогулки и ужин с друзьями. Что взять из моих вещей?</p>
           </li>
           <li className="stylist-chat-answer">
-            <span className="stylist-chat-speaker">ИИ-стилист</span>
+            <span className="stylist-chat-speaker">Стилистика</span>
             <p>Из вашего гардероба я бы взял за основу белую футболку, тёмные брюки и удобные кеды. Для ужина добавил бы жакет, а на прогулку — плащ: в прогнозе +12° и дождь.</p>
             <button ref={outfitOpener} type="button" className="stylist-chat-outfit" onClick={openOutfit} aria-label="Рассмотреть один из образов для поездки" aria-haspopup="dialog" aria-controls={outfitDialogId}>
               <img src="/images/chat-outfit.webp" width={1024} height={1536} alt="" loading="lazy" />

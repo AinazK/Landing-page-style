@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ИИ-стилист — больше сочетаний из ваших вещей",
-  description: "ИИ-стилист: автоматическое распознавание одежды по фото на человеке, цифровой гардероб, капсулы для поездок и чат со стилистом. Веб-приложение в разработке.",
+  title: "Стилистика — больше сочетаний из ваших вещей",
+  description: "Стилистика: автоматическое распознавание одежды по фото на человеке, цифровой гардероб, капсулы для поездок и чат со стилистом. Веб-приложение в разработке.",
   metadataBase: new URL("https://ai-stylist-editorial.abuzzether.chatgpt.site"),
-  openGraph: { title: "Ваш гардероб. Больше сочетаний.", description: "Цифровой гардероб и ИИ-стилист. Веб-приложение в разработке. Гардероб прямо в браузере.", locale: "ru_RU", type: "website", images: [{ url: "/images/city-day-hero.webp", width: 1672, height: 941 }] },
+  openGraph: { title: "Стилистика — ваш гардероб, больше сочетаний", description: "Стилистика — цифровой гардероб и ИИ-стилист прямо в браузере. Веб-приложение в разработке.", locale: "ru_RU", type: "website", images: [{ url: "/images/city-day-hero.webp", width: 1672, height: 941 }] },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: "/images/fox-color.png",
+    shortcut: "/images/fox-color.png",
   },
 };
 

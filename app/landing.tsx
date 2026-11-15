@@ -6,7 +6,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import WardrobeLab from "./wardrobe/lab";
 import WardrobeBenefits from "./wardrobe/benefits";
 import StylistChat from "./wardrobe/stylist-chat";
-import { LabelMark } from "./wardrobe/garment";
 import { track } from "./telemetry";
 
 const Arrow = () => <ArrowUpRight size={18} strokeWidth={1.5} aria-hidden="true" />;
@@ -28,7 +27,7 @@ function PrivacyDialog({ onClose }: { onClose: () => void }) {
       <button className="dialog-close icon-button" aria-label="Закрыть" onClick={() => ref.current?.close()}><X size={22} /></button>
       <span className="eyebrow">Заявка на тестирование</span>
       <h2 id="privacy-heading">О ваших данных</h2>
-      <p>Команда проекта «ИИ-стилист» сохраняет имя, возрастную группу и Telegram для связи по поводу закрытого тестирования. Если вы укажете пол, телефон или интересующую задачу, эти сведения тоже сохранятся. Пол можно не указывать; его используем для изучения состава пилотной группы.</p>
+      <p>Команда проекта «Стилистика» сохраняет имя, возрастную группу и Telegram для связи по поводу закрытого тестирования. Если вы укажете пол, телефон или интересующую задачу, эти сведения тоже сохранятся. Пол можно не указывать; его используем для изучения состава пилотной группы.</p>
       <p>Фотографии посетителей на лендинг не загружаются. Данные заявки доступны владельцу проекта и не публикуются на сайте.</p>
       <p>Для оценки интереса к проекту используются общие счётчики событий. Они не содержат имени, Telegram и не являются числом уникальных людей. Для защиты от частых запросов временно используется хеш сетевого адреса.</p>
       <p>Чтобы изменить или удалить заявку и отозвать согласие на дальнейшую связь, напишите команде в Telegram: <a href="https://t.me/DuImaran" target="_blank" rel="noreferrer">@DuImaran <Arrow /></a>.</p>
@@ -122,7 +121,7 @@ export default function Landing() {
   return <>
     <a className="skip-link" href="#main">К содержимому</a>
     <header className="site-header wrap">
-      <a href="#" className="wordmark" aria-label="ИИ-стилист — на главную"><LabelMark /><span>ИИ-стилист</span></a>
+      <a href="#" className="wordmark" aria-label="Стилистика — на главную"><img className="brand-fox" src="/images/fox-color.png" width={48} height={48} alt="" /><span>Стилистика</span></a>
       <nav id="mobile-navigation" className={mobileMenu ? "main-nav is-open" : "main-nav"} aria-label="Основная навигация">
         <a href="#how" onClick={() => setMobileMenu(false)}>Как работает</a><a href="#stylist-chat" onClick={() => setMobileMenu(false)}>ИИ-чат</a><a href="#wardrobe-lab" onClick={() => setMobileMenu(false)}>Капсулы</a><a href="#project" onClick={() => setMobileMenu(false)}>О проекте</a>
       </nav>
@@ -140,12 +139,12 @@ export default function Landing() {
           <p className="hero-description">Создаём веб-гардероб по фото на человеке: распознавание вещей, капсулы для поездок и советы ИИ-стилиста в чате.</p>
           <div className="hero-actions"><a className="button button-dark" href="#join">Записаться в тестирование <Arrow /></a><a className="hero-secondary" href="#stylist-chat">Как помогает чат</a></div>
         </div></div>
-        <p className="hero-caption wrap">Визуальная концепция ИИ-стилиста</p>
+        <p className="hero-caption wrap">Визуальная концепция Стилистики</p>
       </section>
 
       <section className="intro-section" id="how" aria-labelledby="how-heading">
         <img className="intro-fabric" src="/images/linen-edge.webp" width={1672} height={941} loading="lazy" alt="" aria-hidden="true" />
-        <div className="wrap"><div className="intro-grid"><div><span className="eyebrow">Что даст ИИ-стилист</span><h2 id="how-heading">Ваши вещи<br />Готовые сочетания</h2></div><p className="intro-text">Чтобы выбирать, что надеть, было проще.</p></div>
+        <div className="wrap"><div className="intro-grid"><div><span className="eyebrow">Что даст Стилистика</span><h2 id="how-heading">Ваши вещи<br />Готовые сочетания</h2></div><p className="intro-text">Чтобы выбирать, что надеть, было проще.</p></div>
         <WardrobeBenefits />
         <p className="development-note">Распознавание, капсулы и чат готовим для веб-приложения.</p></div>
       </section>
@@ -175,7 +174,7 @@ export default function Landing() {
         <div className="pilot-invitation">
           <span className="pilot-label">Закрытый пилот</span>
           <div className="invitation-heading">
-            <h2 id="join-heading">Попробуйте<br /><span className="brand-name">ИИ-стилиста</span> первыми</h2>
+            <h2 id="join-heading">Попробуйте<br /><span className="brand-name">Стилистику</span> первыми</h2>
           </div>
           <p className="invitation-lead">Помогите сделать подбор одежды удобнее — на&nbsp;примере вашего гардероба.</p>
           <ol className="invitation-steps">
@@ -196,12 +195,12 @@ export default function Landing() {
 
     <footer className="site-footer"><div className="wrap">
       <div className="footer-grid">
-        <div className="footer-about"><a className="wordmark" href="#"><LabelMark /><span>ИИ-стилист</span></a><p>Цифровой гардероб и подбор сочетаний из ваших вещей. Веб-приложение в разработке.</p></div>
+        <div className="footer-about"><a className="wordmark" href="#"><img className="brand-fox" src="/images/fox-color.png" width={48} height={48} alt="" /><span>Стилистика</span></a><p>Цифровой гардероб и подбор сочетаний из ваших вещей. Веб-приложение в разработке.</p></div>
         <nav className="footer-column" aria-label="Навигация внизу страницы"><h3>Проект</h3><a href="#how">Как работает</a><a href="#stylist-chat">Чат со стилистом</a><a href="#wardrobe-lab">Капсулы</a><a href="#project">Команда и разработка</a><a href="#faq">Вопросы и ответы</a></nav>
         <div className="footer-column"><h3>Тестирование</h3><p>Собираем заявки в первую пилотную группу. Дату и условия участия сообщим лично.</p><a href="#join">Оставить заявку <Arrow /></a></div>
         <div className="footer-column"><h3>Связь с командой</h3><a href="https://t.me/DuImaran" target="_blank" rel="noreferrer">Telegram: @DuImaran <Arrow /></a><p>Вопросы о проекте, участии, изменении или удалении заявки.</p></div>
       </div>
-      <div className="footer-bottom"><span>© 2026 ИИ-стилист</span><span>Заявка бесплатна. Платёжные данные не требуются.</span><button type="button" className="inline-link" onClick={() => setPrivacy(true)}>О данных заявки</button></div>
+      <div className="footer-bottom"><span>© 2026 Стилистика</span><span>Заявка бесплатна. Платёжные данные не требуются.</span><button type="button" className="inline-link" onClick={() => setPrivacy(true)}>О данных заявки</button></div>
     </div></footer>
     {privacy && <PrivacyDialog onClose={() => setPrivacy(false)} />}
   </>;

@@ -5,7 +5,7 @@ import { canReadApplications } from "./access";
 import { chatGPTSignInPath, getChatGPTUser } from "../chatgpt-auth";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Заявки — ИИ-стилист", robots: { index: false, follow: false } };
+export const metadata = { title: "Заявки — Стилистика", robots: { index: false, follow: false } };
 const platformLabels: Record<string, string> = { android: "Android", ios: "iPhone", both: "Оба" };
 const priorityLabels: Record<string, string> = { daily: "Выбор одежды утром", wardrobe: "Новые сочетания", "day-route": "Маршрут дня" };
 const genderLabels: Record<string, string> = { female: "Женский", male: "Мужской" };
