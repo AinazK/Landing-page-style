@@ -56,7 +56,7 @@ export default function WardrobeBenefits() {
       fabric.style.transform = `translate3d(${x}px,0,0)`;
     };
     const measure = () => {
-      const bounds = fabric.parentElement?.getBoundingClientRect();
+      const bounds = carouselRef.current?.getBoundingClientRect();
       if (!bounds) return;
       // Three distinct 3:1 photographs form a panorama, traversed once per seven slides.
       period = Math.max(bounds.width * 3, bounds.height * 9);
@@ -82,7 +82,7 @@ export default function WardrobeBenefits() {
   return <div className="feature-carousel" ref={carouselRef} role="region" aria-roledescription="карусель" aria-labelledby="how-heading" data-ready={Boolean(api)}>
     <div className="feature-fabric" aria-hidden="true"><div className="feature-fabric-strip" ref={fabricRef}>
       {[0, 1, 2].map(copy => <div className="feature-fabric-panorama" key={copy}>
-        {["drape", "diagonal", "roll"].map((panel, index) => <div key={panel} className={`feature-fabric-panel feature-fabric-panel-${index}`}><img src={`/images/fabric-panorama/${panel}.webp`} width={2172} height={724} loading="lazy" alt="" /></div>)}
+        {["drape", "diagonal", "roll"].map((panel, index) => <img key={panel} className={`feature-fabric-panel feature-fabric-panel-${index}`} src={`/images/fabric-panorama/${panel}.webp`} width={2172} height={724} loading="lazy" alt="" />)}
       </div>)}
     </div></div>
     <div className="wrap feature-content">
