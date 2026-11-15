@@ -1,4 +1,7 @@
-import { ArrowUpRight, Check, CloudRain, ScanLine } from "lucide-react";
+"use client";
+
+import { useId, useRef } from "react";
+import { ArrowUpRight, Check, CloudRain, ScanLine, X } from "lucide-react";
 import { GarmentDrawing } from "./garment";
 import type { GarmentKind } from "./model";
 import "./feature-preview.css";
@@ -12,16 +15,57 @@ function Hanger() {
   return <svg className="fp-hanger" viewBox="0 0 100 32" fill="none"><path d="M50 14v-3c0-8 13-8 13-1 0 4-6 5-13 4L12 29h76L50 14Z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round" /></svg>;
 }
 
-export default function FeaturePreview({ kind }: { kind: FeatureKind }) {
-  return <div className={"fp-scene fp-" + kind} aria-hidden="true">
-    {kind === "consultation" && <>
-      <div className="fp-chat-thread">
-        <div className="fp-chat-question">С чем носить этот жакет?</div>
-        <div className="fp-chat-answer"><span className="fp-chat-brand">Стилистика</span><p>С белой футболкой, тёмными брюками и любимыми кедами.</p></div>
+function ConsultationPreview() {
+  const dialog = useRef<HTMLDialogElement>(null);
+  const opener = useRef<HTMLButtonElement>(null);
+  const dialogId = useId();
+  const titleId = useId();
+  const noteId = useId();
+
+  return <>
+    <div className="fp-chat-thread" aria-label="Пример консультации со стилистом">
+      <div className="fp-chat-question">С чем носить этот жакет?</div>
+      <div className="fp-chat-answer">
+        <span className="fp-chat-brand">Стилистика</span>
+        <p>Я бы сочетал этот жакет с белой футболкой, тёмными брюками и светлыми кедами из вашего гардероба. Получится спокойный образ для прогулки или встречи.</p>
+        <button ref={opener} type="button" className="fp-chat-outfit" aria-haspopup="dialog" aria-controls={dialogId} onClick={() => {
+          if (!dialog.current?.open) dialog.current?.showModal();
+        }}>
+          <img src="/images/chat-outfit.webp" width={1024} height={1536} loading="lazy" alt="" />
+          <span>Посмотрите образ,<br />который я собрал для вас</span>
+          <ArrowUpRight size={17} strokeWidth={1.5} aria-hidden="true" />
+        </button>
       </div>
-      <div className="fp-chat-look"><Piece id="blazer" className="fp-chat-blazer" /><Piece id="tee" className="fp-chat-tee" /><Piece id="trousers" className="fp-chat-trousers" /><Piece id="sneakers" className="fp-chat-shoes" /></div>
-      <span className="fp-loose-caption fp-chat-caption">Ответ — в ваших вещах</span>
-    </>}
+    </div>
+    <div className="fp-chat-look" aria-hidden="true"><Piece id="blazer" className="fp-chat-blazer" /><Piece id="tee" className="fp-chat-tee" /><Piece id="trousers" className="fp-chat-trousers" /><Piece id="sneakers" className="fp-chat-shoes" /></div>
+    <dialog ref={dialog} id={dialogId} className="fp-outfit-dialog" aria-labelledby={titleId} aria-describedby={noteId} onClose={() => opener.current?.focus()} onKeyDown={event => event.stopPropagation()} onClick={event => {
+      if (event.target !== event.currentTarget) return;
+      const bounds = event.currentTarget.getBoundingClientRect();
+      if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) event.currentTarget.close();
+    }}>
+      <button type="button" className="fp-outfit-close" autoFocus onClick={() => dialog.current?.close()} aria-label="Закрыть образ"><X size={20} strokeWidth={1.5} aria-hidden="true" /></button>
+      <div className="fp-outfit-layout">
+        <figure className="fp-outfit-photo"><img src="/images/chat-outfit.webp" width={1024} height={1536} alt="Образ с белой футболкой, шоколадным жакетом, тёмными брюками и светлыми кедами. Плащ — на руке." /></figure>
+        <div className="fp-outfit-details">
+          <span className="fp-outfit-kicker">Собрано стилистом</span>
+          <h3 id={titleId}>Ваши вещи.<br /><span>Один готовый образ.</span></h3>
+          <p className="fp-outfit-occasion">Для прогулки или встречи</p>
+          <dl className="fp-outfit-items">
+            <div><dt>01</dt><dd>Белая футболка</dd></div>
+            <div><dt>02</dt><dd>Шоколадный жакет</dd></div>
+            <div><dt>03</dt><dd>Тёмные брюки</dd></div>
+            <div><dt>04</dt><dd>Светлые кеды</dd></div>
+          </dl>
+          <p id={noteId} className="fp-outfit-note">Пример будущей рекомендации Стилистики. На прохладный вечер можно взять плащ.</p>
+        </div>
+      </div>
+    </dialog>
+  </>;
+}
+
+export default function FeaturePreview({ kind }: { kind: FeatureKind }) {
+  return <div className={"fp-scene fp-" + kind} aria-hidden={kind === "consultation" ? undefined : true}>
+    {kind === "consultation" && <ConsultationPreview />}
     {kind === "capsule" && <>
       <div className="fp-capsule-pieces"><Piece id="shirt" className="fp-capsule-shirt" /><Piece id="blazer" className="fp-capsule-blazer" /><Piece id="trousers" className="fp-capsule-trousers" /><Piece id="tee" className="fp-capsule-tee" /><Piece id="sneakers" className="fp-capsule-shoes" /></div>
       <div className="fp-travel-tag"><span>На выходные</span><small>Прогулка · Встреча · Ужин</small></div>

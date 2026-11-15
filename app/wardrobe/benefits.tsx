@@ -17,10 +17,14 @@ const features: { id: FeatureKind; title: string; benefit: string; description: 
 ];
 
 export default function WardrobeBenefits() {
-  const [viewportRef, api] = useEmblaCarousel({ loop: true, align: "start", slidesToScroll: 1, containScroll: false, skipSnaps: false });
+  const [viewportRef, api] = useEmblaCarousel({
+    loop: true, align: "start", slidesToScroll: 1, containScroll: false, skipSnaps: false,
+    watchDrag: (_api, event) => !(event.target instanceof Element && event.target.closest("dialog, button")),
+  });
   const [selected, setSelected] = useState(0);
   const [reducedMotion, setReducedMotion] = useState(false);
   const fabricRef = useRef<HTMLDivElement>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const query = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -43,27 +47,29 @@ export default function WardrobeBenefits() {
     const fabric = fabricRef.current;
     let previous = api.scrollProgress();
     let distance = 0;
-    let tileWidth = 1280;
-    let contentWidth = 0;
+    let period = 9000;
     const paint = () => {
       const progress = api.scrollProgress();
-      distance += loopProgressDelta(previous, progress) * contentWidth;
+      distance += loopProgressDelta(previous, progress) * period;
       previous = progress;
-      const x = reducedMotion ? 0 : fabricTranslation(distance, tileWidth);
+      const x = fabricTranslation(reducedMotion ? 0 : distance, period);
       fabric.style.transform = `translate3d(${x}px,0,0)`;
     };
     const measure = () => {
-      const width = api.rootNode().clientWidth;
-      contentWidth = width * features.length;
-      tileWidth = Math.max(1280, width);
-      fabric.style.setProperty("--fabric-tile-width", `${tileWidth}px`);
+      const bounds = carouselRef.current?.getBoundingClientRect();
+      if (!bounds) return;
+      // Three distinct 3:1 photographs form a panorama, traversed once per seven slides.
+      period = Math.max(bounds.width * 3, bounds.height * 9);
+      fabric.style.setProperty("--fabric-period", `${period}px`);
       previous = api.scrollProgress();
-      distance = 0;
+      distance = previous * period;
       paint();
     };
     measure();
+    const resize = new ResizeObserver(measure);
+    if (carouselRef.current) resize.observe(carouselRef.current);
     api.on("scroll", paint).on("reInit", measure);
-    return () => { api.off("scroll", paint).off("reInit", measure); };
+    return () => { resize.disconnect(); api.off("scroll", paint).off("reInit", measure); };
   }, [api, reducedMotion]);
 
   function navigate(event: KeyboardEvent<HTMLDivElement>) {
@@ -73,14 +79,17 @@ export default function WardrobeBenefits() {
     if (event.key === "End") { event.preventDefault(); api?.scrollTo(features.length - 1, reducedMotion); }
   }
 
-  return <div className="feature-carousel" role="region" aria-roledescription="карусель" aria-labelledby="how-heading" data-ready={Boolean(api)}>
+  return <div className="feature-carousel" ref={carouselRef} role="region" aria-roledescription="карусель" aria-labelledby="how-heading" data-ready={Boolean(api)}>
     <div className="feature-fabric" aria-hidden="true"><div className="feature-fabric-strip" ref={fabricRef}>
-      {[0, 1, 2, 3].map(index => <img key={index} className={index % 2 ? "feature-fabric-mirror" : undefined} src="/images/linen-edge.webp" width={1672} height={941} loading="lazy" alt="" />)}
+      {[0, 1, 2].map(copy => <div className="feature-fabric-panorama" key={copy}>
+        {["drape", "diagonal", "roll"].map((panel, index) => <img key={panel} className={`feature-fabric-panel feature-fabric-panel-${index}`} src={`/images/fabric-panorama/${panel}.webp`} width={2172} height={724} loading="lazy" alt="" />)}
+      </div>)}
     </div></div>
+    <div className="wrap feature-content">
     <h2 className="feature-section-heading" id="how-heading">Что даст Стилистика?</h2>
     <div className="feature-viewport" ref={viewportRef} tabIndex={0} onKeyDown={navigate} aria-label="Возможности Стилистики. Листайте свайпом или стрелками на клавиатуре">
       <div className="feature-track" id="feature-track">
-        {features.map((feature, index) => <article className="feature-slide" key={feature.id} role="group" aria-roledescription="слайд" aria-label={`${index + 1} из ${features.length}: ${feature.title}`}>
+        {features.map((feature, index) => <article className="feature-slide" key={feature.id} role="group" aria-roledescription="слайд" aria-label={`${index + 1} из ${features.length}: ${feature.title}`} aria-hidden={selected !== index} inert={selected !== index}>
           <div className="feature-copy">
             <span className="feature-number" aria-hidden="true">{String(index + 1).padStart(2, "0")} <span>/ {String(features.length).padStart(2, "0")}</span></span>
             <h3>{feature.title}</h3>
@@ -100,5 +109,6 @@ export default function WardrobeBenefits() {
     </div>
     <p className="feature-status" aria-live="polite" aria-atomic="true">{selected + 1} / {features.length} · {features[selected].title}</p>
     <p className="feature-development-note">Эти возможности готовим для веб-приложения. Сейчас собираем первую пилотную группу.</p>
+    </div>
   </div>;
 }

@@ -6,9 +6,8 @@ export function loopProgressDelta(previous: number, current: number) {
   return delta;
 }
 
-// Two mirrored tiles form one seamless period. Keep enough copies on either side.
-export function fabricTranslation(distance: number, tileWidth: number) {
-  const period = tileWidth * 2;
-  const phase = ((-distance % period) + period) % period;
-  return phase === 0 ? 0 : phase - period;
+// Start in the middle copy, so each seam blends over the previous panorama.
+export function fabricTranslation(distance: number, period: number) {
+  const phase = ((distance % period) + period) % period;
+  return -period - phase;
 }

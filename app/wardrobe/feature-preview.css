@@ -2,17 +2,39 @@
 .fp-piece { display: block; position: absolute; min-width: 0; filter: drop-shadow(0 12px 9px #51432c16); }
 .fp-scene .garment-drawing { display: block; width: 100%; height: 100%; object-fit: contain; }
 .fp-loose-caption { position: absolute; font-size: 12px; line-height: 1.6; color: var(--muted); letter-spacing: .1px; }
-.fp-chat-thread { position: absolute; top: 10%; left: 1%; width: 54%; z-index: 2; }
-.fp-chat-question { max-width: 280px; padding: 17px 20px; border-radius: 16px 16px 4px 16px; background: #fffdfa; box-shadow: 0 8px 24px #493d2b0a; font-size: 15px; line-height: 1.6; transform: rotate(-3deg); }
-.fp-chat-answer { margin-top: 22px; max-width: 285px; padding-left: 13px; }
-.fp-chat-brand { display: block; color: var(--accent); font-size: 12px; font-weight: 500; margin-bottom: 9px; }
-.fp-chat-answer > p { font-size: 15px; line-height: 1.7; margin: 0; }
+.fp-chat-thread { position: absolute; top: 3%; left: 1%; width: 65%; max-width: 390px; z-index: 2; }
+.fp-chat-question, .fp-chat-answer { background: #fffdfa; box-shadow: 0 8px 24px #493d2b0a; }
+.fp-chat-question { width: fit-content; max-width: 280px; margin-left: auto; padding: 15px 19px; border-radius: 16px 16px 4px 16px; font-size: 14px; line-height: 1.6; transform: rotate(-2deg); }
+.fp-chat-answer { margin-top: 19px; padding: 18px 20px; border-radius: 4px 16px 16px 16px; }
+.fp-chat-brand { display: block; color: var(--accent); font-size: 11px; font-weight: 500; line-height: 1.6; margin-bottom: 8px; }
+.fp-chat-answer > p { font-size: 14px; line-height: 1.7; margin: 0; }
+.fp-chat-outfit { display: flex; align-items: center; gap: 11px; max-width: 100%; margin-top: 15px; padding: 0; border: 0; border-radius: 4px; background: transparent; color: var(--ink); text-align: left; pointer-events: auto; }
+.fp-chat-outfit > img { width: 50px; height: 66px; flex-shrink: 0; object-fit: cover; border-radius: 4px; }
+.fp-chat-outfit > span { min-width: 0; font-size: 11px; line-height: 1.6; }
+.fp-chat-outfit > svg { flex-shrink: 0; color: var(--accent); }
+.fp-chat-outfit:hover > span { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 .fp-chat-look { position: absolute; inset: 0; }
-.fp-chat-look > .fp-chat-blazer { width: 45%; height: 71%; right: -1%; top: -1%; transform: rotate(9deg); }
-.fp-chat-look > .fp-chat-tee { width: 31%; height: 42%; left: 25%; bottom: 2%; transform: rotate(-12deg); }
-.fp-chat-look > .fp-chat-trousers { width: 30%; height: 53%; right: 12%; bottom: -2%; transform: rotate(6deg); }
+.fp-chat-look > .fp-chat-blazer { width: 39%; height: 66%; right: -1%; top: 0; transform: rotate(9deg); }
+.fp-chat-look > .fp-chat-tee { width: 29%; height: 37%; left: 42%; bottom: 1%; transform: rotate(-12deg); }
+.fp-chat-look > .fp-chat-trousers { width: 25%; height: 48%; right: 9%; bottom: -2%; transform: rotate(6deg); }
 .fp-chat-look > .fp-chat-shoes { width: 24%; height: 26%; right: -1%; bottom: 0; transform: rotate(-11deg); }
-.fp-chat-caption { left: 1%; bottom: 10%; max-width: 140px; }
+.fp-outfit-dialog { position: fixed; width: min(860px,calc(100% - 40px)); max-width: none; max-height: calc(100svh - 40px); overflow: auto; margin: auto; padding: 0; border: 0; border-radius: 14px; background: var(--paper); color: var(--ink); box-shadow: 0 24px 100px #10171033; pointer-events: auto; user-select: text; }
+.fp-outfit-dialog::backdrop { background: #1c211dba; backdrop-filter: blur(5px); }
+.fp-outfit-close { position: absolute; z-index: 1; top: 16px; right: 16px; display: grid; place-items: center; width: 36px; height: 36px; padding: 0; border: 0; border-radius: 50%; background: #eeeae1; color: var(--ink); }
+.fp-outfit-close:hover { background: #e7e1d5; color: var(--accent); }
+.fp-outfit-layout { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,.9fr); }
+.fp-outfit-photo { display: flex; align-items: center; justify-content: center; min-width: 0; margin: 0; background: #e9e4da; }
+.fp-outfit-photo > img { width: 100%; height: min(690px,calc(100svh - 40px)); object-fit: contain; }
+.fp-outfit-details { display: flex; flex-direction: column; min-width: 0; padding: 53px 30px 29px; }
+.fp-outfit-kicker { color: var(--muted); font-size: 10px; line-height: 1.6; }
+.fp-outfit-details > h3 { margin-top: 15px; font-size: 30px; font-weight: 500; line-height: 1.2; letter-spacing: -.8px; }
+.fp-outfit-details > h3 > span { color: var(--accent); }
+.fp-outfit-occasion { margin-top: 19px; color: var(--muted); font-size: 11px; line-height: 1.7; }
+.fp-outfit-items { display: flex; flex-direction: column; gap: 17px; margin: 31px 0; }
+.fp-outfit-items > div { display: flex; align-items: baseline; gap: 15px; }
+.fp-outfit-items dt { color: var(--accent); font-size: 10px; line-height: 1.6; }
+.fp-outfit-items dd { margin: 0; font-size: 13px; line-height: 1.7; }
+.fp-outfit-note { margin-top: auto; color: var(--muted); font-size: 10px; line-height: 1.8; }
 .fp-capsule-pieces { position: absolute; inset: 0; }
 .fp-capsule-pieces > .fp-capsule-shirt { left: 2%; top: 3%; width: 36%; height: 66%; transform: rotate(-13deg); }
 .fp-capsule-pieces > .fp-capsule-blazer { left: 34%; top: 0; width: 37%; height: 69%; transform: rotate(9deg); }
@@ -75,9 +97,11 @@
 .fp-wardrobe-caption { left: 2%; bottom: 0; max-width: 120px; }
 @media (max-width: 1050px) {
   .fp-scene { height: 440px; }
-  .fp-chat-question { font-size: 13px; padding: 15px 17px; }
+  .fp-chat-question { font-size: 13px; padding: 14px 17px; }
+  .fp-chat-answer { padding: 16px 17px; }
   .fp-chat-answer > p { font-size: 13px; }
-  .fp-chat-caption { font-size: 11px; max-width: 115px; }
+  .fp-chat-outfit { gap: 9px; }
+  .fp-chat-outfit > span { font-size: 10px; }
   .fp-weather-forecast > div { gap: 10px; }
   .fp-weather-forecast svg { width: 48px; height: 48px; }
   .fp-weather-forecast strong { font-size: 62px; }
@@ -85,13 +109,19 @@
 }
 @media (max-width: 760px) {
   .fp-scene { height: 340px; }
-  .fp-chat-thread { top: 3%; width: 57%; }
-  .fp-chat-question { font-size: 12px; padding: 12px 14px; }
-  .fp-chat-answer { margin-top: 15px; padding-left: 7px; }
+  .fp-consultation { height: 440px; }
+  .fp-chat-thread { top: 8px; left: 16px; width: calc(100% - 32px); max-width: 420px; }
+  .fp-chat-question { max-width: 240px; font-size: 12px; padding: 12px 15px; }
+  .fp-chat-answer { margin-top: 15px; padding: 14px 16px; }
   .fp-chat-answer > p { font-size: 12px; line-height: 1.65; }
-  .fp-chat-brand { font-size: 10px; margin-bottom: 6px; }
-  .fp-chat-look > .fp-chat-blazer { top: 0; height: 65%; width: 43%; }
-  .fp-chat-caption { bottom: 5%; font-size: 10px; max-width: 104px; }
+  .fp-chat-brand { font-size: 10px; margin-bottom: 7px; }
+  .fp-chat-outfit { gap: 10px; margin-top: 13px; }
+  .fp-chat-outfit > img { width: 44px; height: 56px; }
+  .fp-chat-outfit > span { font-size: 10px; }
+  .fp-chat-look > .fp-chat-blazer { top: auto; bottom: -2%; right: 0; height: 39%; width: 41%; }
+  .fp-chat-look > .fp-chat-tee { left: 3%; bottom: 0; width: 32%; height: 26%; }
+  .fp-chat-look > .fp-chat-trousers { right: 30%; bottom: -1%; width: 30%; height: 34%; }
+  .fp-chat-look > .fp-chat-shoes { right: 0; bottom: -2%; width: 31%; height: 20%; }
   .fp-travel-tag { padding: 10px 21px 10px 12px; max-width: 172px; bottom: 8%; }
   .fp-travel-tag > span { font-size: 12px; }
   .fp-travel-tag > small { font-size: 8px; }
@@ -115,11 +145,19 @@
   .fp-wardrobe-caption { font-size: 9px; max-width: 92px; }
   .fp-scene > .fp-wardrobe-shoes { left: 30%; }
 }
+@media (max-width: 640px) {
+  .fp-outfit-dialog { width: calc(100% - 24px); max-height: calc(100svh - 24px); border-radius: 11px; }
+  .fp-outfit-layout { grid-template-columns: minmax(0,1fr); }
+  .fp-outfit-close { top: 12px; right: 12px; background: #faf9f5ed; }
+  .fp-outfit-photo > img { height: min(51svh,420px); }
+  .fp-outfit-details { padding: 24px; }
+  .fp-outfit-details > h3 { margin-top: 11px; font-size: 27px; }
+  .fp-outfit-occasion { margin-top: 13px; }
+  .fp-outfit-items { gap: 12px; margin-block: 24px; }
+}
 @media (max-width: 380px) {
   .fp-scene { height: 320px; }
-  .fp-chat-question { font-size: 11px; padding: 10px 12px; }
-  .fp-chat-answer > p { font-size: 11px; }
-  .fp-chat-caption { max-width: 82px; }
+  .fp-consultation { height: 440px; }
   .fp-photo-label { font-size: 9px; padding: 7px 9px; }
   .fp-weather-forecast strong { font-size: 51px; }
   .fp-weather-forecast svg { width: 39px; height: 39px; }
