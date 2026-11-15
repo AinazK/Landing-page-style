@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "./wardrobe/lab.css";
 @import "./wardrobe/stylist-chat.css";
+@import "./wardrobe/benefits.css";
 
 @font-face {
   font-family: "Onest";
@@ -331,7 +332,7 @@ h3 { font-weight: 600; }
 @media (max-width: 380px) { .footer-grid { grid-template-columns: minmax(0,1fr); } }
 
 /* Spacious compositions: tactile opening, alternating headings, quiet text. */
-.intro-section { position: relative; isolation: isolate; padding-block: 88px 170px; background: var(--paper); }
+.intro-section { position: relative; isolation: isolate; padding-block: 64px 110px; background: var(--paper); }
 .intro-fabric { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; object-fit: fill; pointer-events: none; }
 .intro-grid { display: block; text-align: center; }
 .intro-grid h2 { max-width: 850px; margin: 0 auto; font-size: clamp(28px,2.8vw,36px); line-height: 1.24; text-wrap: balance; }
@@ -385,31 +386,7 @@ h3 { font-weight: 600; }
 .team-avatar .team-photo-alena { object-position: center top; }
 .brand-name { white-space: nowrap; }
 
-/* Each benefit includes one small, illustrative result rather than a process icon. */
-.benefit-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 22px; margin-top: 42px; }
-.benefit-card { padding: 23px; border-radius: 14px; background: #fffdf9f0; min-width: 0; }
-.benefit-card h3 { font-size: 17px; line-height: 1.4; letter-spacing: -.35px; margin-top: 23px; }
-.benefit-card > p { font-size: 12px; line-height: 1.85; color: var(--muted); margin-top: 11px; max-width: 280px; }
-.benefit-preview { height: 116px; border-radius: 9px; background: #efeee7; }
-.wardrobe-preview { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; padding: 12px; }
-.wardrobe-preview > span { display: flex; flex-direction: column; align-items: center; min-width: 0; }
-.wardrobe-preview .garment-drawing { width: 52px; height: 65px; }
-.wardrobe-preview small { font-size: 8px; margin-top: 5px; color: var(--muted); }
-.plans-preview { padding: 17px; }
-.plans-preview > div { display: flex; justify-content: space-between; gap: 10px; font-size: 9px; color: var(--muted); }
-.plans-preview > div > span:last-child { display: inline-flex; gap: 6px; align-items: center; }
-.plans-preview > strong { display: block; font-size: 13px; font-weight: 500; margin-top: 13px; white-space: nowrap; }
-.plans-preview > strong > span { padding-inline: 7px; color: var(--muted); }
-.plans-preview > small { display: block; font-size: 8px; color: var(--muted); margin-top: 7px; }
-.saved-preview { display: flex; align-items: center; justify-content: center; gap: 13px; padding: 15px; }
-.saved-garments { display: flex; align-items: center; width: 91px; flex-shrink: 0; }
-.saved-garments .garment-drawing { width: 61px; height: 80px; flex-shrink: 0; }
-.saved-garments .garment-drawing + .garment-drawing { margin-left: -28px; transform: translateY(8px); }
-.saved-preview > div:last-child > svg { color: var(--muted); margin-bottom: 9px; }
-.saved-preview > div:last-child { min-width: 0; }
 .garment-drawing { object-fit: contain; }
-.saved-preview strong { display: block; font-size: 11px; font-weight: 500; }
-.saved-preview small { display: block; font-size: 8px; color: var(--muted); margin-top: 5px; }
 
 /* Small punched holes give the development notes the character of garment labels. */
 .project-progress article.development-tag { position: relative; padding: 23px 24px 23px 58px; border-radius: 5px 13px 13px 5px; background: #f5f2ea; }
@@ -432,14 +409,9 @@ h3 { font-weight: 600; }
 .beta-form input:autofill { box-shadow: 0 0 0 1000px var(--field-bg) inset; color: var(--ink); }
 
 @media (max-width: 860px) {
-  .intro-section { padding-block: 58px 140px; }
+  .intro-section { padding-block: 48px 96px; }
   .intro-grid h2 { font-size: 29px; }
   .intro-fabric { object-fit: cover; object-position: center bottom; }
-  .benefit-grid { grid-template-columns: minmax(0,1fr); gap: 17px; margin-top: 30px; }
-  .benefit-card { padding: 23px; }
-  .benefit-card > p { max-width: none; font-size: 13px; }
-  .benefit-preview { max-width: 380px; }
-  .benefit-card h3 { font-size: 19px; }
   .project-progress article.development-tag { padding: 24px 22px 24px 52px; }
   .tag-eyelet { left: 19px; top: 28px; }
   .steps { margin-top: 31px; gap: 15px; }
