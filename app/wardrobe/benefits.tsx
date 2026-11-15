@@ -6,14 +6,14 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import FeaturePreview, { type FeatureKind } from "./feature-preview";
 import { fabricTranslation, loopProgressDelta } from "./fabric-motion";
 
-const features: { id: FeatureKind; title: string; benefit: string; description: string }[] = [
-  { id: "consultation", title: "Консультация с ИИ-стилистом", benefit: "Советы с опорой на ваши вещи", description: "Стилист проанализирует гардероб или капсулу и подскажет, с чем сочетать вещь. Перед покупкой можно будет спросить, впишется ли она в ваши образы, и получить идеи для разных случаев." },
-  { id: "capsule", title: "Капсула гардероба", benefit: "Готовые комплекты без долгих раздумий", description: "Сервис поможет собрать капсулу из ваших вещей — для поездки, работы или выходных. Готовые сочетания сократят время на выбор одежды." },
-  { id: "palette", title: "Подбор образа по палитре", benefit: "Сочетания в любимых цветах", description: "Выберите цвета, которые хочется носить. Стилистика предложит гармоничные комбинации из вашего гардероба и поможет собрать образ в выбранной палитре." },
-  { id: "community", title: "Пользовательский контент", benefit: "Вдохновляйтесь образами других людей", description: "Изучайте образы, рекомендации и идеи от блогеров и пользователей платформы. Находите готовые сочетания и вдохновение для собственного гардероба." },
-  { id: "weather", title: "Образы под погоду", benefit: "Одевайтесь комфортно в любую погоду", description: "Сервис сам получит прогноз для вашего города и учтёт температуру и осадки. Подборка подскажет, что надеть и какой слой взять с собой." },
-  { id: "recognition", title: "Автоматическое распознавание вещи", benefit: "Добавляйте вещи за секунды", description: "Добавьте фото одежды или образа на человеке. ИИ определит категорию, цвет и основные характеристики вещи, чтобы её было проще сохранить в гардеробе." },
-  { id: "wardrobe", title: "Виртуальный гардероб", benefit: "Весь гардероб всегда под рукой", description: "Одежда, обувь и аксессуары будут собраны в одном месте. Открывайте цифровую версию своего шкафа в браузере телефона или компьютера и возвращайтесь к любимым вещам." },
+const features: { id: FeatureKind; title: string; benefit?: string; description: string[] }[] = [
+  { id: "consultation", title: "Консультация с ИИ-стилистом", description: ["ИИ-стилист анализирует вашу капсулу или гардероб и отвечает на вопросы о вещах.", "Упрощает шоппинг сразу подбирая образы из Вашего гардероба.", "Просто спросите, подходит ли вещь, и получите конкретные советы по сочетаниям и созданию образов для любого случая!"] },
+  { id: "capsule", title: "Капсула гардероба", benefit: "Готовые комплекты без долгих раздумий", description: ["Приложение анализирует ваши вещи и предлагает готовые капсулы."] },
+  { id: "palette", title: "Подбор образа по палитре", description: ["Выберите цвета в палитре и приложение подберёт гармоничные комбинации!"] },
+  { id: "community", title: "Пользовательский контент", benefit: "Вдохновляйтесь образами других людей", description: ["Изучайте рекомендации, готовые луки и идеи от блогеров и пользователей платформы."] },
+  { id: "weather", title: "Образы под погоду", benefit: "Одевайтесь комфортно в любую погоду", description: ["Приложение учитывает температуру и осадки в вашем городе и предлагает подходящие сочетания вещей."] },
+  { id: "recognition", title: "Автоматическое распознавание вещи", benefit: "Добавляйте вещи за секунды", description: ["Сделайте фото одежды, а приложение автоматически определит категорию, цвет и основные характеристики вещи."] },
+  { id: "wardrobe", title: "Виртуальный гардероб", benefit: "Весь гардероб всегда под рукой", description: ["Добавляйте одежду в приложение и храните цифровую версию своего шкафа прямо в телефоне."] },
 ];
 
 export default function WardrobeBenefits() {
@@ -93,8 +93,8 @@ export default function WardrobeBenefits() {
           <div className="feature-copy">
             <span className="feature-number" aria-hidden="true">{String(index + 1).padStart(2, "0")} <span>/ {String(features.length).padStart(2, "0")}</span></span>
             <h3>{feature.title}</h3>
-            <p className="feature-benefit">{feature.benefit}</p>
-            <p className="feature-description">{feature.description}</p>
+            {feature.benefit && <p className="feature-benefit">{feature.benefit}</p>}
+            {feature.description.map(paragraph => <p className="feature-description" key={paragraph}>{paragraph}</p>)}
           </div>
           <FeaturePreview kind={feature.id} />
         </article>)}

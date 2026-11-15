@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useRef } from "react";
-import { ArrowUpRight, Check, CloudRain, ScanLine, X } from "lucide-react";
+import { ArrowRight, ArrowUpRight, CloudRain, ScanLine, X } from "lucide-react";
 import { GarmentDrawing } from "./garment";
 import type { GarmentKind } from "./model";
 import "./feature-preview.css";
@@ -11,10 +11,6 @@ export type FeatureKind = "consultation" | "capsule" | "palette" | "community" |
 function Piece({ id, className = "" }: { id: GarmentKind; className?: string }) {
   return <span className={"fp-piece " + className}><GarmentDrawing id={id} color={id === "coat" ? "#b5a286" : "#e8e2d5"} /></span>;
 }
-function Hanger() {
-  return <svg className="fp-hanger" viewBox="0 0 100 32" fill="none"><path d="M50 14v-3c0-8 13-8 13-1 0 4-6 5-13 4L12 29h76L50 14Z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round" /></svg>;
-}
-
 function ConsultationPreview() {
   const dialog = useRef<HTMLDialogElement>(null);
   const opener = useRef<HTMLButtonElement>(null);
@@ -64,44 +60,62 @@ function ConsultationPreview() {
 }
 
 export default function FeaturePreview({ kind }: { kind: FeatureKind }) {
-  return <div className={"fp-scene fp-" + kind} aria-hidden={kind === "consultation" ? undefined : true}>
+  return <div className={"fp-scene fp-" + kind}>
     {kind === "consultation" && <ConsultationPreview />}
     {kind === "capsule" && <>
       <div className="fp-capsule-pieces"><Piece id="shirt" className="fp-capsule-shirt" /><Piece id="blazer" className="fp-capsule-blazer" /><Piece id="trousers" className="fp-capsule-trousers" /><Piece id="tee" className="fp-capsule-tee" /><Piece id="sneakers" className="fp-capsule-shoes" /></div>
       <div className="fp-travel-tag"><span>На выходные</span><small>Прогулка · Встреча · Ужин</small></div>
     </>}
     {kind === "palette" && <>
-      <div className="fp-swatch-fan"><span className="fp-swatch-cream" /><span className="fp-swatch-rust" /><span className="fp-swatch-olive" /><span className="fp-swatch-blue" /></div>
-      <span className="fp-palette-label">Ваша палитра <ArrowUpRight size={20} strokeWidth={1.4} /></span>
-      <div className="fp-palette-look"><Piece id="shirt" className="fp-palette-shirt" /><Piece id="trousers" className="fp-palette-trousers" /><Piece id="sneakers" className="fp-palette-shoes" /></div>
+      <div className="fp-swatch-fan" aria-hidden="true"><span className="fp-swatch-cream" /><span className="fp-swatch-chocolate" /><span className="fp-swatch-graphite" /></div>
+      <div className="fp-palette-tones"><span>Молочный</span><span>Шоколадный</span><span>Графитовый</span></div>
+      <div className="fp-palette-look" aria-hidden="true"><Piece id="tee" className="fp-palette-tee" /><Piece id="blazer" className="fp-palette-blazer" /><Piece id="trousers" className="fp-palette-trousers" /></div>
     </>}
     {kind === "community" && <>
-      <figure className="fp-editorial-photo fp-editorial-flatlay"><img src="/images/capsule-panorama.webp" width={1672} height={941} loading="lazy" alt="" /><figcaption>Детали любимой базы</figcaption></figure>
-      <figure className="fp-editorial-photo fp-editorial-look"><img src="/images/chat-outfit.webp" width={1024} height={1536} loading="lazy" alt="" /><figcaption>Идея для выходных</figcaption></figure>
-      <span className="fp-loose-caption fp-community-caption">Вдохновение — рядом</span>
+      <span className="fp-example-label">Пример публикаций</span>
+      <div className="fp-community-posts">
+        <article className="fp-community-post">
+          <figure className="fp-post-photo"><img src="/images/chat-outfit.webp" width={1024} height={1536} loading="lazy" alt="Повседневный образ с шоколадным жакетом, белой футболкой и тёмными брюками" /></figure>
+          <div className="fp-post-copy"><span>Подпись автора</span><p>Собрала образ для прогулки: футболка, жакет и светлые кеды.</p></div>
+          <div className="fp-post-comment"><span>Пример обсуждения</span><p><b>Вопрос:</b> А если вечером прохладно?</p><p><b>Автор:</b> Добавила бы плащ поверх жакета.</p></div>
+        </article>
+        <article className="fp-community-post">
+          <figure className="fp-post-photo"><img src="/images/community-city-look.webp" width={1024} height={1536} loading="lazy" alt="Другой повседневный образ в городе: светлый верх, тёмный низ и нейтральные кеды" /></figure>
+          <div className="fp-post-copy"><span>Подпись автора</span><p>Светлый верх, тёмный низ и кеды — мой вариант на весь день.</p></div>
+        </article>
+      </div>
     </>}
     {kind === "weather" && <>
-      <div className="fp-weather-forecast"><span className="fp-weather-auto">Пример прогноза</span><div><CloudRain size={64} strokeWidth={1.15} /><strong>+12°</strong></div><span className="fp-weather-rain">Прохладно, возможен дождь</span></div>
-      <div className="fp-weather-clothes"><Piece id="coat" className="fp-weather-coat" /><Piece id="tee" className="fp-weather-tee" /><Piece id="trousers" className="fp-weather-trousers" /></div>
-      <span className="fp-weather-note"><Check size={15} />Плащ уже в подборке</span>
+      <div className="fp-weather-forecast">
+        <span className="fp-example-label">Пример автоматического прогноза</span>
+        <strong>+12°</strong><div className="fp-weather-conditions"><CloudRain size={40} strokeWidth={1.2} aria-hidden="true" /><span>Дождь<small>Погода в вашем городе</small></span></div>
+      </div>
+      <div className="fp-weather-selection">
+        <figure className="fp-weather-layer"><Piece id="coat" /><figcaption><strong>Плащ</strong><span>Верхний слой от дождя</span></figcaption></figure>
+        <figure className="fp-weather-base"><div className="fp-weather-basics" aria-hidden="true"><Piece id="tee" /><Piece id="trousers" /><Piece id="sneakers" /></div><figcaption><strong>Базовый комплект</strong><span>Футболка, брюки и кеды</span></figcaption></figure>
+      </div>
     </>}
     {kind === "recognition" && <>
-      <div className="fp-recognition-photo"><img src="/images/chat-outfit.webp" width={1024} height={1536} loading="lazy" alt="" /></div>
-      <Piece id="blazer" className="fp-recognized-jacket" />
-      <span className="fp-photo-label fp-photo-jacket">Жакет <small>Коричневый</small></span>
-      <span className="fp-photo-label fp-photo-tee">Футболка <small>Светлая</small></span>
-      <span className="fp-photo-label fp-photo-trousers">Брюки <small>Тёмные</small></span>
-      <span className="fp-recognition-note"><ScanLine size={17} />Снимок становится гардеробом</span>
+      <div className="fp-recognition-heading"><ScanLine size={18} strokeWidth={1.5} aria-hidden="true" /><span>Пример распознавания по фото</span></div>
+      <div className="fp-recognition-process">
+        <figure className="fp-recognition-source"><figcaption>Фото на человеке</figcaption><div className="fp-recognition-photo"><img src="/images/chat-outfit.webp" width={1024} height={1536} loading="lazy" alt="На фотографии отмечены жакет — 1, футболка — 2 и брюки — 3" /><span className="fp-photo-marker fp-marker-jacket" aria-hidden="true">1</span><span className="fp-photo-marker fp-marker-tee" aria-hidden="true">2</span><span className="fp-photo-marker fp-marker-trousers" aria-hidden="true">3</span></div></figure>
+        <ArrowRight className="fp-recognition-arrow" size={21} strokeWidth={1.4} aria-hidden="true" />
+        <div className="fp-recognition-results"><span className="fp-result-heading">Пример результата</span><ol>
+          <li><span className="fp-result-number" aria-hidden="true">1</span><dl><div><dt>Категория</dt><dd>Жакет</dd></div><div><dt>Цвет</dt><dd>Коричневый</dd></div><div><dt>Крой</dt><dd>Прямой, длинный рукав</dd></div></dl></li>
+          <li><span className="fp-result-number" aria-hidden="true">2</span><dl><div><dt>Категория</dt><dd>Футболка</dd></div><div><dt>Цвет</dt><dd>Белый</dd></div><div><dt>Вырез</dt><dd>Круглый</dd></div></dl></li>
+          <li><span className="fp-result-number" aria-hidden="true">3</span><dl><div><dt>Категория</dt><dd>Брюки</dd></div><div><dt>Цвет</dt><dd>Графитовый</dd></div><div><dt>Крой</dt><dd>Прямой</dd></div></dl></li>
+        </ol></div>
+      </div>
     </>}
     {kind === "wardrobe" && <>
-      <div className="fp-wardrobe-rail" />
-      <div className="fp-hanging-wardrobe">
-        <div className="fp-hung fp-hung-shirt"><Hanger /><Piece id="shirt" /><span>Рубашка</span></div>
-        <div className="fp-hung fp-hung-blazer"><Hanger /><Piece id="blazer" /><span>Жакет</span></div>
-        <div className="fp-hung fp-hung-tee"><Hanger /><Piece id="tee" /><span>Футболка</span></div>
+      <span className="fp-example-label">Вещи в вашем цифровом гардеробе</span>
+      <div className="fp-wardrobe-grid">
+        <figure><Piece id="shirt" /><figcaption>Рубашка</figcaption></figure>
+        <figure><Piece id="blazer" /><figcaption>Жакет</figcaption></figure>
+        <figure><Piece id="tee" /><figcaption>Футболка</figcaption></figure>
+        <figure><Piece id="trousers" /><figcaption>Брюки</figcaption></figure>
+        <figure><Piece id="sneakers" /><figcaption>Кеды</figcaption></figure>
       </div>
-      <Piece id="trousers" className="fp-wardrobe-trousers" /><Piece id="sneakers" className="fp-wardrobe-shoes" />
-      <span className="fp-loose-caption fp-wardrobe-caption">Весь шкаф — в одном месте</span>
     </>}
   </div>;
 }

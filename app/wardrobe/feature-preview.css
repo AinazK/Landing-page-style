@@ -17,7 +17,7 @@
 .fp-chat-look > .fp-chat-blazer { width: 39%; height: 66%; right: -1%; top: 0; transform: rotate(9deg); }
 .fp-chat-look > .fp-chat-tee { width: 29%; height: 37%; left: 42%; bottom: 1%; transform: rotate(-12deg); }
 .fp-chat-look > .fp-chat-trousers { width: 25%; height: 48%; right: 9%; bottom: -2%; transform: rotate(6deg); }
-.fp-chat-look > .fp-chat-shoes { width: 24%; height: 26%; right: -1%; bottom: 0; transform: rotate(-11deg); }
+.fp-chat-look > .fp-chat-shoes { width: 24%; height: 26%; right: -1%; bottom: 0; }
 .fp-outfit-dialog { position: fixed; width: min(860px,calc(100% - 40px)); max-width: none; max-height: calc(100svh - 40px); overflow: auto; margin: auto; padding: 0; border: 0; border-radius: 14px; background: var(--paper); color: var(--ink); box-shadow: 0 24px 100px #10171033; pointer-events: auto; user-select: text; }
 .fp-outfit-dialog::backdrop { background: #1c211dba; backdrop-filter: blur(5px); }
 .fp-outfit-close { position: absolute; z-index: 1; top: 16px; right: 16px; display: grid; place-items: center; width: 36px; height: 36px; padding: 0; border: 0; border-radius: 50%; background: #eeeae1; color: var(--ink); }
@@ -40,61 +40,82 @@
 .fp-capsule-pieces > .fp-capsule-blazer { left: 34%; top: 0; width: 37%; height: 69%; transform: rotate(9deg); }
 .fp-capsule-pieces > .fp-capsule-trousers { right: -2%; top: 3%; width: 30%; height: 71%; transform: rotate(9deg); }
 .fp-capsule-pieces > .fp-capsule-tee { left: 21%; bottom: -1%; width: 32%; height: 43%; transform: rotate(-9deg); }
-.fp-capsule-pieces > .fp-capsule-shoes { right: 17%; bottom: -2%; width: 35%; height: 30%; transform: rotate(-14deg); }
+.fp-capsule-pieces > .fp-capsule-shoes { right: 17%; bottom: -2%; width: 35%; height: 30%; }
 .fp-travel-tag { position: absolute; left: 3%; bottom: 11%; z-index: 2; max-width: 220px; padding: 13px 27px 13px 16px; background: #fffdf5; clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%); transform: rotate(-6deg); }
 .fp-travel-tag > span { display: block; color: var(--accent); font-weight: 500; font-size: 15px; }
 .fp-travel-tag > small { display: block; margin-top: 4px; color: var(--muted); font-size: 10px; line-height: 1.5; }
-.fp-swatch-fan { position: absolute; left: 8%; top: 3%; width: 44%; height: 44%; }
-.fp-swatch-fan > span { position: absolute; top: 0; left: 28%; width: 38%; height: 88%; border: 5px solid #fffaf1; box-shadow: 0 9px 20px #493d2b14; transform-origin: 50% 95%; border-radius: 2px; }
-.fp-swatch-fan > .fp-swatch-cream { background: #e4d9c6; transform: rotate(-30deg); }
-.fp-swatch-fan > .fp-swatch-rust { background: #b35a40; transform: rotate(-10deg); }
-.fp-swatch-fan > .fp-swatch-olive { background: #7d806c; transform: rotate(11deg); }
-.fp-swatch-fan > .fp-swatch-blue { background: #a8bac1; transform: rotate(31deg); }
-.fp-palette-label { position: absolute; left: 5%; top: 52%; display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--muted); transform: rotate(-6deg); }
-.fp-palette-label > svg { color: var(--accent); }
-.fp-palette-look { position: absolute; inset: 0; }
-.fp-palette-look > .fp-palette-shirt { width: 37%; height: 62%; right: 8%; top: -1%; transform: rotate(7deg); }
-.fp-palette-look > .fp-palette-trousers { width: 31%; height: 61%; right: -1%; bottom: -1%; transform: rotate(9deg); }
-.fp-palette-look > .fp-palette-shoes { width: 38%; height: 32%; left: 20%; bottom: 2%; transform: rotate(-13deg); }
-.fp-editorial-photo { position: absolute; margin: 0; padding: 5px 5px 0; background: #fffdf7; box-shadow: 0 15px 26px #493d2b15; }
-.fp-editorial-photo > img { display: block; width: 100%; height: calc(100% - 31px); object-fit: cover; }
-.fp-editorial-photo > figcaption { padding: 8px 5px; font-size: 10px; line-height: 1.5; color: var(--muted); }
-.fp-editorial-flatlay { width: 56%; height: 51%; top: 10%; left: -2%; transform: rotate(-8deg); }
-.fp-editorial-flatlay > img { object-position: 42% 50%; }
-.fp-editorial-look { width: 43%; max-width: 320px; height: 89%; top: 0; right: 4%; transform: rotate(5deg); }
-.fp-community-caption { left: 5%; bottom: 12%; max-width: 170px; }
-.fp-weather-forecast { position: absolute; left: 2%; top: 1%; z-index: 2; }
-.fp-weather-auto { display: block; font-size: 11px; color: var(--muted); margin-bottom: 13px; }
-.fp-weather-forecast > div { display: flex; align-items: center; gap: 18px; }
-.fp-weather-forecast svg { color: #657265; }
-.fp-weather-forecast strong { font-size: clamp(56px,6.4vw,88px); line-height: 1; letter-spacing: -3px; font-weight: 500; }
-.fp-weather-rain { display: block; color: var(--muted); font-size: 12px; margin-top: 12px; }
-.fp-weather-clothes { position: absolute; inset: 0; }
-.fp-weather-clothes > .fp-weather-coat { right: -1%; top: -2%; width: 47%; height: 93%; transform: rotate(9deg); }
-.fp-weather-clothes > .fp-weather-tee { left: 26%; bottom: 3%; width: 35%; height: 49%; transform: rotate(-10deg); }
-.fp-weather-clothes > .fp-weather-trousers { left: 0; bottom: -2%; width: 31%; height: 55%; transform: rotate(6deg); }
-.fp-weather-note { position: absolute; left: 4%; top: 48%; z-index: 2; display: inline-flex; align-items: center; gap: 8px; font-size: 12px; line-height: 1.5; color: var(--muted); }
-.fp-weather-note > svg { color: #66715e; }
-.fp-recognition-photo { position: absolute; width: 46%; max-width: 330px; height: 96%; left: 32%; top: 0; border-radius: 45% 45% 3% 3% / 20% 20% 3% 3%; overflow: hidden; transform: rotate(3deg); box-shadow: 0 14px 28px #493d2b12; }
-.fp-recognition-photo > img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.fp-scene > .fp-recognized-jacket { width: 35%; height: 58%; left: 0; bottom: 1%; transform: rotate(-12deg); }
-.fp-photo-label { position: absolute; z-index: 2; padding: 10px 16px; background: #fffdf5f2; box-shadow: 0 6px 20px #3d302d0b; color: var(--ink); font-size: 13px; font-weight: 500; line-height: 1.5; transform: rotate(-3deg); }
-.fp-photo-label > small { display: block; color: var(--muted); font-size: 10px; font-weight: 400; margin-top: 1px; }
-.fp-photo-jacket { left: 6%; top: 20%; }
-.fp-photo-tee { right: 5%; top: 40%; transform: rotate(5deg); }
-.fp-photo-trousers { right: 8%; top: 72%; }
-.fp-recognition-note { position: absolute; left: 0; bottom: -3%; display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 11px; }
-.fp-recognition-note > svg { color: var(--accent); }
-.fp-wardrobe-rail { position: absolute; top: 6%; left: 8%; width: 83%; height: 1px; background: #a99f8b; }
-.fp-hanging-wardrobe { position: absolute; inset: 0; }
-.fp-hung { position: absolute; top: 7%; width: 30%; height: 61%; }
-.fp-hung-shirt { left: 2%; }.fp-hung-blazer { left: 34%; }.fp-hung-tee { left: 66%; }
-.fp-hanger { position: absolute; top: -3%; width: 49%; height: 37px; left: 25.5%; color: #8a8274; }
-.fp-hung > .fp-piece { inset: 2% 0 13%; }
-.fp-hung > span:last-child { position: absolute; bottom: 7%; width: 100%; text-align: center; font-size: 10px; color: var(--muted); }
-.fp-scene > .fp-wardrobe-trousers { width: 27%; height: 37%; right: 9%; bottom: -3%; transform: rotate(7deg); }
-.fp-scene > .fp-wardrobe-shoes { width: 36%; height: 29%; left: 18%; bottom: -1%; transform: rotate(-8deg); }
-.fp-wardrobe-caption { left: 2%; bottom: 0; max-width: 120px; }
+.fp-example-label { display: block; color: var(--muted); font-size: 11px; line-height: 1.6; }
+.fp-palette { display: grid; grid-template-rows: 150px auto minmax(0,1fr); gap: 8px; padding-block: 12px 5px; }
+.fp-swatch-fan { position: relative; justify-self: center; width: 240px; max-width: 80%; height: 145px; }
+.fp-swatch-fan > span { position: absolute; top: 0; left: calc(50% - 40px); width: 80px; height: 141px; border: 5px solid #fffaf1; box-shadow: 0 9px 20px #493d2b14; transform-origin: 50% 94%; border-radius: 2px; }
+.fp-swatch-fan > .fp-swatch-cream { background: #e9e5dc; transform: rotate(-18deg); }
+.fp-swatch-fan > .fp-swatch-chocolate { background: #694735; }
+.fp-swatch-fan > .fp-swatch-graphite { background: #4d504b; transform: rotate(18deg); }
+.fp-palette-tones { display: flex; justify-content: center; flex-wrap: wrap; column-gap: 17px; row-gap: 5px; color: var(--muted); font-size: 10px; line-height: 1.6; }
+.fp-palette-tones > span { display: inline-flex; align-items: center; gap: 6px; }
+.fp-palette-tones > span::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #e9e5dc; box-shadow: 0 0 0 1px #cfc8ba; }
+.fp-palette-tones > span:nth-child(2)::before { background: #694735; box-shadow: none; }
+.fp-palette-tones > span:nth-child(3)::before { background: #4d504b; box-shadow: none; }
+.fp-palette-look { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); align-items: end; gap: 12px; min-height: 0; }
+.fp-palette-look > .fp-piece { position: static; grid-column: span 2; width: 100%; height: 280px; }
+.fp-palette-look > .fp-palette-tee { height: 240px; transform: rotate(-5deg); }
+.fp-palette-look > .fp-palette-blazer { transform: rotate(5deg); }
+.fp-palette-look > .fp-palette-trousers { height: 270px; transform: rotate(-3deg); }
+.fp-community { display: grid; grid-template-rows: auto minmax(0,1fr); gap: 15px; padding-block: 5px; }
+.fp-community-posts { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); align-items: start; gap: 24px; min-width: 0; }
+.fp-community-post { min-width: 0; }
+.fp-community-post:nth-child(2) { margin-top: 24px; }
+.fp-post-photo { width: min(100%,188px); margin: 0 auto; padding: 4px; background: #fffdfa; box-shadow: 0 12px 24px #493d2b12; transform: rotate(-3deg); }
+.fp-community-post:nth-child(2) .fp-post-photo { transform: rotate(3deg); }
+.fp-post-photo > img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; object-position: center; }
+.fp-post-copy { margin-top: 13px; }
+.fp-post-copy > span, .fp-post-comment > span { display: block; color: var(--muted); font-size: 9px; line-height: 1.6; }
+.fp-post-copy > p { margin: 5px 0 0; font-size: 11px; line-height: 1.65; }
+.fp-post-comment { margin-top: 12px; padding: 9px 11px; border-radius: 8px; background: #fffdfa9c; }
+.fp-post-comment > p { margin: 4px 0 0; font-size: 10px; line-height: 1.55; }
+.fp-post-comment b { font-weight: 500; }
+.fp-weather { display: grid; grid-template-rows: auto minmax(0,1fr); align-content: center; gap: 22px; padding-block: 12px; }
+.fp-weather-forecast { display: grid; grid-template-columns: auto minmax(0,1fr); align-items: center; gap: 6px 21px; }
+.fp-weather-forecast > .fp-example-label { grid-column: 1 / -1; }
+.fp-weather-forecast > strong { font-size: 78px; line-height: 1; letter-spacing: -3px; font-weight: 500; }
+.fp-weather-conditions { display: flex; align-items: center; gap: 12px; color: #596153; }
+.fp-weather-conditions > span { font-size: 14px; line-height: 1.5; }
+.fp-weather-conditions small { display: block; margin-top: 2px; color: var(--muted); font-size: 10px; }
+.fp-weather-selection { display: grid; grid-template-columns: minmax(0,.95fr) minmax(0,1.05fr); align-items: start; gap: 24px; }
+.fp-weather-selection figure { min-width: 0; margin: 0; }
+.fp-weather-layer > .fp-piece { position: static; width: 100%; height: 275px; }
+.fp-weather-selection figcaption { margin-top: 8px; text-align: center; }
+.fp-weather-selection figcaption strong { display: block; font-size: 12px; font-weight: 500; line-height: 1.6; }
+.fp-weather-selection figcaption span { display: block; margin-top: 3px; color: var(--muted); font-size: 10px; line-height: 1.6; }
+.fp-weather-basics { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); grid-template-rows: 145px 130px; align-items: center; }
+.fp-weather-basics > .fp-piece { position: static; width: 100%; height: 100%; }
+.fp-weather-basics > .fp-piece:nth-child(2) { grid-column: 2; grid-row: 1 / 3; }
+.fp-recognition { display: grid; grid-template-rows: auto minmax(0,1fr); gap: 20px; padding-block: 12px; }
+.fp-recognition-heading { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 11px; line-height: 1.6; }
+.fp-recognition-heading > svg { color: var(--accent); }
+.fp-recognition-process { display: grid; grid-template-columns: minmax(0,.95fr) 21px minmax(0,1.05fr); align-items: center; gap: 16px; min-width: 0; }
+.fp-recognition-source { min-width: 0; margin: 0; }
+.fp-recognition-source > figcaption { margin-bottom: 10px; color: var(--muted); font-size: 10px; line-height: 1.6; }
+.fp-recognition-photo { position: relative; width: 100%; max-width: 220px; aspect-ratio: 2 / 3; overflow: hidden; border-radius: 44% 44% 3px 3px / 16% 16% 3px 3px; box-shadow: 0 12px 24px #493d2b12; }
+.fp-recognition-photo > img { width: 100%; height: 100%; object-fit: cover; }
+.fp-photo-marker { position: absolute; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: #fffdfa; color: var(--accent); font-size: 11px; line-height: 1; box-shadow: 0 2px 8px #312a2424; transform: translate(-50%,-50%); }
+.fp-marker-jacket { left: 65%; top: 39%; }.fp-marker-tee { left: 49%; top: 37%; }.fp-marker-trousers { left: 59%; top: 67%; }
+.fp-recognition-arrow { color: var(--accent); }
+.fp-result-heading { display: block; color: var(--accent); font-size: 11px; line-height: 1.6; font-weight: 500; }
+.fp-recognition-results > ol { display: grid; gap: 22px; list-style: none; padding: 0; margin: 16px 0 0; }
+.fp-recognition-results li { display: grid; grid-template-columns: 24px minmax(0,1fr); gap: 10px; min-width: 0; }
+.fp-result-number { display: grid; place-items: center; width: 24px; height: 24px; border: 1px solid #d5cbbb; border-radius: 50%; background: #fffdfa; color: var(--accent); font-size: 11px; line-height: 1; }
+.fp-recognition-results dl { min-width: 0; margin: 0; }
+.fp-recognition-results dl > div { display: grid; grid-template-columns: 58px minmax(0,1fr); gap: 9px; font-size: 11px; line-height: 1.65; }
+.fp-recognition-results dt { color: var(--muted); }
+.fp-recognition-results dd { margin: 0; }
+.fp-wardrobe { display: grid; grid-template-rows: auto minmax(0,1fr); gap: 18px; padding-block: 12px; }
+.fp-wardrobe-grid { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); align-items: start; gap: 10px 18px; }
+.fp-wardrobe-grid > figure { grid-column: span 2; min-width: 0; margin: 0; }
+.fp-wardrobe-grid > figure:nth-child(4) { grid-column: 2 / span 2; }
+.fp-wardrobe-grid > figure:nth-child(5) { grid-column: 4 / span 2; }
+.fp-wardrobe-grid .fp-piece { position: static; width: 100%; height: 180px; }
+.fp-wardrobe-grid figcaption { margin-top: 7px; color: var(--muted); font-size: 10px; line-height: 1.6; text-align: center; }
 @media (max-width: 1050px) {
   .fp-scene { height: 440px; }
   .fp-chat-question { font-size: 13px; padding: 14px 17px; }
@@ -102,10 +123,22 @@
   .fp-chat-answer > p { font-size: 13px; }
   .fp-chat-outfit { gap: 9px; }
   .fp-chat-outfit > span { font-size: 10px; }
-  .fp-weather-forecast > div { gap: 10px; }
-  .fp-weather-forecast svg { width: 48px; height: 48px; }
-  .fp-weather-forecast strong { font-size: 62px; }
-  .fp-photo-label { font-size: 11px; padding: 9px 12px; }
+  .fp-palette { grid-template-rows: 130px auto minmax(0,1fr); }
+  .fp-swatch-fan { height: 125px; }
+  .fp-swatch-fan > span { left: calc(50% - 37px); width: 74px; height: 121px; }
+  .fp-palette-look > .fp-piece { height: 210px; }
+  .fp-palette-look > .fp-palette-tee { height: 180px; }
+  .fp-community { height: auto; min-height: 440px; }
+  .fp-post-photo { max-width: 155px; }
+  .fp-weather-forecast > strong { font-size: 62px; }
+  .fp-weather-layer > .fp-piece { height: 240px; }
+  .fp-weather-basics { grid-template-rows: 125px 115px; }
+  .fp-recognition-process { gap: 12px; grid-template-columns: minmax(0,.9fr) 17px minmax(0,1.1fr); }
+  .fp-recognition-arrow { width: 17px; }
+  .fp-recognition-results li { grid-template-columns: 21px minmax(0,1fr); gap: 8px; }
+  .fp-result-number { width: 21px; height: 21px; font-size: 10px; }
+  .fp-recognition-results dl > div { grid-template-columns: 51px minmax(0,1fr); gap: 7px; font-size: 10px; }
+  .fp-wardrobe-grid .fp-piece { height: 155px; }
 }
 @media (max-width: 760px) {
   .fp-scene { height: 340px; }
@@ -125,25 +158,53 @@
   .fp-travel-tag { padding: 10px 21px 10px 12px; max-width: 172px; bottom: 8%; }
   .fp-travel-tag > span { font-size: 12px; }
   .fp-travel-tag > small { font-size: 8px; }
-  .fp-swatch-fan { top: 0; left: 6%; height: 47%; }
-  .fp-swatch-fan > span { border-width: 3px; }
-  .fp-palette-label { font-size: 11px; gap: 7px; }
-  .fp-editorial-photo { padding: 4px 4px 0; }
-  .fp-editorial-photo > figcaption { font-size: 8px; padding: 6px 4px; }
-  .fp-editorial-photo > img { height: calc(100% - 25px); }
-  .fp-community-caption { font-size: 11px; max-width: 135px; }
-  .fp-weather-forecast strong { font-size: 58px; letter-spacing: -2px; }
-  .fp-weather-forecast svg { width: 45px; height: 45px; }
-  .fp-weather-auto { font-size: 9px; margin-bottom: 10px; }
-  .fp-weather-rain { font-size: 10px; max-width: 145px; }
-  .fp-weather-note { font-size: 10px; left: 1%; top: 45%; gap: 5px; }
-  .fp-photo-label { font-size: 10px; padding: 8px 11px; }
-  .fp-photo-label > small { font-size: 8px; }
-  .fp-recognition-note { font-size: 9px; gap: 5px; }
-  .fp-hanger { height: 27px; }
-  .fp-hung > span:last-child { font-size: 8px; }
-  .fp-wardrobe-caption { font-size: 9px; max-width: 92px; }
-  .fp-scene > .fp-wardrobe-shoes { left: 30%; }
+  .fp-example-label { font-size: 10px; }
+  .fp-palette, .fp-community, .fp-weather, .fp-recognition, .fp-wardrobe { height: auto; min-height: 0; padding-block: 12px; }
+  .fp-palette { grid-template-rows: 116px auto auto; }
+  .fp-swatch-fan { width: 186px; height: 116px; }
+  .fp-swatch-fan > span { left: calc(50% - 31.5px); width: 63px; height: 106px; border-width: 3px; }
+  .fp-palette-tones { column-gap: 12px; font-size: 9px; }
+  .fp-palette-tones > span { gap: 5px; }
+  .fp-palette-look { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 8px 12px; }
+  .fp-palette-look > .fp-piece { height: 130px; }
+  .fp-palette-look > .fp-palette-trousers { grid-column: 2 / span 2; height: 135px; }
+  .fp-community { gap: 14px; }
+  .fp-community-posts { grid-template-columns: minmax(0,1fr); gap: 22px; }
+  .fp-community-post { display: grid; grid-template-columns: 96px minmax(0,1fr); align-items: start; gap: 10px 13px; }
+  .fp-community-post:nth-child(2) { margin-top: 0; }
+  .fp-post-photo, .fp-community-post:nth-child(2) .fp-post-photo { width: 100%; max-width: none; padding: 3px; transform: none; }
+  .fp-post-copy { margin-top: 0; }
+  .fp-post-copy > span, .fp-post-comment > span { font-size: 9.5px; }
+  .fp-post-comment { grid-column: 1 / -1; margin-top: 0; }
+  .fp-weather { gap: 18px; }
+  .fp-weather-forecast { gap: 6px 14px; }
+  .fp-weather-forecast > strong { font-size: 54px; letter-spacing: -2px; }
+  .fp-weather-conditions { min-width: 0; gap: 9px; }
+  .fp-weather-conditions > svg { flex-shrink: 0; width: 30px; height: 30px; }
+  .fp-weather-conditions > span { min-width: 0; font-size: 12px; }
+  .fp-weather-conditions small { font-size: 9px; }
+  .fp-weather-selection { grid-template-columns: minmax(0,1fr); gap: 12px; }
+  .fp-weather-layer { display: grid; grid-template-columns: minmax(0,.42fr) minmax(0,.58fr); align-items: center; gap: 15px; }
+  .fp-weather-layer > .fp-piece { height: 156px; }
+  .fp-weather-layer > figcaption { margin-top: 0; text-align: left; }
+  .fp-weather-basics { grid-template-columns: repeat(3,minmax(0,1fr)); grid-template-rows: 128px; }
+  .fp-weather-basics > .fp-piece:nth-child(2) { grid-column: auto; grid-row: auto; }
+  .fp-weather-selection figcaption strong { font-size: 11px; }
+  .fp-recognition { gap: 14px; }
+  .fp-recognition-heading { font-size: 10px; }
+  .fp-recognition-process { grid-template-columns: minmax(0,1fr); gap: 12px; }
+  .fp-recognition-source { justify-self: center; }
+  .fp-recognition-source > figcaption { margin-bottom: 8px; text-align: center; }
+  .fp-recognition-photo { width: 132px; max-width: 100%; }
+  .fp-photo-marker { width: 18px; height: 18px; font-size: 9px; }
+  .fp-recognition-arrow { justify-self: center; height: 17px; transform: rotate(90deg); }
+  .fp-result-heading { font-size: 10px; }
+  .fp-recognition-results > ol { margin-top: 12px; gap: 13px; }
+  .fp-recognition-results dl > div { grid-template-columns: 55px minmax(0,1fr); gap: 8px; font-size: 10px; line-height: 1.55; }
+  .fp-wardrobe-grid { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 10px 14px; }
+  .fp-wardrobe-grid > figure:nth-child(4) { grid-column: auto / span 2; }
+  .fp-wardrobe-grid > figure:nth-child(5) { grid-column: 2 / span 2; }
+  .fp-wardrobe-grid .fp-piece { height: 115px; }
 }
 @media (max-width: 640px) {
   .fp-outfit-dialog { width: calc(100% - 24px); max-height: calc(100svh - 24px); border-radius: 11px; }
@@ -158,7 +219,5 @@
 @media (max-width: 380px) {
   .fp-scene { height: 320px; }
   .fp-consultation { height: 440px; }
-  .fp-photo-label { font-size: 9px; padding: 7px 9px; }
-  .fp-weather-forecast strong { font-size: 51px; }
-  .fp-weather-forecast svg { width: 39px; height: 39px; }
+  .fp-palette, .fp-community, .fp-weather, .fp-recognition, .fp-wardrobe { height: auto; }
 }

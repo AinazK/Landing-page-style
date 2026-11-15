@@ -14,7 +14,7 @@ const paths: Record<GarmentKind, string> = {
   scarf: "M35 15Q49 8 63 17L71 37 58 44 57 94H38L42 43 29 36Z M38 84H57 M39 89H56 M42 43 58 44 M35 15 42 43 63 17",
 };
 export function GarmentDrawing({ id, color }: { id: GarmentKind; color: string }) {
-  const lofi = { tee: "tee", shirt: "shirt", trousers: "trousers", blazer: "blazer", sneakers: "sneakers" } as Partial<Record<GarmentKind,string>>;
+  const lofi = { tee: "tee", shirt: "shirt", trousers: "trousers", blazer: "blazer", sneakers: "sneakers-top", coat: "coat" } as Partial<Record<GarmentKind,string>>;
   if (lofi[id]) return <img src={`/images/lofi/${lofi[id]}.webp`} width={512} height={512} alt="" aria-hidden="true" loading="lazy" className="garment-drawing" data-style="lofi" />;
   return <svg viewBox="0 0 100 110" aria-hidden="true" className="garment-drawing"><path d={paths[id]} fill={color} stroke="#37372e" strokeWidth="1.15" strokeLinejoin="round" /><path d={paths[id]} fill="none" stroke="#fff" strokeOpacity=".25" strokeWidth=".4" transform="translate(-1 -1)" /></svg>;
 }
