@@ -159,7 +159,7 @@ export default function Landing() {
             <div className="team-credits">
               <p><span className="team-avatar" aria-hidden="true"><img className="team-photo-ainaz" src="/images/team-ainaz.png" width={640} height={640} loading="lazy" alt="" /></span><span>Хайруллин Айназ</span><small>Веб-приложение и серверная часть</small></p>
               <p><span className="team-avatar" aria-hidden="true"><img className="team-photo-arina" src="/images/team-arina.png" width={1023} height={1021} loading="lazy" alt="" /></span><span>Коваленко Арина</span><small>Обработка фотографий и рекомендации</small></p>
-              <p><span className="team-avatar" aria-hidden="true"><img src="/images/team-alena.png" width={640} height={640} loading="lazy" alt="" /></span><span>Елагина Алена</span><small>Дизайн интерфейса</small></p>
+              <p><span className="team-avatar" aria-hidden="true"><img className="team-photo-alena" src="/images/team-alena-portrait.jpg" width={1099} height={1859} loading="lazy" alt="" /></span><span>Елагина Алена</span><small>Дизайн интерфейса</small></p>
             </div>
             <a href="https://t.me/DuImaran" target="_blank" rel="noreferrer" className="text-link">Связаться с командой <Arrow /></a>
           </div>
