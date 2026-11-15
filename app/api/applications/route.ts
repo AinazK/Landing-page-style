@@ -7,6 +7,7 @@ import { BodyError, readJson } from "../request-body";
 const schema = z.object({
   name: z.string().trim().min(2).max(60),
   ageGroup: z.enum(["До 18", "18–24", "25–34", "35–44", "45+"]),
+  gender: z.enum(["female", "male"]).nullable().optional(),
   telegram: z.string().trim().max(80).transform(value => value.replace(/^https?:\/\/(?:www\.)?t\.me\//i, "").replace(/^t\.me\//i, "").replace(/^@/, "").replace(/\/$/, "").toLowerCase()).pipe(z.string().regex(/^[a-z][a-z0-9_]{4,31}$/)),
   phone: z.string().trim().max(24).transform(value => value.replace(/[\s()\-]/g, "")).refine(value => !value || /^\+?\d{10,15}$/.test(value)),
   website: z.string().max(200).optional(),
@@ -40,7 +41,7 @@ export async function POST(request: Request) {
     const counter = await env.DB.prepare("INSERT INTO rate_limits (key, window, hits) VALUES (?, ?, 1) ON CONFLICT(key) DO UPDATE SET hits = hits + 1 RETURNING hits").bind(`${hash}:${window}`, window).first<{ hits: number }>();
     if (counter && counter.hits > 10) return json({ error: "Слишком много заявок. Попробуйте через час или напишите @DuImaran." }, 429);
     await env.DB.prepare("DELETE FROM rate_limits WHERE window < ?").bind(window - 48).run();
-    await getDb().insert(applications).values({ id: crypto.randomUUID(), name: parsed.data.name, ageGroup: parsed.data.ageGroup, telegram: parsed.data.telegram, phone: parsed.data.phone || null, platform: parsed.data.platform || null, priority: parsed.data.priority || null, routeSummary: parsed.data.routeSummary || null, consentVersion: "beta-route-2026-11-12", createdAt: Date.now() }).onConflictDoNothing({ target: applications.telegram });
+    await getDb().insert(applications).values({ id: crypto.randomUUID(), name: parsed.data.name, ageGroup: parsed.data.ageGroup, gender: parsed.data.gender || null, telegram: parsed.data.telegram, phone: parsed.data.phone || null, platform: parsed.data.platform || null, priority: parsed.data.priority || null, routeSummary: parsed.data.routeSummary || null, consentVersion: "beta-2026-11-15", createdAt: Date.now() }).onConflictDoNothing({ target: applications.telegram });
     return json({ ok: true });
   } catch {
     return json({ error: "Не удалось сохранить заявку. Попробуйте позже или напишите @DuImaran в Telegram." }, 503);

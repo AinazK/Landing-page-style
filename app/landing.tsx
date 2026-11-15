@@ -28,11 +28,11 @@ function PrivacyDialog({ onClose }: { onClose: () => void }) {
       <button className="dialog-close icon-button" aria-label="Закрыть" onClick={() => ref.current?.close()}><X size={22} /></button>
       <span className="eyebrow">Заявка на тестирование</span>
       <h2 id="privacy-heading">О ваших данных</h2>
-      <p>Команда проекта «ИИ-стилист» сохраняет имя, возрастную группу, Telegram и телефон, если вы его указали, для связи по поводу закрытого тестирования. Можно дополнительно сообщить интересующую задачу.</p>
+      <p>Команда проекта «ИИ-стилист» сохраняет имя, возрастную группу и Telegram для связи по поводу закрытого тестирования. Если вы укажете пол, телефон или интересующую задачу, эти сведения тоже сохранятся. Пол можно не указывать; его используем для изучения состава пилотной группы.</p>
       <p>Фотографии посетителей на лендинг не загружаются. Данные заявки доступны владельцу проекта и не публикуются на сайте.</p>
       <p>Для оценки интереса к проекту используются общие счётчики событий. Они не содержат имени, Telegram и не являются числом уникальных людей. Для защиты от частых запросов временно используется хеш сетевого адреса.</p>
       <p>Чтобы изменить или удалить заявку и отозвать согласие на дальнейшую связь, напишите команде в Telegram: <a href="https://t.me/DuImaran" target="_blank" rel="noreferrer">@DuImaran <Arrow /></a>.</p>
-      <p className="muted small">Версия от 12 ноября 2026 года.</p>
+      <p className="muted small">Версия от 15 ноября 2026 года.</p>
     </dialog>
   );
 }
@@ -52,7 +52,7 @@ function BetaForm() {
     try {
       const response = await fetch("/api/applications", {
         method: "POST", signal: controller.signal, headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: data.get("name"), ageGroup: data.get("ageGroup"), telegram: data.get("telegram"), phone: data.get("phone") || "", website: data.get("website"), consent: data.get("consent") === "on", platform: data.get("platform") || null, priority: data.get("priority") || null }),
+        body: JSON.stringify({ name: data.get("name"), ageGroup: data.get("ageGroup"), gender: data.get("gender") || null, telegram: data.get("telegram"), phone: data.get("phone") || "", website: data.get("website"), consent: data.get("consent") === "on", platform: data.get("platform") || null, priority: data.get("priority") || null }),
       });
       if (!response.headers.get("content-type")?.includes("application/json")) throw new Error("Сервис пока недоступен. Обновите страницу или напишите команде в Telegram.");
       const result = await response.json() as { error?: string };
@@ -79,7 +79,10 @@ function BetaForm() {
           <label>Ваше имя<input name="name" autoComplete="given-name" placeholder="Как к вам обращаться" minLength={2} maxLength={60} required /></label>
           <label>Возраст<span className="select-wrap"><select name="ageGroup" defaultValue="" required><option value="" disabled>Возрастная группа</option>{["До 18", "18–24", "25–34", "35–44", "45+"].map(age => <option key={age}>{age}</option>)}</select><ChevronDown size={15} aria-hidden="true" /></span></label>
         </div>
-        <label>Telegram<input name="telegram" autoComplete="off" placeholder="@username или t.me/username" required maxLength={80} spellCheck={false} aria-describedby="telegram-help" /></label>
+        <div className="form-row">
+          <label>Telegram<input name="telegram" autoComplete="off" placeholder="@username или t.me/username" required maxLength={80} spellCheck={false} aria-describedby="telegram-help" /></label>
+          <label>Пол<span className="select-wrap"><select name="gender" defaultValue=""><option value="">Не указывать</option><option value="female">Женский</option><option value="male">Мужской</option></select><ChevronDown size={15} aria-hidden="true" /></span></label>
+        </div>
         <p id="telegram-help" className="field-hint">По этому имени пользователя команда сможет написать вам.</p>
         <details className="optional-fields">
           <summary>Дополнительные сведения<span>необязательно</span><Plus size={16} aria-hidden="true" /></summary>

@@ -13,6 +13,7 @@ export async function GET() {
   const rows = await getDb().select().from(applications).orderBy(desc(applications.createdAt));
   const platforms: Record<string, string> = { android: "Android", ios: "iPhone", both: "Оба" };
   const priorities: Record<string, string> = { daily: "Выбор одежды утром", wardrobe: "Новые сочетания", "day-route": "Маршрут дня" };
-  const csv = [["Дата, МСК", "Имя", "Возрастная группа", "Telegram", "Телефон", "Устройство", "Задача", "Маршрут", "Согласие"], ...rows.map(row => [new Date(row.createdAt).toLocaleString("ru-RU", { timeZone: "Europe/Moscow" }), row.name, row.ageGroup, `@${row.telegram}`, row.phone || "", platforms[row.platform || ""] || "", priorities[row.priority || ""] || "", row.routeSummary || "", row.consentVersion])].map(row => row.map(cell).join(";")).join("\r\n");
+  const genders: Record<string, string> = { female: "Женский", male: "Мужской" };
+  const csv = [["Дата, МСК", "Имя", "Возрастная группа", "Пол", "Telegram", "Телефон", "Устройство", "Задача", "Маршрут", "Согласие"], ...rows.map(row => [new Date(row.createdAt).toLocaleString("ru-RU", { timeZone: "Europe/Moscow" }), row.name, row.ageGroup, genders[row.gender || ""] || "Не указан", `@${row.telegram}`, row.phone || "", platforms[row.platform || ""] || "", priorities[row.priority || ""] || "", row.routeSummary || "", row.consentVersion])].map(row => row.map(cell).join(";")).join("\r\n");
   return new Response(`\uFEFF${csv}`, { headers: { "Content-Type": "text/csv; charset=utf-8", "Content-Disposition": "attachment; filename=ai-stylist-applications.csv", "Cache-Control": "private, no-store" } });
 }

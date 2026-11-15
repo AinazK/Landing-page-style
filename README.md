@@ -9,7 +9,7 @@ React, Vinext, Cloudflare D1. Основная страница — `app/landing
 
 Первый экран занимает ширину окна и использует фотографию `public/images/city-day-hero.webp` с текстом поверх неё. Ниже находится большая панорама капсулы `public/images/capsule-panorama.webp`. Для мобильных экранов предусмотрены отдельное кадрирование первого фото и затемнение под текстом. Шаги, статусы разработки, условия участия и ответы оформлены фоновыми блоками без декоративных разделительных линий. Обе фотографии созданы встроенным ImageGen; исходники сохранены в игнорируемой папке `work/original-assets`, полные промпты — в `ASSETS.md`.
 
-Фотографии посетителей не загружаются. Персональное распознавание и рекомендации относятся к разрабатываемому Android-приложению.
+Фотографии посетителей не загружаются. Персональное распознавание и рекомендации относятся к разрабатываемому веб-приложению.
 
 FAQ использует готовый компонент `components/ui/accordion.tsx` с `type="single"` и `collapsible`: в группе может быть открыт один ответ, повторное нажатие закрывает его. Поддерживается клавиатурная навигация Radix.
 
@@ -26,6 +26,7 @@ FAQ использует готовый компонент `components/ui/accord
 ```powershell
 node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js d1 execute DB --local --config dist/server/wrangler.json --persist-to .wrangler/state --file drizzle/0000_fantastic_wolfsbane.sql
 node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js d1 execute DB --local --config dist/server/wrangler.json --persist-to .wrangler/state --file drizzle/0001_lucky_power_pack.sql
+node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js d1 execute DB --local --config dist/server/wrangler.json --persist-to .wrangler/state --file drizzle/0002_free_tyrannus.sql
 ```
 
 4. Для проверки админки создайте игнорируемый `.dev.vars` с `ADMIN_EMAIL=seedy@sites.test`.
@@ -36,11 +37,13 @@ node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js d1
 
 ## Заявки и доступ
 
-`POST /api/applications` принимает имя, возрастную группу, Telegram, необязательный телефон и явное согласие. Устройство и интересующая задача необязательны.
+`POST /api/applications` принимает имя, возрастную группу, Telegram, необязательные пол (`female` / `male`), телефон и явное согласие. Устройство и интересующая задача необязательны. Если пол не указан, хранится `NULL`; старые клиенты без этого поля поддерживаются.
 
 Telegram нормализуется, дубликаты не создаются. Есть серверная проверка, ограничение размера запроса, Origin, honeypot и ограничение частоты по временному хешу IP. Параметр `route_summary` остаётся nullable для совместимости с сохранёнными заявками; текущая форма его не отправляет.
 
 Страница `/admin` и CSV `/api/admin/export` доступны только пользователю ChatGPT, чей подтверждённый email совпадает с секретом Sites `ADMIN_EMAIL`. CSV содержит BOM для Excel и защиту от формул.
+
+В панели показываются пол и распределение сохранённых заявок по возрастным группам. Заявки без пола отмечены «Не указан». Устаревшие счётчики демо и скачивания маршрута скрыты; их исторические данные сохранены в базе.
 
 `POST /api/events` увеличивает дневные обезличенные счётчики. Они не содержат контактов и идентификаторов посетителей и не являются числом уникальных людей. Текущая страница отправляет события открытия страницы и просмотра формы.
 

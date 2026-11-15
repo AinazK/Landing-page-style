@@ -4,6 +4,7 @@ export const applications = sqliteTable("applications", {
   id: text("id").primaryKey(),
   name: text("name").notNull(),
   ageGroup: text("age_group").notNull(),
+  gender: text("gender"),
   telegram: text("telegram").notNull().unique(),
   phone: text("phone"),
   consentVersion: text("consent_version").notNull(),
