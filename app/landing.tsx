@@ -167,7 +167,6 @@ export default function Landing() {
       <section ref={joinRef} className="join-section wrap" id="join" aria-labelledby="join-heading">
         <div className="pilot-invitation">
           <div className="invitation-topline">
-            <span className="invitation-label">Приглашение к знакомству</span>
             <span className="pilot-seal">Закрытый<br />пилот</span>
           </div>
           <h2 id="join-heading">Попробуйте<br /><span className="brand-name">ИИ-стилиста</span> первыми</h2>
