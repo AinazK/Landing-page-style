@@ -1,9 +1,11 @@
 .feature-carousel { --fabric-top-crop: 24px; position: relative; isolation: isolate; overflow: hidden; min-width: 0; padding-block: calc(58px - var(--fabric-top-crop)) 190px; }
-.feature-fabric { position: absolute; z-index: -1; inset: calc(0px - var(--fabric-top-crop)) 0 0; overflow: hidden; pointer-events: none; }
-.feature-fabric-strip { --fabric-period: 9000px; --fabric-overlap: 220px; display: flex; width: max-content; height: 100%; transform: translate3d(-9000px,0,0); will-change: transform; mask-image: url("/images/fabric-panorama/edge-mask.svg"); mask-mode: alpha; mask-size: var(--fabric-period) 100%; mask-repeat: repeat-x; mask-position: left top; }
+.feature-fabric { position: absolute; z-index: -1; inset: calc(0px - var(--fabric-top-crop)) 0 0; overflow: hidden; pointer-events: none; mask-image: url("/images/fabric-panorama/drape.webp"); mask-mode: alpha; mask-size: 100% 100%; mask-repeat: no-repeat; mask-position: 0 0; }
+/* The real photograph supplies both the silhouette and the folds along its hem. */
+.feature-fabric::after { content: ""; position: absolute; inset: 0; background: url("/images/fabric-panorama/drape.webp") 0 0 / 100% 100% no-repeat; mask-image: linear-gradient(to bottom,transparent 66%,#000 82%); }
+.feature-fabric-strip { --fabric-period: 9000px; --fabric-overlap: 220px; display: flex; width: max-content; height: 100%; transform: translate3d(-9000px,0,0); will-change: transform; }
 .feature-fabric-panorama { position: relative; flex: 0 0 var(--fabric-period); width: var(--fabric-period); height: 100%; }
 .feature-fabric-panel { position: absolute; top: 0; width: calc(var(--fabric-period) / 3 + var(--fabric-overlap)); height: 100%; overflow: hidden; background: #ece5d9; mask-image: linear-gradient(to right,transparent,#000 var(--fabric-overlap)); }
-/* Crop away each photograph's own hem; the strip supplies one continuous edge. */
+/* Crop panel seams; the outer layer supplies one photographic hem for the section. */
 .feature-fabric-panel > img { display: block; width: 100%; max-width: none; height: calc(100% / .82); object-fit: fill; }
 .feature-fabric-panel-0 { left: 0; }
 .feature-fabric-panel-1 { left: calc(var(--fabric-period) / 3); }
