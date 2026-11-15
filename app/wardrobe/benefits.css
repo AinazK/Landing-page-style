@@ -1,16 +1,21 @@
-.feature-carousel { margin-top: 28px; min-width: 0; }
-.feature-viewport { overflow-x: auto; scrollbar-width: thin; touch-action: pan-y pinch-zoom; border-radius: 14px; }
+.feature-carousel { position: relative; isolation: isolate; overflow: hidden; min-width: 0; padding-block: 52px 82px; }
+.feature-fabric { position: absolute; z-index: -1; inset: 0; overflow: hidden; pointer-events: none; }
+.feature-fabric-strip { --fabric-tile-width: 1280px; display: flex; width: max-content; height: 100%; will-change: transform; }
+.feature-fabric-strip > img { display: block; flex: 0 0 var(--fabric-tile-width); width: var(--fabric-tile-width); max-width: none; height: 100%; object-fit: fill; }
+.feature-fabric-mirror { transform: scaleX(-1); }
+.feature-section-heading { max-width: 850px; margin-inline: auto; padding-inline: 24px; text-align: center; font-size: clamp(28px,2.8vw,36px); line-height: 1.24; text-wrap: balance; }
+.feature-viewport { margin-top: 22px; overflow-x: auto; scrollbar-width: thin; touch-action: pan-y pinch-zoom; }
 .feature-carousel[data-ready="true"] .feature-viewport { overflow: hidden; }
-.feature-viewport:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+.feature-viewport:focus-visible { outline: 2px solid var(--accent); outline-offset: -4px; }
 .feature-track { display: flex; touch-action: pan-y pinch-zoom; }
-.feature-slide { flex: 0 0 100%; min-width: 0; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items: center; gap: 58px; padding: 24px 22px; }
-.feature-copy { min-width: 0; max-width: 440px; }
-.feature-number { display: block; font-size: 12px; font-weight: 500; letter-spacing: 1.2px; color: var(--accent); margin-bottom: 19px; font-variant-numeric: tabular-nums; }
+.feature-slide { flex: 0 0 100%; min-width: 0; display: grid; grid-template-columns: minmax(0,.82fr) minmax(0,1.18fr); align-items: center; gap: clamp(22px,3.5vw,74px); min-height: 550px; overflow: hidden; padding: 28px 0 28px clamp(24px,6.5vw,132px); }
+.feature-copy { min-width: 0; max-width: 460px; padding-block: 18px; }
+.feature-number { display: block; font-size: 12px; font-weight: 500; letter-spacing: 1.2px; color: var(--accent); margin-bottom: 23px; font-variant-numeric: tabular-nums; }
 .feature-number > span { color: var(--muted); font-size: 10px; }
-.feature-copy h3 { font-size: clamp(25px,2.5vw,32px); font-weight: 600; line-height: 1.22; letter-spacing: -.8px; }
-.feature-benefit { font-size: 16px; font-weight: 500; line-height: 1.55; margin-top: 16px; }
-.feature-description { color: var(--muted); font-size: 14px; line-height: 1.85; margin-top: 12px; }
-.feature-controls { display: flex; align-items: center; justify-content: center; gap: 20px; margin-top: 22px; }
+.feature-copy h3 { font-size: clamp(30px,3.1vw,44px); font-weight: 600; line-height: 1.16; letter-spacing: -1px; text-wrap: balance; }
+.feature-benefit { font-size: 17px; font-weight: 500; line-height: 1.55; margin-top: 21px; }
+.feature-description { color: var(--muted); font-size: 15px; line-height: 1.85; margin-top: 13px; }
+.feature-controls { display: flex; align-items: center; justify-content: center; gap: 20px; margin: 8px 20px 0; }
 .feature-carousel[data-ready="false"] .feature-controls { visibility: hidden; }
 .feature-arrow { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid #cfcdbf; background: #fffdf7b8; color: var(--ink); transition: background .15s, color .15s; }
 .feature-arrow:hover { background: #fffdf7; color: var(--accent); }
@@ -18,19 +23,31 @@
 .feature-dot { display: grid; place-items: center; width: 27px; height: 44px; padding: 0; border: 0; border-radius: 6px; background: none; }
 .feature-dot > span { width: 6px; height: 6px; border-radius: 50%; background: #a6a899; opacity: .65; transition: width .2s, background .2s, opacity .2s; }
 .feature-dot[aria-current="true"] > span { width: 18px; border-radius: 6px; background: var(--accent); opacity: 1; }
-.feature-status { margin-top: 11px; text-align: center; color: var(--muted); font-size: 10px; line-height: 1.6; }
+.feature-status { margin-top: 10px; padding-inline: 22px; text-align: center; color: var(--muted); font-size: 10px; line-height: 1.6; }
+.feature-development-note { max-width: 620px; margin: 21px auto 0; padding-inline: 24px; font-size: 11px; color: var(--muted); line-height: 1.8; text-align: center; }
+@media (min-width: 1800px) {
+  .feature-slide { grid-template-columns: minmax(0,.75fr) minmax(0,1.25fr); }
+  .feature-copy { max-width: 540px; }
+}
 @media (max-width: 1050px) {
-  .feature-slide { gap: 32px; padding-inline: 12px; }
+  .feature-slide { gap: 24px; padding-left: 32px; min-height: 500px; }
+  .feature-copy h3 { font-size: 32px; }
+  .feature-benefit { font-size: 15px; }
   .feature-description { font-size: 13px; }
 }
-@media (max-width: 700px) {
-  .feature-carousel { margin-top: 22px; }
-  .feature-slide { grid-template-columns: minmax(0,1fr); align-content: start; gap: 25px; padding: 16px 7px; }
-  .feature-copy { max-width: 520px; margin-inline: auto; width: 100%; }
-  .feature-number { margin-bottom: 13px; }
-  .feature-copy h3 { font-size: 26px; }
-  .feature-benefit { font-size: 14px; margin-top: 12px; }
-  .feature-description { font-size: 13px; line-height: 1.8; margin-top: 8px; }
-  .feature-controls { gap: 13px; margin-top: 15px; }
+@media (max-width: 760px) {
+  .feature-carousel { padding-block: 42px 68px; }
+  .feature-section-heading { font-size: 29px; }
+  .feature-viewport { margin-top: 18px; }
+  .feature-slide { grid-template-columns: minmax(0,1fr); align-content: start; min-height: 0; gap: 4px; padding: 18px 0; }
+  .feature-copy { max-width: 520px; margin-inline: auto; width: 100%; padding: 0 24px; }
+  .feature-number { margin-bottom: 14px; }
+  .feature-copy h3 { font-size: 29px; }
+  .feature-benefit { font-size: 15px; margin-top: 15px; }
+  .feature-description { font-size: 13px; line-height: 1.8; margin-top: 9px; }
+  .feature-controls { gap: 13px; margin-top: 5px; }
   .feature-dot { width: 25px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .feature-fabric-strip { will-change: auto; }
 }

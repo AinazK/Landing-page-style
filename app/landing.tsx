@@ -143,10 +143,7 @@ export default function Landing() {
       </section>
 
       <section className="intro-section" id="how" aria-labelledby="how-heading">
-        <img className="intro-fabric" src="/images/linen-edge.webp" width={1672} height={941} loading="lazy" alt="" aria-hidden="true" />
-        <div className="wrap"><div className="intro-grid"><h2 id="how-heading">Что даст Стилистика?</h2></div>
         <WardrobeBenefits />
-        <p className="development-note">Эти возможности готовим для веб-приложения. Сейчас собираем первую пилотную группу.</p></div>
       </section>
 
       <StylistChat />
