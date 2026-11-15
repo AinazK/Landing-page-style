@@ -66,7 +66,7 @@ h3 { font-weight: 600; }
 .hero-content { display: flex; align-items: center; height: 100%; width: 100%; padding-top: 95px; padding-bottom: 90px; }
 .hero-copy { max-width: 610px; }
 .launch-label { display: flex; align-items: center; gap: 8px; font-size: 11px; color: #ffffffbf; margin-bottom: 22px; }
-.launch-label > span { width: 6px; height: 6px; background: var(--accent-vivid); border-radius: 50%; flex-shrink: 0; }
+.launch-label > span { width: 4px; height: 4px; background: var(--accent-vivid); border-radius: 50%; flex-shrink: 0; opacity: .75; }
 .hero h1 { font-size: clamp(43px, 5vw, 70px); line-height: 1.08; letter-spacing: -2.4px; font-weight: 600; }
 .hero h1 > span { color: #fff; }
 .hero-description { color: #ffffffd9; font-size: 15px; line-height: 1.85; max-width: 440px; margin: 22px 0 26px; }
@@ -342,12 +342,12 @@ h3 { font-weight: 600; }
 .step p { max-width: 280px; }
 .development-note { margin-top: 29px; text-align: center; }
 .project-section { padding-block: 92px; }
-.project-grid { gap: 44px; align-items: center; }
+.project-grid { gap: 68px; align-items: center; }
 .project-team { grid-column: 2; grid-row: 1; background: transparent; padding: 0 0 0 16px; }
 .project-team > .text-link { margin-top: 12px; }
 .project-description { max-width: 350px; margin-top: 23px; }
 .team-credits { margin-block: 30px; gap: 27px; }
-.project-progress { grid-column: 1; grid-row: 1; gap: 18px; grid-template-rows: none; }
+.project-progress { grid-column: 1; grid-row: 1; gap: 28px; grid-template-rows: none; }
 .project-progress article, .project-progress article:last-child { padding: 25px 28px; }
 .project-progress h3 { margin-block: 9px; }
 .join-section { padding-block: 48px 56px; gap: 28px; align-items: stretch; }
@@ -377,8 +377,12 @@ h3 { font-weight: 600; }
 .faq-list [data-slot="accordion-trigger"] { padding: 20px 24px; }
 .faq-list [data-slot="accordion-content"] > div { padding: 0 24px 22px; }
 .site-footer { padding-top: 48px; }
-.team-credits { grid-template-columns: repeat(2,minmax(0,1fr)); }
-.team-credits .team-avatar { display: grid; place-items: center; width: 64px; height: 64px; margin-bottom: 17px; border-radius: 50%; background: #e6eade; color: #4c5849; font-size: 20px; font-weight: 500; letter-spacing: -.5px; }
+.team-credits { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
+.team-credits > p { min-width: 0; }
+.team-credits .team-avatar { display: grid; place-items: center; overflow: hidden; width: 72px; height: 72px; margin-bottom: 14px; border-radius: 50%; background: #e6eade; color: #4c5849; font-size: 20px; font-weight: 500; letter-spacing: -.5px; }
+.team-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.team-avatar .team-photo-ainaz { transform: scale(2.6); transform-origin: 50% 42%; }
+.team-avatar .team-photo-arina { transform: scale(1.65); transform-origin: 50% 40%; }
 .brand-name { white-space: nowrap; }
 
 /* Each benefit includes one small, illustrative result rather than a process icon. */
@@ -409,12 +413,12 @@ h3 { font-weight: 600; }
 
 /* Small punched holes give the development notes the character of garment labels. */
 .project-progress article.development-tag { position: relative; padding: 23px 24px 23px 58px; border-radius: 5px 13px 13px 5px; background: #f5f2ea; }
-.tag-eyelet { position: absolute; width: 13px; height: 13px; border: 1px solid #b9b9ab; border-radius: 50%; background: var(--paper); left: 22px; top: 28px; box-shadow: inset 0 0 0 3px #e5e3da; }
+.tag-eyelet { position: absolute; width: 10px; height: 10px; border: 1px solid #c8c8bc; border-radius: 50%; background: var(--paper); left: 23px; top: 29px; box-shadow: inset 0 0 0 2px #e5e3da; }
 .project-progress .eyebrow { display: flex; gap: 10px; align-items: center; }
 .tag-serial { font-size: 9px; letter-spacing: 1px; opacity: .7; }
 .development-tag h3 { max-width: 330px; }
 .project-progress article.development-tag:nth-child(2) { background: #f8e7dd; }
-.development-tag:nth-child(2) .tag-eyelet { border-color: var(--accent); background: var(--accent); box-shadow: inset 0 0 0 3px #f8e7dd; }
+.development-tag:nth-child(2) .tag-eyelet { border-color: #ce9e8c; background: #dcb7a6; box-shadow: inset 0 0 0 2px #f8e7dd; }
 .development-tag .tag-serial { color: var(--accent); opacity: 1; font-weight: 500; }
 .development-tag:nth-child(2)::after { content: ""; position: absolute; right: 19px; top: 0; width: 9px; height: 22px; background: var(--accent); border-radius: 0 0 2px 2px; }
 
@@ -442,9 +446,9 @@ h3 { font-weight: 600; }
   .step p { max-width: none; }
   .intro-text { margin-top: 18px; }
   .project-section { padding-block: 60px; }
-  .project-grid { gap: 31px; }
+  .project-grid { gap: 48px; }
   .project-team { grid-column: auto; grid-row: auto; padding: 0; }
-  .project-progress { grid-column: auto; grid-row: auto; }
+  .project-progress { grid-column: auto; grid-row: auto; gap: 22px; }
   .project-team > .text-link { margin-top: 0; }
   .project-progress article, .project-progress article:last-child { padding: 24px; }
   .join-section { padding-block: 32px 42px; gap: 18px; }
@@ -460,6 +464,10 @@ h3 { font-weight: 600; }
   .faq-list [data-slot="accordion-trigger"] { padding: 18px 20px; }
 }
 @media (max-width: 480px) {
+  .team-credits { grid-template-columns: 1fr; gap: 22px; }
+  .team-credits > p { display: grid; grid-template-columns: 58px minmax(0,1fr); column-gap: 16px; align-items: center; }
+  .team-credits .team-avatar { grid-row: span 2; width: 58px; height: 58px; margin: 0; }
+  .team-credits small { margin-top: 2px; }
   .invitation-heading { gap: 12px; }
   .invitation-heading h2 { font-size: 24px; }
   .pilot-seal { width: 48px; height: 48px; font-size: 6px; letter-spacing: .3px; }

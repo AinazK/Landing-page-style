@@ -17,7 +17,7 @@ export default function StylistChat() {
     <section className="stylist-chat-section wrap" id="stylist-chat" aria-labelledby="stylist-chat-heading">
       <div className="stylist-chat-copy">
         <span className="stylist-chat-kicker">ИИ-стилист рядом</span>
-        <h2 id="stylist-chat-heading">Не знаете, что надеть?<br /><span>Спросите стилиста.</span></h2>
+        <h2 id="stylist-chat-heading">Не знаете, что надеть?<br /><span>Спросите стилиста</span></h2>
         <p>Спросите про образ на вечер или капсулу для поездки. Чат поможет выбрать сочетающиеся вещи из вашего гардероба.</p>
         <span className="stylist-chat-note">Готовим для веб-приложения</span>
       </div>

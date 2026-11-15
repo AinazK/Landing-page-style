@@ -136,7 +136,7 @@ export default function Landing() {
         <div className="hero-shade" aria-hidden="true" />
         <div className="hero-content wrap"><div className="hero-copy">
           <div className="launch-label"><span />Веб-приложение в разработке</div>
-          <h1 id="hero-heading">Ваш гардероб.<br /><span>Больше сочетаний.</span></h1>
+          <h1 id="hero-heading">Ваш гардероб<br /><span>Больше сочетаний</span></h1>
           <p className="hero-description">Создаём веб-гардероб по фото на человеке: распознавание вещей, капсулы для поездок и советы ИИ-стилиста в чате.</p>
           <div className="hero-actions"><a className="button button-dark" href="#join">Записаться в тестирование <Arrow /></a><a className="hero-secondary" href="#stylist-chat">Как помогает чат</a></div>
         </div></div>
@@ -145,7 +145,7 @@ export default function Landing() {
 
       <section className="intro-section" id="how" aria-labelledby="how-heading">
         <img className="intro-fabric" src="/images/linen-edge.webp" width={1672} height={941} loading="lazy" alt="" aria-hidden="true" />
-        <div className="wrap"><div className="intro-grid"><div><span className="eyebrow">Что даст ИИ-стилист</span><h2 id="how-heading">Ваши вещи.<br />Готовые сочетания.</h2></div><p className="intro-text">Чтобы выбирать, что надеть, было проще.</p></div>
+        <div className="wrap"><div className="intro-grid"><div><span className="eyebrow">Что даст ИИ-стилист</span><h2 id="how-heading">Ваши вещи<br />Готовые сочетания</h2></div><p className="intro-text">Чтобы выбирать, что надеть, было проще.</p></div>
         <WardrobeBenefits />
         <p className="development-note">Распознавание, капсулы и чат готовим для веб-приложения.</p></div>
       </section>
@@ -156,7 +156,11 @@ export default function Landing() {
       <section className="project-section wrap" id="project" aria-labelledby="project-heading">
         <div className="project-grid">
           <div className="project-team"><span className="eyebrow">О проекте</span><h2 id="project-heading">Команда проекта</h2><p className="project-description">Делаем цифровой гардероб, которым удобно пользоваться каждый день — прямо в браузере.</p>
-            <div className="team-credits"><p><span className="team-avatar" aria-hidden="true">АХ</span><span>Айназ Хайруллин</span><small>Веб-приложение и серверная часть</small></p><p><span className="team-avatar" aria-hidden="true">АК</span><span>Арина Коваленко</span><small>Обработка фотографий и рекомендации</small></p></div>
+            <div className="team-credits">
+              <p><span className="team-avatar" aria-hidden="true"><img className="team-photo-ainaz" src="/images/team-ainaz.png" width={640} height={640} loading="lazy" alt="" /></span><span>Айназ Хайруллин</span><small>Веб-приложение и серверная часть</small></p>
+              <p><span className="team-avatar" aria-hidden="true"><img className="team-photo-arina" src="/images/team-arina.png" width={1023} height={1021} loading="lazy" alt="" /></span><span>Арина Коваленко</span><small>Обработка фотографий и рекомендации</small></p>
+              <p><span className="team-avatar" aria-hidden="true">АЕ</span><span>Алена Елагина</span><small>Дизайн интерфейса</small></p>
+            </div>
             <a href="https://t.me/DuImaran" target="_blank" rel="noreferrer" className="text-link">Связаться с командой <Arrow /></a>
           </div>
           <div className="project-progress">
