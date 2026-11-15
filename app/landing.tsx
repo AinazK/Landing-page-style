@@ -175,7 +175,7 @@ export default function Landing() {
           <ol className="invitation-steps">
             <li><span aria-hidden="true">01</span><div><strong>Оставьте заявку</strong><p>Имя, возрастная группа и Telegram.</p></div></li>
             <li><span aria-hidden="true">02</span><div><strong>Познакомимся</strong><p>Расскажем об условиях и согласуем участие.</p></div></li>
-            <li><span aria-hidden="true">03</span><div><strong>Попробуйте на своих вещах</strong><p>После приглашения соберите гардероб в браузере и поделитесь впечатлениями.</p></div></li>
+            <li><span aria-hidden="true">03</span><div><strong>Попробуйте на своих вещах</strong><p>После приглашения соберите гардероб и поделитесь впечатлениями.</p></div></li>
           </ol>
           <p className="invitation-note"><span aria-hidden="true" />Дату начала пилота сообщим в Telegram.</p>
         </div>
