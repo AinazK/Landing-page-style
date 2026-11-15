@@ -12,7 +12,8 @@
 .feature-carousel[data-ready="true"] .feature-viewport { overflow: hidden; }
 .feature-viewport:focus-visible { outline: 2px solid var(--accent); outline-offset: -4px; }
 .feature-track { display: flex; touch-action: pan-y pinch-zoom; }
-.feature-slide { flex: 0 0 100%; min-width: 0; display: grid; grid-template-columns: minmax(0,.82fr) minmax(0,1.18fr); align-items: center; gap: 36px; min-height: 580px; padding: 34px 22px 42px 0; }
+.feature-slide { flex: 0 0 100%; min-width: 0; }
+.feature-slide-layout { width: 100%; display: grid; grid-template-columns: minmax(0,.82fr) minmax(0,1.18fr); align-items: center; gap: 36px; min-height: 580px; padding-block: 34px 42px; }
 .feature-copy { min-width: 0; max-width: 460px; padding-block: 18px; }
 .feature-number { display: block; font-size: 12px; font-weight: 500; letter-spacing: 1.2px; color: var(--accent); margin-bottom: 23px; font-variant-numeric: tabular-nums; }
 .feature-number > span { color: var(--muted); font-size: 10px; }
@@ -30,7 +31,7 @@
 .feature-status { margin-top: 10px; padding-inline: 22px; text-align: center; color: var(--muted); font-size: 10px; line-height: 1.6; }
 .feature-development-note { max-width: 620px; margin: 21px auto 0; padding-inline: 24px; font-size: 11px; color: var(--muted); line-height: 1.8; text-align: center; }
 @media (max-width: 1050px) {
-  .feature-slide { gap: 24px; min-height: 530px; }
+  .feature-slide-layout { gap: 24px; min-height: 530px; }
   .feature-copy h3 { font-size: 32px; }
   .feature-benefit { font-size: 15px; }
   .feature-description { font-size: 13px; }
@@ -39,7 +40,7 @@
   .feature-carousel { padding-block: 46px 230px; }
   .feature-section-heading { font-size: 29px; }
   .feature-viewport { margin-top: 18px; }
-  .feature-slide { grid-template-columns: minmax(0,1fr); align-content: start; min-height: 0; gap: 18px; padding: 18px 12px 32px; }
+  .feature-slide-layout { grid-template-columns: minmax(0,1fr); align-content: start; min-height: 0; gap: 18px; padding-block: 18px 32px; }
   .feature-copy { max-width: 520px; margin-inline: auto; width: 100%; padding: 0; }
   .feature-number { margin-bottom: 14px; }
   .feature-copy h3 { font-size: 29px; }

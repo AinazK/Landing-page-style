@@ -87,9 +87,11 @@ export default function WardrobeBenefits() {
     </div></div>
     <div className="wrap feature-content">
     <h2 className="feature-section-heading" id="how-heading">Что даст Стилистика?</h2>
+    </div>
     <div className="feature-viewport" ref={viewportRef} tabIndex={0} onKeyDown={navigate} aria-label="Возможности Стилистики. Листайте свайпом или стрелками на клавиатуре">
       <div className="feature-track" id="feature-track">
         {features.map((feature, index) => <article className="feature-slide" key={feature.id} role="group" aria-roledescription="слайд" aria-label={`${index + 1} из ${features.length}: ${feature.title}`} aria-hidden={selected !== index} inert={selected !== index}>
+          <div className="wrap feature-slide-layout">
           <div className="feature-copy">
             <span className="feature-number" aria-hidden="true">{String(index + 1).padStart(2, "0")} <span>/ {String(features.length).padStart(2, "0")}</span></span>
             <h3>{feature.title}</h3>
@@ -97,9 +99,11 @@ export default function WardrobeBenefits() {
             {feature.description.map(paragraph => <p className="feature-description" key={paragraph}>{paragraph}</p>)}
           </div>
           <FeaturePreview kind={feature.id} />
+          </div>
         </article>)}
       </div>
     </div>
+    <div className="wrap feature-content">
     <div className="feature-controls">
       <button className="feature-arrow" type="button" aria-label="Предыдущая возможность" aria-controls="feature-track" onClick={() => api?.scrollPrev(reducedMotion)}><ArrowLeft size={20} strokeWidth={1.5} aria-hidden="true" /></button>
       <div className="feature-dots" role="group" aria-label="Выбрать возможность">
