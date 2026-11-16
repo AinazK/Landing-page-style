@@ -20,7 +20,7 @@
   --sans: "Onest", "Segoe UI", Arial, sans-serif;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; scroll-snap-type: y proximity; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 15px; -webkit-font-smoothing: antialiased; }
 button, input, select { font: inherit; }
 a { color: inherit; text-decoration: none; }
@@ -333,6 +333,9 @@ h3 { font-weight: 600; }
 
 /* Spacious compositions: tactile opening, alternating headings, quiet text. */
 .intro-section { position: relative; isolation: isolate; padding-block: 0; background: var(--paper); }
+/* A small snap target holds only the start, leaving the tall section free to scroll.
+   Its offset cancels the root's anchor padding, aligning the fabric with the viewport. */
+#how::before { content: ""; position: absolute; top: 24px; left: 0; right: 0; height: 1px; pointer-events: none; scroll-snap-align: start; scroll-snap-stop: always; }
 .intro-fabric { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; object-fit: fill; pointer-events: none; }
 .intro-grid { display: block; text-align: center; }
 .intro-grid h2 { max-width: 850px; margin: 0 auto; font-size: clamp(28px,2.8vw,36px); line-height: 1.24; text-wrap: balance; }
