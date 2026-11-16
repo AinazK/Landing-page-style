@@ -4,6 +4,7 @@ import { useId, useRef } from "react";
 import { ArrowRight, ArrowUpRight, CloudRain, ScanLine, X } from "lucide-react";
 import { GarmentDrawing } from "./garment";
 import type { GarmentKind } from "./model";
+import WardrobePhone from "./wardrobe-phone";
 import "./feature-preview.css";
 
 export type FeatureKind = "consultation" | "capsule" | "palette" | "community" | "weather" | "recognition" | "wardrobe";
@@ -106,15 +107,6 @@ export default function FeaturePreview({ kind }: { kind: FeatureKind }) {
         </ol></div>
       </div>
     </>}
-    {kind === "wardrobe" && <>
-      <span className="fp-example-label">Вещи в вашем цифровом гардеробе</span>
-      <div className="fp-wardrobe-grid">
-        <figure><Piece id="shirt" /><figcaption>Рубашка</figcaption></figure>
-        <figure><Piece id="blazer" /><figcaption>Жакет</figcaption></figure>
-        <figure><Piece id="tee" /><figcaption>Футболка</figcaption></figure>
-        <figure><Piece id="trousers" /><figcaption>Брюки</figcaption></figure>
-        <figure><Piece id="sneakers" /><figcaption>Кеды</figcaption></figure>
-      </div>
-    </>}
+    {kind === "wardrobe" && <WardrobePhone />}
   </div>;
 }
