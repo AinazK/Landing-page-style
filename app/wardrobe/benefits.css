@@ -1,5 +1,5 @@
-.feature-carousel { position: relative; isolation: isolate; overflow: hidden; min-width: 0; padding-block: 58px 190px; }
-.feature-fabric { position: absolute; z-index: -1; inset: 0; overflow: hidden; pointer-events: none; }
+.feature-carousel { --fabric-top-crop: 40px; position: relative; isolation: isolate; overflow: hidden; min-width: 0; padding-block: calc(58px - var(--fabric-top-crop)) 190px; }
+.feature-fabric { position: absolute; z-index: -1; inset: calc(0px - var(--fabric-top-crop)) 0 0; overflow: hidden; pointer-events: none; }
 .feature-fabric-strip { --fabric-period: 9000px; --fabric-overlap: 220px; display: flex; width: max-content; height: 100%; transform: translate3d(-9000px,0,0); will-change: transform; }
 .feature-fabric-panorama { position: relative; flex: 0 0 var(--fabric-period); width: var(--fabric-period); height: 100%; }
 .feature-fabric-panel { display: block; position: absolute; top: 0; width: calc(var(--fabric-period) / 3 + var(--fabric-overlap)); max-width: none; height: 100%; object-fit: fill; mask-image: linear-gradient(to right,transparent,#000 var(--fabric-overlap)); }
@@ -37,7 +37,7 @@
   .feature-description { font-size: 13px; }
 }
 @media (max-width: 760px) {
-  .feature-carousel { padding-block: 46px 230px; }
+  .feature-carousel { --fabric-top-crop: 24px; padding-block: calc(46px - var(--fabric-top-crop)) 230px; }
   .feature-section-heading { font-size: 29px; }
   .feature-viewport { margin-top: 18px; }
   .feature-slide-layout { grid-template-columns: minmax(0,1fr); align-content: start; min-height: 0; gap: 18px; padding-block: 18px 32px; }

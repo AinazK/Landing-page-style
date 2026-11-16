@@ -56,7 +56,8 @@ export default function WardrobeBenefits() {
       fabric.style.transform = `translate3d(${x}px,0,0)`;
     };
     const measure = () => {
-      const bounds = carouselRef.current?.getBoundingClientRect();
+      // Measure the uncropped canvas so lifting its top preserves the original hem.
+      const bounds = fabric.parentElement?.getBoundingClientRect();
       if (!bounds) return;
       // Three distinct 3:1 photographs form a panorama, traversed once per seven slides.
       period = Math.max(bounds.width * 3, bounds.height * 9);
