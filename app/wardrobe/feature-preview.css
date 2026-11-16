@@ -34,22 +34,6 @@
 .fp-outfit-items dd { margin: 0; font-size: 13px; line-height: 1.7; }
 .fp-outfit-note { margin-top: auto; color: var(--muted); font-size: 10px; line-height: 1.8; }
 .fp-example-label { display: block; color: var(--muted); font-size: 11px; line-height: 1.6; }
-.fp-palette { display: grid; grid-template-rows: 150px auto minmax(0,1fr); gap: 8px; padding-block: 12px 5px; }
-.fp-swatch-fan { position: relative; justify-self: center; width: 240px; max-width: 80%; height: 145px; }
-.fp-swatch-fan > span { position: absolute; top: 0; left: calc(50% - 40px); width: 80px; height: 141px; border: 5px solid #fffaf1; box-shadow: 0 9px 20px #493d2b14; transform-origin: 50% 94%; border-radius: 2px; }
-.fp-swatch-fan > .fp-swatch-cream { background: #e9e5dc; transform: rotate(-18deg); }
-.fp-swatch-fan > .fp-swatch-chocolate { background: #694735; }
-.fp-swatch-fan > .fp-swatch-graphite { background: #4d504b; transform: rotate(18deg); }
-.fp-palette-tones { display: flex; justify-content: center; flex-wrap: wrap; column-gap: 17px; row-gap: 5px; color: var(--muted); font-size: 10px; line-height: 1.6; }
-.fp-palette-tones > span { display: inline-flex; align-items: center; gap: 6px; }
-.fp-palette-tones > span::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #e9e5dc; box-shadow: 0 0 0 1px #cfc8ba; }
-.fp-palette-tones > span:nth-child(2)::before { background: #694735; box-shadow: none; }
-.fp-palette-tones > span:nth-child(3)::before { background: #4d504b; box-shadow: none; }
-.fp-palette-look { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); align-items: end; gap: 12px; min-height: 0; }
-.fp-palette-look > .fp-piece { position: static; grid-column: span 2; width: 100%; height: 280px; }
-.fp-palette-look > .fp-palette-tee { height: 240px; transform: rotate(-5deg); }
-.fp-palette-look > .fp-palette-blazer { transform: rotate(5deg); }
-.fp-palette-look > .fp-palette-trousers { height: 270px; transform: rotate(-3deg); }
 .fp-community { display: grid; grid-template-rows: auto minmax(0,1fr); gap: 15px; padding-block: 5px; }
 .fp-community-posts { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); align-items: start; gap: 24px; min-width: 0; }
 .fp-community-post { min-width: 0; }
@@ -105,11 +89,6 @@
   .fp-chat-answer > p { font-size: 13px; }
   .fp-consultation { gap: 20px; }
   .fp-chat-result-caption { padding: 10px 5px; font-size: 10px; }
-  .fp-palette { grid-template-rows: 130px auto minmax(0,1fr); }
-  .fp-swatch-fan { height: 125px; }
-  .fp-swatch-fan > span { left: calc(50% - 37px); width: 74px; height: 121px; }
-  .fp-palette-look > .fp-piece { height: 210px; }
-  .fp-palette-look > .fp-palette-tee { height: 180px; }
   .fp-community { height: auto; min-height: 440px; }
   .fp-post-photo { max-width: 155px; }
   .fp-weather-forecast > strong { font-size: 62px; }
@@ -134,15 +113,7 @@
   .fp-chat-result-caption { padding: 9px 4px; font-size: 9px; gap: 5px; }
   .fp-chat-result-caption > svg { width: 13px; }
   .fp-example-label { font-size: 10px; }
-  .fp-palette, .fp-community, .fp-weather, .fp-recognition { height: auto; min-height: 0; padding-block: 12px; }
-  .fp-palette { grid-template-rows: 116px auto auto; }
-  .fp-swatch-fan { width: 186px; height: 116px; }
-  .fp-swatch-fan > span { left: calc(50% - 31.5px); width: 63px; height: 106px; border-width: 3px; }
-  .fp-palette-tones { column-gap: 12px; font-size: 9px; }
-  .fp-palette-tones > span { gap: 5px; }
-  .fp-palette-look { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 8px 12px; }
-  .fp-palette-look > .fp-piece { height: 130px; }
-  .fp-palette-look > .fp-palette-trousers { grid-column: 2 / span 2; height: 135px; }
+  .fp-community, .fp-weather, .fp-recognition { height: auto; min-height: 0; padding-block: 12px; }
   .fp-community { gap: 14px; }
   .fp-community-posts { grid-template-columns: minmax(0,1fr); gap: 22px; }
   .fp-community-post { display: grid; grid-template-columns: 96px minmax(0,1fr); align-items: start; gap: 10px 13px; }
@@ -190,5 +161,5 @@
 @media (max-width: 380px) {
   .fp-scene { height: 320px; }
   .fp-consultation { height: auto; }
-  .fp-palette, .fp-community, .fp-weather, .fp-recognition { height: auto; }
+  .fp-community, .fp-weather, .fp-recognition { height: auto; }
 }

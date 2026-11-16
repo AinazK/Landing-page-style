@@ -6,6 +6,7 @@ import { GarmentDrawing } from "./garment";
 import type { GarmentKind } from "./model";
 import WardrobePhone from "./wardrobe-phone";
 import CapsulePreview from "./capsule-preview";
+import PalettePreview from "./palette-preview";
 import "./feature-preview.css";
 
 export type FeatureKind = "consultation" | "capsule" | "palette" | "community" | "weather" | "recognition" | "wardrobe";
@@ -64,11 +65,7 @@ export default function FeaturePreview({ kind }: { kind: FeatureKind }) {
   return <div className={"fp-scene fp-" + kind}>
     {kind === "consultation" && <ConsultationPreview />}
     {kind === "capsule" && <CapsulePreview />}
-    {kind === "palette" && <>
-      <div className="fp-swatch-fan" aria-hidden="true"><span className="fp-swatch-cream" /><span className="fp-swatch-chocolate" /><span className="fp-swatch-graphite" /></div>
-      <div className="fp-palette-tones"><span>Молочный</span><span>Шоколадный</span><span>Графитовый</span></div>
-      <div className="fp-palette-look" aria-hidden="true"><Piece id="tee" className="fp-palette-tee" /><Piece id="blazer" className="fp-palette-blazer" /><Piece id="trousers" className="fp-palette-trousers" /></div>
-    </>}
+    {kind === "palette" && <PalettePreview />}
     {kind === "community" && <>
       <span className="fp-example-label">Пример публикаций</span>
       <div className="fp-community-posts">
