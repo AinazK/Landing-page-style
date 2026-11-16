@@ -5,6 +5,7 @@ import { ArrowRight, ArrowUpRight, CloudRain, ScanLine, X } from "lucide-react";
 import { GarmentDrawing } from "./garment";
 import type { GarmentKind } from "./model";
 import WardrobePhone from "./wardrobe-phone";
+import CapsulePreview from "./capsule-preview";
 import "./feature-preview.css";
 
 export type FeatureKind = "consultation" | "capsule" | "palette" | "community" | "weather" | "recognition" | "wardrobe";
@@ -62,10 +63,7 @@ function ConsultationPreview() {
 export default function FeaturePreview({ kind }: { kind: FeatureKind }) {
   return <div className={"fp-scene fp-" + kind}>
     {kind === "consultation" && <ConsultationPreview />}
-    {kind === "capsule" && <>
-      <div className="fp-capsule-pieces"><Piece id="shirt" className="fp-capsule-shirt" /><Piece id="blazer" className="fp-capsule-blazer" /><Piece id="trousers" className="fp-capsule-trousers" /><Piece id="tee" className="fp-capsule-tee" /><Piece id="sneakers" className="fp-capsule-shoes" /></div>
-      <div className="fp-travel-tag"><span>На выходные</span><small>Прогулка · Встреча · Ужин</small></div>
-    </>}
+    {kind === "capsule" && <CapsulePreview />}
     {kind === "palette" && <>
       <div className="fp-swatch-fan" aria-hidden="true"><span className="fp-swatch-cream" /><span className="fp-swatch-chocolate" /><span className="fp-swatch-graphite" /></div>
       <div className="fp-palette-tones"><span>Молочный</span><span>Шоколадный</span><span>Графитовый</span></div>

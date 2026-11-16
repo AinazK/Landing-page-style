@@ -33,15 +33,6 @@
 .fp-outfit-items dt { color: var(--accent); font-size: 10px; line-height: 1.6; }
 .fp-outfit-items dd { margin: 0; font-size: 13px; line-height: 1.7; }
 .fp-outfit-note { margin-top: auto; color: var(--muted); font-size: 10px; line-height: 1.8; }
-.fp-capsule-pieces { position: absolute; inset: 0; }
-.fp-capsule-pieces > .fp-capsule-shirt { left: 2%; top: 3%; width: 36%; height: 66%; transform: rotate(-13deg); }
-.fp-capsule-pieces > .fp-capsule-blazer { left: 34%; top: 0; width: 37%; height: 69%; transform: rotate(9deg); }
-.fp-capsule-pieces > .fp-capsule-trousers { right: -2%; top: 3%; width: 30%; height: 71%; transform: rotate(9deg); }
-.fp-capsule-pieces > .fp-capsule-tee { left: 21%; bottom: -1%; width: 32%; height: 43%; transform: rotate(-9deg); }
-.fp-capsule-pieces > .fp-capsule-shoes { right: 17%; bottom: -2%; width: 35%; height: 30%; }
-.fp-travel-tag { position: absolute; left: 3%; bottom: 11%; z-index: 2; max-width: 220px; padding: 13px 27px 13px 16px; background: #fffdf5; clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%); transform: rotate(-6deg); }
-.fp-travel-tag > span { display: block; color: var(--accent); font-weight: 500; font-size: 15px; }
-.fp-travel-tag > small { display: block; margin-top: 4px; color: var(--muted); font-size: 10px; line-height: 1.5; }
 .fp-example-label { display: block; color: var(--muted); font-size: 11px; line-height: 1.6; }
 .fp-palette { display: grid; grid-template-rows: 150px auto minmax(0,1fr); gap: 8px; padding-block: 12px 5px; }
 .fp-swatch-fan { position: relative; justify-self: center; width: 240px; max-width: 80%; height: 145px; }
@@ -142,9 +133,6 @@
   .fp-chat-result-label { top: 10px; left: 10px; right: 10px; max-width: calc(100% - 20px); padding: 4px 5px; font-size: 8px; }
   .fp-chat-result-caption { padding: 9px 4px; font-size: 9px; gap: 5px; }
   .fp-chat-result-caption > svg { width: 13px; }
-  .fp-travel-tag { padding: 10px 21px 10px 12px; max-width: 172px; bottom: 8%; }
-  .fp-travel-tag > span { font-size: 12px; }
-  .fp-travel-tag > small { font-size: 8px; }
   .fp-example-label { font-size: 10px; }
   .fp-palette, .fp-community, .fp-weather, .fp-recognition { height: auto; min-height: 0; padding-block: 12px; }
   .fp-palette { grid-template-rows: 116px auto auto; }
