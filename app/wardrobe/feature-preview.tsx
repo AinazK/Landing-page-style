@@ -22,18 +22,17 @@ function ConsultationPreview() {
     <div className="fp-chat-thread" aria-label="Пример консультации со стилистом">
       <div className="fp-chat-question">С чем носить этот жакет?</div>
       <div className="fp-chat-answer">
-        <span className="fp-chat-brand">Стилистика</span>
+        <span className="fp-chat-brand">Стилистика · ИИ-стилист</span>
         <p>Я бы сочетал этот жакет с белой футболкой, тёмными брюками и светлыми кедами из вашего гардероба. Получится спокойный образ для прогулки или встречи.</p>
-        <button ref={opener} type="button" className="fp-chat-outfit" aria-haspopup="dialog" aria-controls={dialogId} onClick={() => {
-          if (!dialog.current?.open) dialog.current?.showModal();
-        }}>
-          <img src="/images/chat-outfit.webp" width={1024} height={1536} loading="lazy" alt="" />
-          <span>Посмотрите образ,<br />который я собрал для вас</span>
-          <ArrowUpRight size={17} strokeWidth={1.5} aria-hidden="true" />
-        </button>
       </div>
     </div>
-    <div className="fp-chat-look" aria-hidden="true"><Piece id="blazer" className="fp-chat-blazer" /><Piece id="tee" className="fp-chat-tee" /><Piece id="trousers" className="fp-chat-trousers" /><Piece id="sneakers" className="fp-chat-shoes" /></div>
+    <button ref={opener} type="button" className="fp-chat-result" aria-label="Посмотреть образ, собранный ИИ-стилистом" aria-haspopup="dialog" aria-controls={dialogId} onClick={() => {
+      if (!dialog.current?.open) dialog.current?.showModal();
+    }}>
+      <span className="fp-chat-result-label">Образ от стилиста</span>
+      <img src="/images/chat-outfit.webp" width={1024} height={1536} loading="lazy" alt="" />
+      <span className="fp-chat-result-caption"><span>Посмотрите образ,<br />который я собрал для вас</span><ArrowUpRight size={17} strokeWidth={1.5} aria-hidden="true" /></span>
+    </button>
     <dialog ref={dialog} id={dialogId} className="fp-outfit-dialog" aria-labelledby={titleId} aria-describedby={noteId} onClose={() => opener.current?.focus()} onKeyDown={event => event.stopPropagation()} onClick={event => {
       if (event.target !== event.currentTarget) return;
       const bounds = event.currentTarget.getBoundingClientRect();
