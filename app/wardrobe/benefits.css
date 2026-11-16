@@ -30,8 +30,18 @@
 .feature-dot[aria-current="true"] > span { width: 18px; border-radius: 6px; background: var(--accent); opacity: 1; }
 .feature-status { margin-top: 10px; padding-inline: 22px; text-align: center; color: var(--muted); font-size: 10px; line-height: 1.6; }
 .feature-development-note { max-width: 620px; margin: 21px auto 0; padding-inline: 24px; font-size: 11px; color: var(--muted); line-height: 1.8; text-align: center; }
+@media (min-width: 761px) {
+  /* Remove 59px from the composition and crop those same pixels from the top.
+     The uncropped fabric keeps its height, scale, and original lower hem. */
+  .feature-carousel { --fabric-top-crop: 99px; padding-block: 36px 170px; }
+  .feature-viewport { margin-top: 14px; }
+  .feature-slide-layout { min-height: 540px; padding-block: 16px 20px; }
+  .feature-controls { margin-top: 6px; }
+  .feature-status { margin-top: 8px; }
+  .feature-development-note { margin-top: 16px; }
+}
 @media (max-width: 1050px) {
-  .feature-slide-layout { gap: 24px; min-height: 530px; }
+  .feature-slide-layout { gap: 24px; min-height: 490px; }
   .feature-copy h3 { font-size: 32px; }
   .feature-benefit { font-size: 15px; }
   .feature-description { font-size: 13px; }
